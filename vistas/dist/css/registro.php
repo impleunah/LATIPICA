@@ -1,0 +1,1 @@
+<?php include "../vistas/dist/css/registro.php"; ?>
