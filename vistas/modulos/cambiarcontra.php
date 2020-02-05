@@ -96,7 +96,7 @@
       </br>
         <!-- /.col -->
            
-           <a href="http://localhost/MayRek_System/index.php" class="text-center">Cancelar </a>
+           <a href="../../index.php" class="text-center">Cancelar </a>
     </form>
   
  

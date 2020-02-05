@@ -56,7 +56,7 @@
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini login-page register-page">
+<body class="hold-transition skin-blue sidebar-mini login-page register-page  ">
 <div id=""></div>
 
 <div class="register-box">

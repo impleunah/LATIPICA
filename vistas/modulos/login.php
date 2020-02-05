@@ -1,15 +1,15 @@
 <!--imagen<div id="back"></div>-->
 
 
-<div class="login-box">
+<div class="login-box  login-page">
 
-  <div class="login-logo">
+  <div class="login-logo "  >
     <!--imagen-->
-    <img src="" class="img-responsive" >
+    <img   id="back" >
     
   </div>
 
-  <div class="login-box-body">
+  <div class="login-box-body " >
 
     <p class="login-box-msg">Ingresar al Sistema</p>
 

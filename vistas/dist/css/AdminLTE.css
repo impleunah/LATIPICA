@@ -3402,9 +3402,9 @@ table.text-center th {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 95%;
   height: 100vh;
-  background-image: url(../../../PicsArt_02-02-03.14.00.jpg);
+  background-image: url(../../../PicsArt_02-02-03.14.00.jpg)  no-repeat center top ;
   background-size: cover;
   overflow: hidden;
   z-index: -1;
