@@ -121,7 +121,7 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
 
     }else {
 
-    include "Modulos/404.php";
+    include "Modulos/404.php ";
 
   }
 
