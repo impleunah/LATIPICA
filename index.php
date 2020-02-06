@@ -19,4 +19,4 @@ require_once "modelos/inventario.modelo.php";
 require_once "modelos/productos.modelo.php";
 require_once "modelos/reportes.modelo.php";
 $plantilla = new ControladorPlantilla();
-$plantilla -> ctrPlantilla();
+$plantilla -> ctrPlantilla() ;
