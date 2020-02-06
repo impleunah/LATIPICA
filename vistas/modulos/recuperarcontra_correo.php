@@ -67,11 +67,11 @@
  <div class="register-box-body">
  <br>
       </br>
-    <p class="login-box-msg">Cambio de Contraseña</p>
+    <p class="login-box-msg">Recuperar Contraseña Via Correo electronico</p>
 
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
+        <input type="text" class="form-control" placeholder="Ingrese su Correo">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <br>
@@ -79,25 +79,14 @@
       
         <!-- /.col -->
         <div class center="col-xs-4">
-          <button type="submit" style ="BACKGROUND-COLOR: green "class="btn btn-primary btn-block btn-flat">Preguntas de Seguridad</button>
+          <button type="submit" style ="BACKGROUND-COLOR: green "
+          class="btn btn-primary btn-block btn-flat">ENVIAR </button>
 
         </div>
         <br>
       </br>
-      <div class center="col-xs-4">
-      <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
-         
-        </div>
-        <br>
-      </br>
+      <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
     </form>
-    <a href="../../index.php" class="text-center">Cancelar </a>
-
- 
-  </div>
-  <!-- /.form-box -->
-</div>
-<!-- /.register-box -->
-
+    
 </body>
 </html>

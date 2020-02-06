@@ -11,7 +11,7 @@
 
   <div class="login-box-body " >
 
-    <p class="login-box-msg">Ingresar al Sistema</p>
+    <p class="login-box-msg" Font="Verdana">LOGIN</p>
 
     <form method="post">
 
