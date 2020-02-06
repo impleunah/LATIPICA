@@ -10,27 +10,34 @@
     $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-    if($filas > 0){
-      $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
-      $resultado = $conn ->query($sqluser);
-      if($sqluser > 0){
-        echo"<script>
-        alert('exito');
-        window.location = 'index.php';
-        </script>";
-      }else {
-        "<script>
-            alert(' no existe');
-            window.location = 'index.php';
-            </script>";
-      }
-    }
-    else {
-      echo "<script>
-            alert('el usuario no existe');
-            window.location = 'index.php';
-            </script>";
-    }
+   if($rcontra == $ncontra){
+            if($filas > 0){
+              $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
+              $resultado = $conn ->query($sqluser);
+              if($sqluser > 0){
+                echo"<script>
+                alert('exito');
+                window.location = 'index.php';
+                </script>";
+              }else {
+                "<script>
+                    alert(' no existe');
+                    window.location = 'index.php';
+                    </script>";
+              }
+            }
+            else {
+              echo "<script>
+                    alert('el usuario no existe');
+                    window.location = 'index.php';
+                    </script>";
+            }
+          }
+  else {
+    print"<script>
+    alert('econtrasenas');
+    </script>";
+  }
   }
 
 ?>
