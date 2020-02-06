@@ -35,7 +35,7 @@
           }
   else {
     print"<script>
-    alert('econtrasenas');
+    alert('Las dos claves son distintas');
     </script>";
   }
   }
