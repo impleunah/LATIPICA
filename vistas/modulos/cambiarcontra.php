@@ -1,4 +1,39 @@
+<?php
+ require "../../modelos/conexion2.php";
+  IF (isset($_POST["enviar"])){
+    
+    $contra =  $_POST['contraa'];
 
+    $user =  $_POST['usuario'];
+    $ncontra = $_POST['ncontra'];
+    $rcontra =  $_POST['rcontra'];
+    $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
+    $resultado = $conn -> query($sqluser);
+    $filas = $resultado -> num_rows;
+    if($filas > 0){
+      $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
+      $resultado = $conn ->query($sqluser);
+      if($sqluser > 0){
+        echo"<script>
+        alert('exito');
+        window.location = 'index.php';
+        </script>";
+      }else {
+        "<script>
+            alert(' no existe');
+            window.location = 'index.php';
+            </script>";
+      }
+    }
+    else {
+      echo "<script>
+            alert('el usuario no existe');
+            window.location = 'index.php';
+            </script>";
+    }
+  }
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -69,27 +104,27 @@
  <div class="register-box-body">
     <p class="login-box-msg">Cambio de Contraseña</p>
 
-    <form method="post">
+    <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
+        <input type="text" class="form-control" placeholder="Usuario" name="usuario">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Contraseña actual">
+        <input type="password" class="form-control" placeholder="Contraseña actual" name="contraa">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Nueva Contraseña">
+        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra"> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Repetir Contraseña">
+        <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
    
         <!-- /.col -->
         <div class center="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Cambiar</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" name="enviar">Cambiar</button>
 
         </div>
         <br>
