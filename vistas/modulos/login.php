@@ -17,13 +17,50 @@
 
       <div class="form-group has-feedback">
 
-        <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required>
+        <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event)">
 
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+      <script language="javascript">
+
+      function aaa(campo, event) {
+
+CadenaaReemplazar = " ";
+CadenaReemplazo = "";
+CadenaTexto = campo.value;
+CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+campo.value = CadenaTextoNueva;
+
+}
+
+</script>
+
+
+
+        <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+</script>
+
 
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" required>
+        <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>  
