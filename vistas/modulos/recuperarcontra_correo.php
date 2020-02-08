@@ -1,3 +1,80 @@
+<?php 
+require "../../modelos/conexion2.php";
+require 'PHPMailer/PHPMailerAutoload.php';
+
+if (isset($_POST["ENVIAR"]))
+{
+  $correo=$_POST['txtCorreoElectronico'];
+  $sqluser="SELECT correo_electronico from usuarios where correo_electronico='$correo'";
+  //$resultado=$conn-> query ($sqluser);
+  IF ($correo==$correo){
+
+    $mail=new PHPMailer(); 
+    $mail->isSMTP();  
+            $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
+            $mail->SMTPAuth = true;
+            $mail->Username = 'latipicahn@gmail.com';   //username
+            $mail->Password = 'Najera2716.';   //password
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;                    //smtp port
+
+            $mail->setFrom('latipicahnt@gmail.com', 'Condimentos La Tipica');
+            $mail->addAddress($correo);
+
+            $mail->Subject = 'Recuperación de contraseña - Condimentos la tipica';
+            $mail->Body    = 'ffffffffffff';
+            $mail->isHTML(true);
+
+            if (!$mail->send()) {
+              echo '<script>
+              Swal.fire({
+                type: "success",
+                title: "!ENVIADO!",
+                showConfirmButton: "true",
+                confirmButtonText: "Entrar",
+                closeOnConfirm: "false"
+              
+              }).then((result)=>{
+                
+                if (result.value){
+    
+                  window.location = "inicio";
+                }
+              });
+              </script>';
+          } else {
+              echo '<script>
+              Swal.fire({
+                type: "error",
+                title: "!Error al enviar!",
+                showConfirmButton: "true",
+                confirmButtonText: "Intentar de nuevo",
+                closeOnConfirm: "false"
+              
+              }).then((result)=>{
+                
+                if (result.value){
+    
+                  window.location = "login";
+                }
+              });
+              </script>';;;
+          }
+      }
+    }
+//else
+
+        //echo  "<script> alert ('ERROR CORREO NO COICIDEN');
+       // </script>
+       // ";
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
