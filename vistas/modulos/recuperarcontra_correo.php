@@ -15,10 +15,10 @@ if (isset($_POST["ENVIAR"]))
             $mail->SMTPSecure = 'tls';//Modificar
             $mail->Host = 'smtp.gmail.com';//Modificar
             $mail->Port = '587';//Modificar
-            $mail->Username = 'latipicahn@gmail.com'; //Modificar
-            $mail->Password = 'Najera2716.'; //Modificar               //smtp port
+            $mail->Username = 'impleunah@gmail.com'; //Modificar
+            $mail->Password = 'unah2020'; //Modificar               //smtp port
 
-            $mail->setFrom('latipicahnt@gmail.com', 'Condimentos La Tipica');
+            $mail->setFrom('impleunah@gmail.com', 'Condimentos La Tipica');
             $mail->addAddress($correo);
 
             $mail->Subject = 'Recuperación de contraseña - Condimentos la tipica';
