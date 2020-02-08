@@ -10,12 +10,17 @@
     $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-   if($rcontra == $ncontra){
+    $contraseña = "SELECT contraseña from usuarios  WHERE contraseña = $contra";
+    $resultado2  = $conn -> query($contraseña);
+    $filas2  = $resultado2 -> num_rows;
+    if($filas2 > 0){
+    if($rcontra == $ncontra){
             if($filas > 0){
               $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
               $resultado = $conn ->query($sqluser);
-            
-                      
+              if($contra  !=$contra)
+              print("Contraseña Actual Incorrecta");
+
                           
                         if($resultado > 0){
                           echo"<script>
@@ -40,11 +45,16 @@
                     }
                     
                     else{
-                      print"<script>
+                      echo"<script>
                       alert('Las dos claves son distintas');
                       </script>";
                     }
+                }else{   print"<script>
+                  alert('Las Contraseña Actual es Incorrecta');
+                  </script>";
                 }
+    }
+
                 
           
 
