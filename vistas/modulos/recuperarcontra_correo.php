@@ -4,19 +4,19 @@ require 'PHPMailer/PHPMailerAutoload.php';
 
 if (isset($_POST["ENVIAR"]))
 {
-  $correo=$_POST['txtCorreoElectronico'];
-  $sqluser="SELECT correo_electronico from usuarios where correo_electronico='$correo'";
+  $correo = $_POST['txtCorreoElectronico'];
+  $sqluser = "SELECT correo_electronico from usuarios where correo_electronico='$correo'";
   //$resultado=$conn-> query ($sqluser);
   IF ($correo==$correo){
 
     $mail=new PHPMailer(); 
     $mail->isSMTP();  
-            $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
             $mail->SMTPAuth = true;
-            $mail->Username = 'latipicahn@gmail.com';   //username
-            $mail->Password = 'Najera2716.';   //password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;                    //smtp port
+            $mail->SMTPSecure = 'tls';//Modificar
+            $mail->Host = 'smtp.gmail.com';//Modificar
+            $mail->Port = '587';//Modificar
+            $mail->Username = 'latipicahn@gmail.com'; //Modificar
+            $mail->Password = 'Najera2716.'; //Modificar               //smtp port
 
             $mail->setFrom('latipicahnt@gmail.com', 'Condimentos La Tipica');
             $mail->addAddress($correo);
@@ -148,7 +148,7 @@ if (isset($_POST["ENVIAR"]))
 
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Ingrese su Correo">
+        <input type="text" class="form-control" placeholder="Ingrese su Correo" name= "txtCorreoElectronico">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <br>
@@ -156,7 +156,7 @@ if (isset($_POST["ENVIAR"]))
       
         <!-- /.col -->
         <div class center="col-xs-4">
-          <button type="submit" style ="BACKGROUND-COLOR: green "
+          <button type="submit" style ="BACKGROUND-COLOR: green  " name= "ENVIAR"
           class="btn btn-primary btn-block btn-flat">ENVIAR </button>
 
         </div>
