@@ -1,6 +1,9 @@
 <!--imagen<div id="back"></div>-->
 
 
+
+
+
 <div class="login-box  login-page">
 
   <div class="login-logo "  >
@@ -17,7 +20,7 @@
 
       <div class="form-group has-feedback">
 
-        <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event)">
+        <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
 
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
@@ -68,6 +71,7 @@ campo.value = CadenaTextoNueva;
       <div class="row">
 
         <div class center ="col-xs-4">
+            
 
           <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
        
