@@ -79,13 +79,13 @@
       
         <!-- /.col -->
         <div class center="col-xs-4">
-        <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
+        <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
 
         </div>
         <br>
       </br>
       <div class center="col-xs-4">
-      <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
+      <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
          
         </div>
         <br>
