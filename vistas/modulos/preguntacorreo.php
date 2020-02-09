@@ -2,24 +2,20 @@
  require "../../modelos/conexion2.php";
   IF (isset($_POST["enviar"])){
     
-    $contra =  $_POST['contraa'];
+    
     $user =  $_POST['usuario'];
     $ncontra = $_POST['ncontra'];
     $rcontra =  $_POST['rcontra'];
-    $validarcontra = "SELECT  Contraseña from usuarios WHERE Contraseña = '$contra'";
     $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-    $contraseña = "SELECT contraseña from usuarios  WHERE contraseña = $contra";
-    $resultado2  = $conn -> query($contraseña);
-    $filas2  = $resultado2 -> num_rows;
-    if($filas2 > 0){
+   
+    
     if($rcontra == $ncontra){
             if($filas > 0){
-              $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
+              $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña = Contraseña  ";
               $resultado = $conn ->query($sqluser);
-              if($contra  !=$contra)
-              print("Contraseña Actual Incorrecta");
+             
 
                           
                         if($resultado > 0){
@@ -49,11 +45,8 @@
                       alert('Las dos claves son distintas');
                       </script>";
                     }
-                }else{   print"<script>
-                  alert('Las Contraseña Actual es Incorrecta');
-                  </script>";
                 }
-    }
+    
 
                 
           
@@ -130,10 +123,13 @@
   </div>
 
  <div class="register-box-body">
-    <p class="login-box-msg">Cambio de Contraseña</p>
+    <p class="login-box-msg">Cambio de Contraseña1</p>
 
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
-     
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Usuario" name="usuario">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra"> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
