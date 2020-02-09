@@ -10,7 +10,7 @@
     $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-    $contraseña = "SELECT contraseña from tbl_usuario  WHERE contraseña = $contra";
+    $contraseña = "SELECT Contraseña from tbl_usuario  WHERE Contraseña = '$contra' ";
     $resultado2  = $conn -> query($contraseña);
     $filas2  = $resultado2 -> num_rows;
     if($filas2 > 0){
