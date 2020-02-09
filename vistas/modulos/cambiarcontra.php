@@ -133,20 +133,57 @@
     <p class="login-box-msg">Cambio de Contraseña</p>
 
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
+
+                  <script language="javascript">
+
+              function aaa(campo, event) {
+
+                      CadenaaReemplazar = " ";
+                      CadenaReemplazo = "";
+                      CadenaTexto = campo.value;
+                      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+                      campo.value = CadenaTextoNueva;
+
+                }
+
+              </script>
+
+
+
+              <script>
+              function soloLetras(e){
+              key = e.keyCode || e.which;
+              tecla = String.fromCharCode(key).toLowerCase();
+              letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+              especiales = "8-37-39-46";
+
+              tecla_especial = false
+              for(var i in especiales){
+                    if(key == especiales[i]){
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+                if(letras.indexOf(tecla)==-1 && !tecla_especial){
+                    return false;
+                }
+              }
+              </script>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario" name="usuario">
+        <input type="text" class="form-control" placeholder="Usuario" name="usuario  "  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña actual" name="contraa">
+        <input type="password" class="form-control" placeholder="Contraseña actual" name="contraa" onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra"> 
+        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra" onkeyup="aaa(this, event)" required> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra">
+        <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra" onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
    
@@ -160,7 +197,7 @@
         <!-- /.col -->
            
            <a href="../../index.php" class="text-center">Cancelar </a>
-    </form>
+    </form>  
   
  
   </div>
