@@ -13,7 +13,7 @@ cLass ControladorUsuarios
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"]))
 			{
 
-				$tabla = "usuarios";
+				$tabla = "tbl_usuario";
 
 				$item = "Nombre_Usuario";
 				$valor = $_POST["ingUsuario"];
@@ -74,7 +74,7 @@ cLass ControladorUsuarios
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["NuevaContra"]))  
 			{ 
 
-				$tabla = "usuarios";
+				$tabla = "tbl_usuario";
 
 				$datos = array("Nombre_Usuario" => $_POST["NuevoUsuario"],
 						"Contraseña" => $_POST["NuevaContra"],

@@ -86,20 +86,9 @@
               <option value="">"Seleccionar Usuario"</option>
               <option value="Administrador">Administrador</option>
               <option value="Operador">Operador</option>
+
             </select>
             
-          </div>
-
-          </div>
- 
-          <div class="form-group">
-            <div class="panel">Subir Foto</div>
-            <input type="file" id="NuevaFoto" name="NuevaFoto">
-            <p class="help-block">Peso Maximo de la Foto 200 Mb</p>
-            <img src="vistas/img/usuario/default/user.png" class="img-thumbnail" width="100px">
-          </div>
-
-        </div>
 
       </div>
 

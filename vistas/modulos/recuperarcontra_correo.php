@@ -1,29 +1,37 @@
 <?php 
 require "../../modelos/conexion2.php";
 require 'PHPMailer/PHPMailerAutoload.php';
+  //$sqluser = "SELECT Nombre_Usuario from usuarios";
+  //$nombre=$conn-> query ($sqluser);
 
 if (isset($_POST["ENVIAR"]))
 {
   $correo = $_POST['txtCorreoElectronico'];
   $sqluser = "SELECT correo_electronico from usuarios where correo_electronico='$correo'";
-  //$resultado=$conn-> query ($sqluser);
-  IF ($correo==$correo){
+  $resultado=$conn-> query ($sqluser);
+  $filas  = $resultado -> num_rows;
+    if($filas > 0){
 
     $mail=new PHPMailer(); 
     $mail->isSMTP();  
+
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';//Modificar
             $mail->Host = 'smtp.gmail.com';//Modificar
             $mail->Port = '587';//Modificar
-            $mail->Username = 'impleunah@gmail.com'; //Modificar
-            $mail->Password = 'unah2020'; //Modificar               //smtp port
-
-            $mail->setFrom('impleunah@gmail.com', 'Condimentos La Tipica');
-            $mail->addAddress($correo);
-
+            $mail->Username = 'latipicahn20@gmail.com'; //Modificar
+            $mail->Password = 'LATIPICAHN20'; //Modificar               //smtp port
+            $mail->setFrom('latipicahn20@gmail.com', 'Condimentos La Tipica');
+            $mail->addAddress ($correo);
+            $url = "../modulos/cambiarcontra.php";
             $mail->Subject = 'Recuperación de contraseña - Condimentos la tipica';
-            $mail->Body    = 'ffffffffffff';
+            $mail->Body    =  "Hola  : <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>$url</a>";;
             $mail->isHTML(true);
+
+            echo"<script>
+            alert('CAFFDSHFJH');
+      
+            </script>";
 
             if (!$mail->send()) {
               echo '<script>
@@ -58,21 +66,18 @@ if (isset($_POST["ENVIAR"]))
                   window.location = "login";
                 }
               });
-              </script>';;;
+              </script>';
           }
-      }
     }
-//else
-
-        //echo  "<script> alert ('ERROR CORREO NO COICIDEN');
-       // </script>
-       // ";
-
-
+      
+      else{
+        echo"<script>
+        alert('CORREO NO EXISTE');
+  
+        </script>";
+      }
+    }  
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -146,7 +151,7 @@ if (isset($_POST["ENVIAR"]))
       </br>
     <p class="login-box-msg">Recuperar Contraseña Via Correo electronico</p>
 
-    <form method="post">
+    <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Ingrese su Correo" name= "txtCorreoElectronico">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -162,7 +167,7 @@ if (isset($_POST["ENVIAR"]))
         </div>
         <br>
       </br>
-      <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
+      <a href="../modulos/recuperarcontraseña.php" class="text-center">Atras </a>
     </form>
     
 </body>
