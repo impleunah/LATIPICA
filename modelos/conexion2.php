@@ -10,4 +10,3 @@
         die("Conexión fallida: ".$conn->connect_error);
       }
 ?>
-<?php
