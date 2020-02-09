@@ -70,12 +70,7 @@
     <p class="login-box-msg">Cambio de Contraseña</p>
 
     <form method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <br>
-      </br>
+      
       
         <!-- /.col -->
         <div class center="col-xs-4">
