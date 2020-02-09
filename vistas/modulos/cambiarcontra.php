@@ -6,17 +6,17 @@
     $user =  $_POST['usuario'];
     $ncontra = $_POST['ncontra'];
     $rcontra =  $_POST['rcontra'];
-    $validarcontra = "SELECT  Contraseña from usuarios WHERE Contraseña = '$contra'";
-    $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
+    $validarcontra = "SELECT  Contraseña from tbl_usuario WHERE Contraseña = '$contra'";
+    $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-    $contraseña = "SELECT contraseña from usuarios  WHERE contraseña = $contra";
+    $contraseña = "SELECT contraseña from tbl_usuario  WHERE contraseña = $contra";
     $resultado2  = $conn -> query($contraseña);
     $filas2  = $resultado2 -> num_rows;
     if($filas2 > 0){
     if($rcontra == $ncontra){
             if($filas > 0){
-              $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
+              $sqluser = "UPDATE tbl_usuario SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
               $resultado = $conn ->query($sqluser);
               if($contra  !=$contra)
               print("Contraseña Actual Incorrecta");

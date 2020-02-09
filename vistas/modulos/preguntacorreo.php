@@ -6,14 +6,14 @@
     $user =  $_POST['usuario'];
     $ncontra = $_POST['ncontra'];
     $rcontra =  $_POST['rcontra'];
-    $sqluser = "SELECT  Nombre_Usuario from usuarios WHERE Nombre_Usuario = '$user'";
+    $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
    
     
     if($rcontra == $ncontra){
             if($filas > 0){
-              $sqluser = "UPDATE usuarios SET Contraseña ='$ncontra' WHERE  Contraseña = Contraseña  ";
+              $sqluser = "UPDATE tbl_usuario SET Contraseña ='$ncontra' WHERE  Contraseña = Contraseña  ";
               $resultado = $conn ->query($sqluser);
              
 
