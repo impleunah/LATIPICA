@@ -78,11 +78,11 @@
       </br>
         <!-- /.col -->
         <div class center="col-xs-4">
-        <a href="http://localhost:8080/LATIPICA/vistas/modulos/preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
+        <a href="http://localhost/LATIPICA/vistas/modulos/preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
         </div>
         <br>
       </br>
-      <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
+      <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
     </form>
   
     </form>

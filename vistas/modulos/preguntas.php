@@ -100,7 +100,7 @@
        <!-- /.col -->
        <div class center="col-xs-4">
          
-          <a href="http://localhost/LATIPICA/vistas/modulos/cambiarcontra.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Enviar</a>
+          <a href="http://localhost/LATIPICA/vistas/modulos/preguntacorreo.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Enviar</a>
           </br>    
 
 </body>
