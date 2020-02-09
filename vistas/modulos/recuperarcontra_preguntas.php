@@ -67,7 +67,7 @@
  <div class="register-box-body">
  <br>
       </br>
-    <p class="login-box-msg">Cambio de Contraseña</p>
+    <p class="login-box-msg">Recuperacion Mediante Preguntas </p>
 
     <form method="post">
       <div class="form-group has-feedback">
@@ -76,28 +76,16 @@
       </div>
       <br>
       </br>
-      
         <!-- /.col -->
         <div class center="col-xs-4">
-        <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
-
+        <a href="http://localhost:8080/LATIPICA/vistas/modulos/preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
         </div>
         <br>
       </br>
-      <div class center="col-xs-4">
-      <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
-         
-        </div>
-        <br>
-      </br>
+      <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
     </form>
-    <a href="../../index.php" class="text-center">Cancelar </a>
-
- 
-  </div>
-  <!-- /.form-box -->
-</div>
-<!-- /.register-box -->
+  
+    </form>
 
 </body>
 </html>
