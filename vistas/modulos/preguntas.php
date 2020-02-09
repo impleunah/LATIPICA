@@ -67,37 +67,20 @@
  <div class="register-box-body">
  <br>
       </br>
-    <p class="login-box-msg">Cambio de Contraseña</p>
+    <p class="login-box-msg">Preguntas de Seguridad</p>
 
     <form method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
+      
+        <input type="text" name= "Respuesta" placeholder="Respuesta">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <br>
-      </br>
-      
-        <!-- /.col -->
-        <div class center="col-xs-4">
-        <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
-
-        </div>
-        <br>
-      </br>
-      <div class center="col-xs-4">
-      <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
-         
-        </div>
-        <br>
-      </br>
-    </form>
-    <a href="../../index.php" class="text-center">Cancelar </a>
-
- 
-  </div>
-  <!-- /.form-box -->
-</div>
-<!-- /.register-box -->
+       
+       <!-- /.col -->
+       <div class center="col-xs-4">
+          <button type="submit" style ="BACKGROUND-COLOR: green  " name= "ENVIAR"
+          class="btn btn-primary btn-block btn-flat">ENVIAR </button>
+          </br>    
 
 </body>
 </html>

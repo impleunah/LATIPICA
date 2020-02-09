@@ -162,7 +162,7 @@ if (isset($_POST["ENVIAR"]))
         </div>
         <br>
       </br>
-      <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
+      <a href="http://localhost/proyectos/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
     </form>
     
 </body>
