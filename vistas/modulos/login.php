@@ -74,6 +74,7 @@ campo.value = CadenaTextoNueva;
             
 
           <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+        
        
         </div>
         <br>
