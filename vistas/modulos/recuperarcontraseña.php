@@ -70,22 +70,17 @@
     <p class="login-box-msg">Cambio de Contraseña</p>
 
     <form method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <br>
-      </br>
+      
       
         <!-- /.col -->
         <div class center="col-xs-4">
-        <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
+        <a href="../modulos/recuperarcontra_preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
 
         </div>
         <br>
       </br>
       <div class center="col-xs-4">
-      <a href="http://localhost:8080/LATIPICA/vistas/modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
+      <a href="../modulos/recuperarcontra_correo.php"  class="btn btn-primary btn-block btn-flat"style ="BACKGROUND-COLOR: orange ">Via Correo Electronico</a>
          
         </div>
         <br>

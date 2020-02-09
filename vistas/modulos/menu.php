@@ -15,7 +15,7 @@
 
 			<a href="#">			
 				<i class="fa fa-building"></i>
-				<span>Empleados</span>
+				<span>Clientes</span>
 				<span class="pull-right-container">
 					<i class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -27,7 +27,7 @@
 			<li class ="treeview">
 			<a href="#">			
 				<i class="fa fa-handshake-o"></i>
-				<span>Contabilidad</span>
+				<span>proveedores</span>
 				<span class="pull-right-container">
 					<i class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -47,21 +47,25 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				
-
-			</ul>			
+				</ul>			
 		</li>
-		<li class ="treeview">
-			<a href="reportes">			
-				<i class="fa fa-flag"></i>
-				<span>Reportes</span>
-			</a>		
-			<ul class="treeview-menu">
-		</li>
+		<li class="active treeview">
+          <a href="#">
+            <i class="fa fa-lock"></i> <span>SEGURIDAD</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+         
+          <ul class="treeview-menu">
+            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i> Usuarios</a></li> 
+            <li class="active"><a href="roles.php"><i class="fa fa-circle-o"></i> Roles de Usuario</a></li> 
+            <li class="active"><a href="roles_objeto.php"><i class="fa fa-circle-o"></i> Permiso de Usuario</a></li>
+            <li class="active"><a href="pantallas.php"><i class="fa fa-circle-o"></i> Pantallas</a></li> > 
+            <li class="active"><a href="parametros.php"><i class="fa fa-circle-o"></i> Parametros</a></li>
+             <li class="active"><a href="bitacoras.php"><i class="fa fa-circle-o"></i> Bitacoras</a></li>   
 
-
-	</ul>
-
+          </ul>
+        </li>
 </section>
 
 
