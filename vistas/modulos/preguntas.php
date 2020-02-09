@@ -70,16 +70,37 @@
     <p class="login-box-msg">Preguntas de Seguridad</p>
 
     <form method="post">
-      
-        <input type="text" name= "Respuesta" placeholder="Respuesta">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
+
+    <div style="padding-top:30px" class="panel-body" >
+			<form id="loginform" class="form-horizontal" role="form" action="" method="POST" autocomplete="off">
+				<div class="form-group">
+				<label for="mod_rol" class="col-sm-3 control-label">Preguntas</label>
+				<div class="col-sm-8">
+				  <select title="Preguntas" class='form-control' name='mod_rol' id='mod_rol' onchange="load(1);">
+							<option value="">Seleccione una Pregunta</option>			
+															<option value="1">¿Cual es su color favorito ?</option>			
+															<option value="2">¿Cuál sería tu trabajo ideal ?</option>			
+															<option value="3">¿Nombre de la primera mascota  ?</option>			
+															<option value="4">¿Mejor amigo(a) de la infancia ?</option>					
+														</select>
+				</div>
+			  </div>
+      <br>
+      <br>
+      <div class="form-group">
+						<label for="con_password" class="col-md-3 control-label">Respuestas</label>
+						<div class="col-md-9">
+							<input title="Respuesta de la Pregunta" id="email" type="text" class="form-control" name="email" placeholder="Respuesta" title="Debes responder la pregunta" onPaste="return false;" maxlength="50" required>
+						</div>
+					</div>
+      <br>
+      <br>
       <br>
        
        <!-- /.col -->
        <div class center="col-xs-4">
-          <button type="submit" style ="BACKGROUND-COLOR: green  " name= "ENVIAR"
-          class="btn btn-primary btn-block btn-flat">ENVIAR </button>
+         
+          <a href="http://localhost/LATIPICA/vistas/modulos/cambiarcontra.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Enviar</a>
           </br>    
 
 </body>
