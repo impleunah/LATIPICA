@@ -24,6 +24,8 @@
                     $repuesta =  $_POST['Respuesta_seguridad'];
                     $tipo =  $_POST['TipodeUsuario'] ;
                     
+                    
+                    
                    
                     
                       
@@ -34,12 +36,16 @@
                     $resultado = $conn -> query($sqluser);
                     $filas = $resultado -> num_rows;
                     $contraseña = "SELECT  correo_electronicoa from tbl_usuario WHERE correo_electronico = '$correo'";
+                  
                     $resultado2  = $conn -> query($contraseña);
                     $filas2  = $resultado2 -> num_rows;
                     if($filas2 == 0){
                           if($rcontra == $ncontra){
                                   if($filas == 0){
-                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";
+                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";                      
+                                    $insertarUno=$conn->query("INSERT INTO   tbl_respuestas (respuesta) VALUES ('$repuesta' ) ");
+                                    $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta) VALUES ('$pregunta') ");
+                                    
                                     $resultado = $conn ->query($sqluser);
                                    
 
