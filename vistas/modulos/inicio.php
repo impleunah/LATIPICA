@@ -1,4 +1,7 @@
 
+
+
+
   <div class="content-wrapper">
 
   
@@ -25,10 +28,10 @@
 
         <div class="box-header with-border">
 
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
+        <a class="btn btn-primary"  href="vistas/modulos/registro_ussario.php">
           Agregar Usuario
 
-        </button>
+       </a>
 
         <!-- /.box-body -->
       </div>
@@ -38,11 +41,11 @@
   </div>
   <!-- /.content-wrapper -->
 
-   <!--=====================================
+   <!--=============================================================================================================
   =            MODAL USUARIO            =
-  ======================================-->
+  ==================================================================================================================->
 
-  <!-- Modal -->
+  <! -- Modal -->
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -50,7 +53,7 @@
     <!-- Modal content-->
     <div class="modal-content">
 
-    <form role="form" method="post" enctype="multipart/form-data"   >
+    <form role="form" method="post" enctype="multipart/form-data"  action="<?php $_SERVER["PHP_SELF"]; ?> ">
       <div class="modal-header" style="background:#001F3F; color:white" >
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Agregar Usuario</h4>
@@ -74,7 +77,7 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
-            <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Correo Electronico" required>
+            <input type="text" class="form-control input-lg" name="Correo Electronico" placeholder="Correo Electronico" required>
           </div>
           
 
@@ -84,12 +87,12 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control input-lg" name="NuevaContra" placeholder="Ingresar Contraseña" required>
+            <input type="password" class="form-control input-lg" name="Ingresar Contraseña" placeholder="Ingresar Contraseña" required>
           </div><br> 
 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control input-lg" name="NuevaContra" placeholder="Repetir Contraseña" required>
+            <input type="password" class="form-control input-lg" name="Repetir Contraseña" placeholder="Repetir Contraseña" required>
           </div>
           
           </div>
@@ -97,7 +100,7 @@
           <div class="form-group">
           
           <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-users"></i></span>
+            <span class="input-group-addon"><i class="fa fa-users" name="tipo"></i></span>
 
             <select class="form-control input-lg" name="TipodeUsuario">
               <option value="">"Seleccionar Usuario"</option>
@@ -136,14 +139,14 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
-            <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Respuesta seguridad" required>
+            <input type="text" class="form-control input-lg" name="Respuesta seguridad" placeholder="Respuesta seguridad" required>
           </div>
           
 +
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal">Guardar Usuario</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" name="enviar1">Guardar Usuario</button>
       </div>
       <?php 
         $crearUsuario = new ControladorUsuarios();

@@ -3426,19 +3426,29 @@ table.text-center th {
 .login-box,
 .register-box {
   width: 360px;
-  margin: 7% auto;
+  margin: 6% auto;
 }
 @media (max-width: 768px) {
   .login-box,
   .register-box {
-    width: 90%;
-    margin-top: 20px;
+    width: 80%;
+    margin-top: 10px;
   }
 }
+.register-boxr{
+  min-height: 50px;
+  max-height: 50px;
+  background: #fff;
+  padding: 10px;
+  border-top: 0;
+  color: #666;
+ 
+}
+
 .login-box-body,
 .register-box-body {
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   border-top: 0;
   color: #666;
 }
