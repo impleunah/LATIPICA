@@ -16,7 +16,7 @@
 
 
             IF (isset($_POST["enviar1"])){
-              $user =  $_POST['NuevoUsuario'];
+              $user = strtoupper( $_POST['NuevoUsuario']);
               $correo =  $_POST['Correo_Electronico'];
               $ncontra = $_POST['Ingresar_Contraseña'];
               $rcontra =  $_POST['Repetir_Contraseña'];
