@@ -58,7 +58,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Agregar Usuario</h4>
       </div>
-
+      <label for="NUser">Agregar Usuario</label>
       <div class="modal-body">
 
         <div class="box-body">
@@ -68,15 +68,18 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
             <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Ingresar Usuario" required>
+            
           </div>
-
-
-          </div>
-
-          <div class="form-group">
           
+
+          </div>
+         
+          <div class="form-group">
+   
           <div class="input-group">
+      
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
+       
             <input type="text" class="form-control input-lg" name="Correo Electronico" placeholder="Correo Electronico" required>
           </div>
           
@@ -114,7 +117,7 @@
 
             
              <div class="form-group">
-          
+             
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
@@ -132,7 +135,7 @@
 
             </select>
             
-
+        
       </div><br>
 
       <div class="form-group">
