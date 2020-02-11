@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-02-2020 a las 21:26:49
+-- Tiempo de generación: 10-02-2020 a las 06:48:27
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `latipica.`
+-- Base de datos: `latipica1`
 --
 
 -- --------------------------------------------------------
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_bitacoras` (
+  `id_bitacora` bigint(20) NOT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
-  `objeto` varchar(100) DEFAULT NULL,
+  `id_objeto` varchar(100) DEFAULT NULL,
   `accion` varchar(100) DEFAULT NULL,
   `descripcion` varchar(200) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `id_bitacora` bigint(20) NOT NULL
+  `fecha` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,33 +54,47 @@ CREATE TABLE `tbl_cai` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_clientes`
+-- Estructura de tabla para la tabla `tbl_cliente`
 --
 
-CREATE TABLE `tbl_clientes` (
+CREATE TABLE `tbl_cliente` (
   `id_cliente` bigint(20) NOT NULL,
-  `identidad` varchar(14) NOT NULL,
-  `nom_cliente` varchar(50) NOT NULL,
-  `ape_cliente` varchar(50) NOT NULL,
-  `celular` bigint(20) NOT NULL,
-  `telefono` bigint(20) NOT NULL,
-  `direccion` varchar(200) NOT NULL,
-  `correo_cliente` varchar(50) DEFAULT NULL,
-  `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
-  `usr_registro` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombre` text NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `Id_telefono` int(11) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_extras`
+-- Estructura de tabla para la tabla `tbl_detallefactura`
 --
 
-CREATE TABLE `tbl_extras` (
-  `id_extra` int(11) NOT NULL,
-  `id_vehiculo` int(11) NOT NULL,
-  `descripcion_extra` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+CREATE TABLE `tbl_detallefactura` (
+  `id_detalle` int(11) NOT NULL,
+  `Id_factura` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` float NOT NULL,
+  `subtotal` float NOT NULL,
+  `impuesto` float NOT NULL,
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_detalleorden`
+--
+
+CREATE TABLE `tbl_detalleorden` (
+  `id_detalleorden` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cantidad` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -90,29 +104,39 @@ CREATE TABLE `tbl_extras` (
 
 CREATE TABLE `tbl_facturas` (
   `id_factura` int(11) NOT NULL,
-  `no_factura` int(11) NOT NULL,
   `id_cliente` bigint(20) NOT NULL,
-  `condiciones` varchar(11) NOT NULL,
+  `no_factura` int(11) NOT NULL,
   `total_venta` int(11) NOT NULL,
-  `estado_factura` varchar(10) NOT NULL,
   `fecha_factura` datetime NOT NULL,
+  `estado_factura` varchar(10) NOT NULL,
   `id_cai` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_kardex`
+-- Estructura de tabla para la tabla `tbl_lote`
 --
 
-CREATE TABLE `tbl_kardex` (
-  `id_kerder` bigint(20) NOT NULL,
-  `id_servicio` bigint(20) NOT NULL,
-  `id_compra` int(11) NOT NULL,
-  `tip_producto` varchar(30) NOT NULL,
-  `precio` varchar(20) NOT NULL,
-  `cantidad` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tbl_lote` (
+  `id_lote` int(11) NOT NULL,
+  `fecha_fabricacion` date NOT NULL,
+  `fecha_vencimiento` date NOT NULL,
+  `estado` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_ordendecompra`
+--
+
+CREATE TABLE `tbl_ordendecompra` (
+  `id_ordencompra` int(11) NOT NULL,
+  `id_cliente` bigint(20) NOT NULL,
+  `id_detalleorden` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -139,8 +163,9 @@ CREATE TABLE `tbl_pantallas` (
 
 CREATE TABLE `tbl_parametros` (
   `id_parametro` bigint(20) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `id_Usuario` bigint(20) NOT NULL,
   `descripcion` varchar(150) NOT NULL,
+  `parametro` text NOT NULL,
   `fecha_creacion` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -170,6 +195,21 @@ CREATE TABLE `tbl_preg_resp_usu` (
   `id_usuario` bigint(20) DEFAULT NULL,
   `respuesta` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_productos`
+--
+
+CREATE TABLE `tbl_productos` (
+  `id_producto` int(11) NOT NULL,
+  `nombre` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `existencia` int(11) NOT NULL,
+  `id_lote` int(11) NOT NULL,
+  `estado` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -225,16 +265,38 @@ CREATE TABLE `tbl_roles_objeto` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_telefono`
+--
+
+CREATE TABLE `tbl_telefono` (
+  `id_telefono` int(11) NOT NULL,
+  `id_tipotelefono` int(11) NOT NULL,
+  `telefono` int(10) NOT NULL,
+  `estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_tipotelefono`
+--
+
+CREATE TABLE `tbl_tipotelefono` (
+  `id_tipotelefono` int(11) NOT NULL,
+  `tipo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
 
 CREATE TABLE `tbl_usuario` (
   `id_usuario` bigint(20) NOT NULL,
   `id_rol` bigint(20) DEFAULT NULL,
-  `usuario` varchar(15) NOT NULL,
   `Nombre_Usuario` varchar(70) NOT NULL,
   `estado_usuario` varchar(100) NOT NULL,
-  `activacion` int(11) DEFAULT NULL,
   `Contraseña` varchar(200) NOT NULL,
   `intentos` varchar(60) DEFAULT NULL,
   `token_password` varchar(100) DEFAULT NULL,
@@ -258,7 +320,8 @@ CREATE TABLE `tbl_usuario` (
 --
 ALTER TABLE `tbl_bitacoras`
   ADD PRIMARY KEY (`id_bitacora`),
-  ADD KEY `fk_tbl_bitacoras_tbl_usuarios_idx` (`id_usuario`) USING BTREE;
+  ADD KEY `fk_tbl_bitacoras_tbl_usuarios_idx` (`id_usuario`) USING BTREE,
+  ADD KEY `id_objeto` (`id_objeto`);
 
 --
 -- Indices de la tabla `tbl_cai`
@@ -268,20 +331,26 @@ ALTER TABLE `tbl_cai`
   ADD KEY `fk_tbl_cai_tbl_facturas_idx` (`nu_factura`,`cai`);
 
 --
--- Indices de la tabla `tbl_clientes`
+-- Indices de la tabla `tbl_cliente`
 --
-ALTER TABLE `tbl_clientes`
+ALTER TABLE `tbl_cliente`
   ADD PRIMARY KEY (`id_cliente`),
-  ADD UNIQUE KEY `fk_tbl_clientes_tbl_ventas_idx` (`id_cliente`,`identidad`),
-  ADD UNIQUE KEY `fk_tbl_clientes_tbl_facturas_idx` (`id_cliente`,`identidad`),
-  ADD UNIQUE KEY `fk_tbl_clientes_tbl_cotizacion_idx` (`id_cliente`,`identidad`);
+  ADD KEY `Id_telefono` (`Id_telefono`);
 
 --
--- Indices de la tabla `tbl_extras`
+-- Indices de la tabla `tbl_detallefactura`
 --
-ALTER TABLE `tbl_extras`
-  ADD PRIMARY KEY (`id_extra`),
-  ADD KEY `fk_tbl_extras_tbl_vehiculo_idx` (`id_vehiculo`) USING BTREE;
+ALTER TABLE `tbl_detallefactura`
+  ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `Id_factura` (`Id_factura`);
+
+--
+-- Indices de la tabla `tbl_detalleorden`
+--
+ALTER TABLE `tbl_detalleorden`
+  ADD PRIMARY KEY (`id_detalleorden`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `tbl_facturas`
@@ -292,11 +361,18 @@ ALTER TABLE `tbl_facturas`
   ADD KEY `fk_tbl_facturas_tbl_cai_idx` (`id_cai`);
 
 --
--- Indices de la tabla `tbl_kardex`
+-- Indices de la tabla `tbl_lote`
 --
-ALTER TABLE `tbl_kardex`
-  ADD PRIMARY KEY (`id_kerder`),
-  ADD KEY `fk_tbl_kardex_tbl_compras_idx` (`id_compra`) USING BTREE;
+ALTER TABLE `tbl_lote`
+  ADD PRIMARY KEY (`id_lote`);
+
+--
+-- Indices de la tabla `tbl_ordendecompra`
+--
+ALTER TABLE `tbl_ordendecompra`
+  ADD PRIMARY KEY (`id_ordencompra`),
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `id_detalle` (`id_detalleorden`);
 
 --
 -- Indices de la tabla `tbl_pantallas`
@@ -310,7 +386,8 @@ ALTER TABLE `tbl_pantallas`
 --
 ALTER TABLE `tbl_parametros`
   ADD PRIMARY KEY (`id_parametro`),
-  ADD KEY `dias_vencimiento_contrasena` (`nombre`);
+  ADD KEY `Id_usuario` (`id_parametro`),
+  ADD KEY `id_Usuario_2` (`id_Usuario`);
 
 --
 -- Indices de la tabla `tbl_preguntas`
@@ -327,6 +404,13 @@ ALTER TABLE `tbl_preg_resp_usu`
   ADD KEY `fk_tbl_preg_resp_usu_tbl_preguntas_idx` (`id_pregunta`) USING BTREE,
   ADD KEY `id_usuario_2` (`id_usuario`),
   ADD KEY `fk_tbl_preg_resp_usu_tbl_usuario_idx` (`id_usuario`) USING BTREE;
+
+--
+-- Indices de la tabla `tbl_productos`
+--
+ALTER TABLE `tbl_productos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_lote` (`id_lote`);
 
 --
 -- Indices de la tabla `tbl_respuestas`
@@ -355,6 +439,19 @@ ALTER TABLE `tbl_roles_objeto`
   ADD KEY `fk_tbl_roles_objeto_tbl_pantallas_idx` (`id_objeto`) USING BTREE;
 
 --
+-- Indices de la tabla `tbl_telefono`
+--
+ALTER TABLE `tbl_telefono`
+  ADD PRIMARY KEY (`id_telefono`),
+  ADD KEY `id_tipotelefono` (`id_tipotelefono`);
+
+--
+-- Indices de la tabla `tbl_tipotelefono`
+--
+ALTER TABLE `tbl_tipotelefono`
+  ADD PRIMARY KEY (`id_tipotelefono`);
+
+--
 -- Indices de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
@@ -381,22 +478,40 @@ ALTER TABLE `tbl_cai`
   MODIFY `id_cai` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_clientes`
+-- AUTO_INCREMENT de la tabla `tbl_cliente`
 --
-ALTER TABLE `tbl_clientes`
-  MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `tbl_cliente`
+  MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_extras`
+-- AUTO_INCREMENT de la tabla `tbl_detallefactura`
 --
-ALTER TABLE `tbl_extras`
-  MODIFY `id_extra` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_detallefactura`
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_detalleorden`
+--
+ALTER TABLE `tbl_detalleorden`
+  MODIFY `id_detalleorden` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_lote`
+--
+ALTER TABLE `tbl_lote`
+  MODIFY `id_lote` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_ordendecompra`
+--
+ALTER TABLE `tbl_ordendecompra`
+  MODIFY `id_ordencompra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_pantallas`
@@ -417,6 +532,12 @@ ALTER TABLE `tbl_preguntas`
   MODIFY `id_pregunta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_productos`
+--
+ALTER TABLE `tbl_productos`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_respuestas`
 --
 ALTER TABLE `tbl_respuestas`
@@ -435,6 +556,18 @@ ALTER TABLE `tbl_roles_objeto`
   MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_telefono`
+--
+ALTER TABLE `tbl_telefono`
+  MODIFY `id_telefono` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_tipotelefono`
+--
+ALTER TABLE `tbl_tipotelefono`
+  MODIFY `id_tipotelefono` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
@@ -445,11 +578,82 @@ ALTER TABLE `tbl_usuario`
 --
 
 --
+-- Filtros para la tabla `tbl_bitacoras`
+--
+ALTER TABLE `tbl_bitacoras`
+  ADD CONSTRAINT `tbl_bitacoras_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
+
+--
+-- Filtros para la tabla `tbl_cliente`
+--
+ALTER TABLE `tbl_cliente`
+  ADD CONSTRAINT `tbl_cliente_ibfk_1` FOREIGN KEY (`Id_telefono`) REFERENCES `tbl_telefono` (`id_telefono`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_detallefactura`
+--
+ALTER TABLE `tbl_detallefactura`
+  ADD CONSTRAINT `tbl_detallefactura_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tbl_productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_detallefactura_ibfk_2` FOREIGN KEY (`Id_factura`) REFERENCES `tbl_facturas` (`id_factura`);
+
+--
+-- Filtros para la tabla `tbl_detalleorden`
+--
+ALTER TABLE `tbl_detalleorden`
+  ADD CONSTRAINT `tbl_detalleorden_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tbl_productos` (`id_producto`);
+
+--
+-- Filtros para la tabla `tbl_facturas`
+--
+ALTER TABLE `tbl_facturas`
+  ADD CONSTRAINT `tbl_facturas_ibfk_1` FOREIGN KEY (`id_cai`) REFERENCES `tbl_cai` (`id_cai`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_facturas_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`);
+
+--
+-- Filtros para la tabla `tbl_ordendecompra`
+--
+ALTER TABLE `tbl_ordendecompra`
+  ADD CONSTRAINT `tbl_ordendecompra_ibfk_1` FOREIGN KEY (`id_detalleorden`) REFERENCES `tbl_detalleorden` (`id_detalleorden`),
+  ADD CONSTRAINT `tbl_ordendecompra_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`);
+
+--
+-- Filtros para la tabla `tbl_parametros`
+--
+ALTER TABLE `tbl_parametros`
+  ADD CONSTRAINT `tbl_parametros_ibfk_1` FOREIGN KEY (`id_Usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
+
+--
+-- Filtros para la tabla `tbl_preg_resp_usu`
+--
+ALTER TABLE `tbl_preg_resp_usu`
+  ADD CONSTRAINT `tbl_preg_resp_usu_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tbl_preg_resp_usu_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
+
+--
+-- Filtros para la tabla `tbl_productos`
+--
+ALTER TABLE `tbl_productos`
+  ADD CONSTRAINT `tbl_productos_ibfk_1` FOREIGN KEY (`id_lote`) REFERENCES `tbl_lote` (`id_lote`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_respuestas`
+--
+ALTER TABLE `tbl_respuestas`
+  ADD CONSTRAINT `tbl_respuestas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tbl_respuestas_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
+
+--
 -- Filtros para la tabla `tbl_roles_objeto`
 --
 ALTER TABLE `tbl_roles_objeto`
   ADD CONSTRAINT `tbl_roles_objeto_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`id_rol`),
   ADD CONSTRAINT `tbl_roles_objeto_ibfk_2` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_pantallas` (`id_objeto`);
+
+--
+-- Filtros para la tabla `tbl_telefono`
+--
+ALTER TABLE `tbl_telefono`
+  ADD CONSTRAINT `tbl_telefono_ibfk_1` FOREIGN KEY (`id_tipotelefono`) REFERENCES `tbl_tipotelefono` (`id_tipotelefono`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_usuario`
