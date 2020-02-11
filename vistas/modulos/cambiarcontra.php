@@ -170,18 +170,24 @@
                 }
               }
               </script>
+
+       <label for="Usuariocambio">Usuario</label>
+
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Usuario" name="usuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+      <label for="ConActual">Contraseña Actual</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Contraseña actual" name="contraa" onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <label for="NContra">Nueva Contraseña</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra" onkeyup="aaa(this, event)" required> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <label for="Repetir">Repetir Contraseña</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra" onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
