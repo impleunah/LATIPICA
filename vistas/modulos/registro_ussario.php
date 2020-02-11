@@ -43,8 +43,11 @@
                           if($rcontra == $ncontra){
                                   if($filas == 0){
                                     $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";                      
-                                    $insertarUno=$conn->query("INSERT INTO   tbl_respuestas(respuesta) VALUES ('$repuesta') ");
+                                    $resultado = mysqli_query($conn,$sqluser);
+                                    $userr = $conn->insert_id;
                                     $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta) VALUES ('$pregunta') ");
+
+                                    $insertarUno=$conn->query("INSERT INTO   tbl_pregunta_x_usuario(respuesta,id_pregunta,id_usuario) VALUES ('$repuesta', '$conn->insert_id',  '$userr') ");
                                     
                                     $resultado = $conn ->query($sqluser);
                                    
@@ -52,7 +55,7 @@
                                                 
                                               if($resultado > 0){
                                                 echo"<script>
-                                                alert('exito');
+                                                alert('exito ');
                                                 window.location = '../../index.php';
                                                 </script>";
                                               }else {
