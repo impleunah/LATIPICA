@@ -122,7 +122,7 @@
                  
 
 
-
+    <label for="uSUARIO22">Usuario</label><br>
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Usuario" name="usuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -163,10 +163,12 @@
             }
           }
           </script>
+          <label for="Ncontraseña1">Nueva Contraseña</label><br>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra"  onkeyup="aaa(this, event)" required> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <label for="Repetir">Repetir Contraseña</label><br>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra"  onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
