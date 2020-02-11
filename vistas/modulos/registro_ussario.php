@@ -43,7 +43,7 @@
                           if($rcontra == $ncontra){
                                   if($filas == 0){
                                     $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";                      
-                                    $insertarUno=$conn->query("INSERT INTO   tbl_respuestas (respuesta) VALUES ('$repuesta' ) ");
+                                    $insertarUno=$conn->query("INSERT INTO   tbl_respuestas(respuesta) VALUES ('$repuesta') ");
                                     $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta) VALUES ('$pregunta') ");
                                     
                                     $resultado = $conn ->query($sqluser);
