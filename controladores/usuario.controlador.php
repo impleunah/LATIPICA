@@ -9,18 +9,18 @@ cLass ControladorUsuarios
 	if(isset($_POST["ingUsuario"]))
 		{
 
-		if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
+		if (preg_match('/^[a-zA-Z0-9]+$/', strtoupper($_POST["ingUsuario"])) &&
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"]))
 			{
 
 				$tabla = "tbl_usuario";
 
 				$item = "Nombre_Usuario";
-				$valor = $_POST["ingUsuario"];
+				$valor = strtoupper($_POST["ingUsuario"]);
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-				if ($respuesta["Nombre_Usuario"] == $_POST["ingUsuario"] && $respuesta["Contraseña"] == $_POST["ingPassword"])
+				if ($respuesta["Nombre_Usuario"] == strtoupper($_POST["ingUsuario"]) && $respuesta["Contraseña"] == $_POST["ingPassword"])
 				{
 
 					$_SESSION["iniciarSesion"] = "ok";
