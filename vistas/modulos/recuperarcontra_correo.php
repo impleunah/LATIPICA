@@ -152,6 +152,7 @@ if (isset($_POST["ENVIAR"]))
     <p class="login-box-msg">Recuperar Contraseña Via Correo electronico</p>
 
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
+    <label for="Contracorreo">Ingrese Su Correo</label><br>
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Ingrese su Correo" name= "txtCorreoElectronico">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
