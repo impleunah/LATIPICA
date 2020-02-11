@@ -2,8 +2,6 @@
 
 
 
-
-
 <div class="login-box  login-page">
 
   <div class="login-logo "  >
@@ -15,8 +13,8 @@
   <div class="login-box-body " >
 
     <p class="login-box-msg" Font="Verdana">LOGIN</p>
-
-    <form method="post">
+  
+    <form method="POST" >
     <label for="NUsuario">Usuario</label><br>
       <div class="form-group has-feedback">
 
@@ -62,6 +60,7 @@ campo.value = CadenaTextoNueva;
 </script>
 
 <label for="NContra">Nueva Contraseña</label><br>
+
       <div class="form-group has-feedback">
         <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
 
@@ -73,7 +72,7 @@ campo.value = CadenaTextoNueva;
         <div class center ="col-xs-4">
             
 
-          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat" name="ing">Ingresar</button>
         
        
         </div>
