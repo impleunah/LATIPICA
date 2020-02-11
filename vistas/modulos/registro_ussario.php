@@ -175,6 +175,7 @@
 
 
       <div class="form-group has-feedback">
+      
         <input type="text" class="form-control" placeholder="Usuario" name="NuevoUsuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
@@ -219,23 +220,25 @@
      
 
 
-
+<label for="NUserioo">Correo Electronico</label>
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Correo_Electronico" name="Correo Electronico"  >
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
 
-
+        <label for="Ncontraa">Nueva Contraseña</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Nueva Contraseña" name="Ingresar_Contraseña"  onkeyup="aaa(this, event)" required> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <label for="Rcontraseña">Repetir Contraseña</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="Repetir_Contraseña"  onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div >        
           <div >
+          <label for="SP">Seleccionar Preguntas de Seguridad</label>
             <span ><i"></i></span>
             <select class="form-control " name="Preguntas">
               <option   value="">Seleccionar Preguntas de Seguridad</option>
@@ -246,14 +249,14 @@
             </select>
       </div>
       </div><br>
-
+      <label for="RS">Respuesta Seguridad</label>
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Respuesta seguridad" name="Respuesta_seguridad"  >
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div >
             
-
+      <label for="usuarioseleccionar">Seleccionar Usuario</label>
             <select class="form-control " name="TipodeUsuario">
               <option value="">"Seleccionar Usuario"</option>
               <option value="Administrador">Administrador</option>
