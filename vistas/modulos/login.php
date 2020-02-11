@@ -17,7 +17,7 @@
     <p class="login-box-msg" Font="Verdana">LOGIN</p>
 
     <form method="post">
-
+    <label for="NUsuario">Usuario</label><br>
       <div class="form-group has-feedback">
 
         <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
