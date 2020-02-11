@@ -61,7 +61,7 @@ campo.value = CadenaTextoNueva;
     }
 </script>
 
-
+<label for="NContra">Nueva Contraseña</label><br>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
 
