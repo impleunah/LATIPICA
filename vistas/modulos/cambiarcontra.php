@@ -192,7 +192,6 @@
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra" onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-   
         <!-- /.col -->
         <div class center="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat" name="enviar">Cambiar</button>
@@ -204,8 +203,6 @@
            
            <a href="../../index.php" class="text-center">Cancelar </a>
     </form>  
-  
- 
   </div>
   <!-- /.form-box -->
 </div>

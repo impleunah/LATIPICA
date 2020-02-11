@@ -59,6 +59,7 @@
         <h4 class="modal-title">Agregar Usuario</h4>
       </div>
       <label for="NUser">Agregar Usuario</label>
+    
       <div class="modal-body">
 
         <div class="box-body">
@@ -71,7 +72,7 @@
             
           </div>
           
-
+         
           </div>
          
           <div class="form-group">
