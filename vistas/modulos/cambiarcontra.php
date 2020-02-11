@@ -3,7 +3,7 @@
   IF (isset($_POST["enviar"])){
     
     $contra =  $_POST['contraa'];
-    $user =  $_POST['usuario'];
+    $user =  strtoupper($_POST['usuario']);
     $ncontra = $_POST['ncontra'];
     $rcontra =  $_POST['rcontra'];
     $validarcontra = "SELECT  Contraseña from tbl_usuario WHERE Contraseña = '$contra'";
@@ -171,7 +171,7 @@
               }
               </script>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario" name="usuario  "  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();>
+        <input type="text" class="form-control" placeholder="Usuario" name="usuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
