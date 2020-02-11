@@ -1,7 +1,4 @@
 
-
-
-
   <div class="content-wrapper">
 
   
@@ -32,6 +29,52 @@
           Agregar Usuario
 
        </a>
+       <br>
+       <br>
+</br>
+       <div class="box-body">
+
+          <div class="table-responsive">
+
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+
+                    <div class="row">
+                      <div class="col-sm-12">
+                <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                
+            <thead>
+              <tr role="row"><th style="width: 9.91319px;" 
+              class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: Activar para ordenar la columna de manera descendente">#</th><th
+               class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: Activar para ordenar la columna de manera ascendente" style="width: 125.469px;">
+              Nombre</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Usuario: Activar para ordenar la columna de manera ascendente" style="width: 108.802px;">
+              Usuario</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Foto: Activar para ordenar la columna de manera ascendente" style="width: 73.2465px;">
+              Correo</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Tipo de Usuario: Activar para ordenar la columna de manera ascendente" style="width: 188.802px;">
+              Rol</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Estado: Activar para ordenar la columna de manera ascendente" style="width: 97.691px;">
+              Estado</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ultimo login: Activar para ordenar la columna de manera ascendente" style="width: 185.469px;">
+              Ultimo login</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Acciones: Activar para ordenar la columna de manera ascendente" style="width: 118.681px;">
+              Acciones</th></tr>
+            </thead>
+            <tbody>
+              
+            <tr role="row" class="odd">
+                <td class="sorting_1">1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Administrador</td>
+                <td><button class="btn btn-success btn-xs">Activado</button></td>
+                <td>2017-12-11 12:05:32</td>
+                <td>
+                  
+                  <div class="btn-group">
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                  </div>
+
+                </td>
+
+              </tr></tbody>
+        </div>
 
         <!-- /.box-body -->
       </div>
@@ -47,8 +90,9 @@
 
   <! -- Modal -->
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
+
   
-  <div class="modal-dialog">
+ <!-- <div class="modal-dialog">-->
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -128,11 +172,6 @@
               <option value="Trabajo">Cúal seria su trabajo ideal?</option>
               <option value="Mascota">Nombre de su primera mascota?</option>
               <option value="Amigo">Mejor amigo de la infancia?</option>
-
-
-              
-              
-              
 
             </select>
             
