@@ -68,19 +68,21 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
+          
+
             <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Ingresar Usuario" required>
             
           </div>
           
          
           </div>
-         
+          <label for="NUserioo">Correo Electronico</label>
           <div class="form-group">
    
           <div class="input-group">
       
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
-       
+           
             <input type="text" class="form-control input-lg" name="Correo Electronico" placeholder="Correo Electronico" required>
           </div>
           

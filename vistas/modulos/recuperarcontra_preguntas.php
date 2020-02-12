@@ -70,6 +70,7 @@
     <p class="login-box-msg">Recuperacion Mediante Preguntas </p>
 
     <form method="post">
+    <label for="USUARIOCONTRA">Usuario</label><br>
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Usuario">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
