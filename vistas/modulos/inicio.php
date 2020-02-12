@@ -4,7 +4,7 @@
   
     <section class="content-header">
       <h1>
-        Usuarios
+        Mantenimiento de Usuario
 
       </h1>
 
@@ -13,22 +13,38 @@
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         
         <li class="active">Administrar Usuarios</li>
-
       </ol>
     </section>
     <section class="content">
-
       <div class="box">
-
         <div class="box-header with-border">
-
-        <a class="btn btn-primary"  href="vistas/modulos/registro_ussario.php">
+        <a class="btn btn-primary"  style="background:#2A9BDC  ;" href="vistas/modulos/registro_ussario.php">
           Agregar Usuario
-
        </a>
-       <br>
-       <br>
-</br>
+<form>
+<h1><center>
+         Usuarios
+        </center>
+      </h1>
+				<center><div class="panel panel-success" style="background-color: #A5C9DE ">
+			      <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
+				  <input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
+				  <a target="_blank" href="javascript:reportePDF();"style="background:#FF4233 ;" class="btn btn-primary">Generar Reporte</a>
+				</center>
+			</form>
+      <div class="row">
+      <div class="col-sm-6">
+      <div class="dataTables_length" id="tableListar_length">
+      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" ><
+        option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        </select> registros por página</label></div></div>
+        <div class="row">
+        <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
+        <label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
+    
        <div class="box-body">
 
           <div class="table-responsive">
@@ -54,13 +70,13 @@
             <tbody>
               
             <tr role="row" class="odd">
-                <td class="sorting_1">1</td>
+                <td class="sorting_1"></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Administrador</td>
+                <td></td>
                 <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td>2017-12-11 12:05:32</td>
+                <td></td>
                 <td>
                   
                   <div class="btn-group">
