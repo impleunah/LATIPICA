@@ -20,8 +20,7 @@
               $correo =  $_POST['Correo_Electronico'];
               $ncontra = $_POST['Ingresar_Contraseña'];
               $rcontra =  $_POST['Repetir_Contraseña'];
-                    $pregunta =  $_POST['Preguntas'];
-                    $repuesta =  $_POST['Respuesta_seguridad'];
+                   
                     $tipo =  $_POST['TipodeUsuario'] ;
                     
                     
@@ -35,16 +34,15 @@
                     $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
                     $resultado = $conn -> query($sqluser);
                     $filas = $resultado -> num_rows;
-                    $contraseña = "SELECT  correo_electronicoa from tbl_usuario WHERE correo_electronico = '$correo'";
+                    $contraseña = "SELECT  correo_electronico from tbl_usuario WHERE correo_electronico = '$correo'";
                   
                     $resultado2  = $conn -> query($contraseña);
                     $filas2  = $resultado2 -> num_rows;
                     if($filas2 == 0){
                           if($rcontra == $ncontra){
                                   if($filas == 0){
-                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";                      
-                                    $insertarUno=$conn->query("INSERT INTO   tbl_respuestas(respuesta) VALUES ('$repuesta') ");
-                                    $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta) VALUES ('$pregunta') ");
+                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico,estado_usuario,intentos) VALUES ('$user', '$rcontra', '$correo','Nuevo',0 ) ";                      
+                              
                                     
                                     $resultado = $conn ->query($sqluser);
                                    
@@ -52,7 +50,7 @@
                                                 
                                               if($resultado > 0){
                                                 echo"<script>
-                                                alert('exito');
+                                                alert('exito ');
                                                 window.location = '../../index.php';
                                                 </script>";
                                               }else {
@@ -236,24 +234,7 @@
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="Repetir_Contraseña"  onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div >        
-          <div >
-          <label for="SP">Seleccionar Preguntas de Seguridad</label>
-            <span ><i"></i></span>
-            <select class="form-control " name="Preguntas">
-              <option   value="">Seleccionar Preguntas de Seguridad</option>
-              <option value="color">Cúal es su color favorito?</option>
-              <option value="Trabajo">Cúal seria su trabajo ideal?</option>
-              <option value="Mascota">Nombre de su primera mascota?</option>
-              <option value="Amigo">Mejor amigo de la infancia?</option>
-            </select>
-      </div>
-      </div><br>
-      <label for="RS">Respuesta Seguridad</label>
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Respuesta seguridad" name="Respuesta_seguridad"  >
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
+    
       <div >
             
       <label for="usuarioseleccionar">Seleccionar Usuario</label>

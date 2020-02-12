@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2020 a las 06:48:27
+-- Tiempo de generación: 11-02-2020 a las 08:27:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -177,20 +177,20 @@ CREATE TABLE `tbl_parametros` (
 
 CREATE TABLE `tbl_preguntas` (
   `id_pregunta` bigint(20) NOT NULL,
-  `pregunta` varchar(70) NOT NULL,
-  `fecha_creacion` datetime NOT NULL DEFAULT current_timestamp(),
-  `creado_por` varchar(15) NOT NULL,
-  `fecha_modificacion` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
-  `modificado_por` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `pregunta` varchar(100) NOT NULL,
+  `creado_Por` varchar(50) NOT NULL,
+  `fecha_creacion` date DEFAULT NULL,
+  `modificado_por` varchar(50) NOT NULL,
+  `fecha_modificacion` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_preg_resp_usu`
+-- Estructura de tabla para la tabla `tbl_pregunta_x_usuario`
 --
 
-CREATE TABLE `tbl_preg_resp_usu` (
+CREATE TABLE `tbl_pregunta_x_usuario` (
   `id_pregunta` bigint(20) DEFAULT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
   `respuesta` varchar(200) DEFAULT NULL
@@ -214,20 +214,6 @@ CREATE TABLE `tbl_productos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_respuestas`
---
-
-CREATE TABLE `tbl_respuestas` (
-  `id_respuesta` int(11) NOT NULL,
-  `id_usuario` bigint(20) NOT NULL,
-  `id_pregunta` bigint(20) NOT NULL,
-  `respuesta` varchar(200) NOT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_roles`
 --
 
@@ -240,6 +226,13 @@ CREATE TABLE `tbl_roles` (
   `fecha_modificacion` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `modificado_por` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_roles`
+--
+
+INSERT INTO `tbl_roles` (`id_rol`, `rol`, `descripcion`, `fecha_creacion`, `creado_por`, `fecha_modificacion`, `modificado_por`) VALUES
+(1, 'Admin', 'Administrador de sistema', '2020-02-11 00:13:44', NULL, '2020-02-11 00:13:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -310,6 +303,13 @@ CREATE TABLE `tbl_usuario` (
   `fecha_expira` date DEFAULT NULL,
   `fecha_cambio_contrasena` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_usuario`
+--
+
+INSERT INTO `tbl_usuario` (`id_usuario`, `id_rol`, `Nombre_Usuario`, `estado_usuario`, `Contraseña`, `intentos`, `token_password`, `password_request`, `ultima_conexion`, `fecha_creacion`, `correo_electronico`, `fecha_modificacion`, `modificado_por`, `dias_expirado`, `fecha_expira`, `fecha_cambio_contrasena`) VALUES
+(1, 1, 'karla', 'activo', '123', NULL, NULL, NULL, '2020-02-11 00:16:43', '2020-02-11 00:14:44', 'patienamorado0324@gmail.com', '2020-02-11 00:16:43', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -393,14 +393,12 @@ ALTER TABLE `tbl_parametros`
 -- Indices de la tabla `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
-  ADD PRIMARY KEY (`id_pregunta`),
-  ADD UNIQUE KEY `fk_tbl_preguntas_tbl_preg_resp_usu_idx` (`id_pregunta`,`pregunta`),
-  ADD UNIQUE KEY `fk_tbl_preguntas_tbl_respuestas_idx` (`id_pregunta`,`pregunta`);
+  ADD PRIMARY KEY (`id_pregunta`);
 
 --
--- Indices de la tabla `tbl_preg_resp_usu`
+-- Indices de la tabla `tbl_pregunta_x_usuario`
 --
-ALTER TABLE `tbl_preg_resp_usu`
+ALTER TABLE `tbl_pregunta_x_usuario`
   ADD KEY `fk_tbl_preg_resp_usu_tbl_preguntas_idx` (`id_pregunta`) USING BTREE,
   ADD KEY `id_usuario_2` (`id_usuario`),
   ADD KEY `fk_tbl_preg_resp_usu_tbl_usuario_idx` (`id_usuario`) USING BTREE;
@@ -411,14 +409,6 @@ ALTER TABLE `tbl_preg_resp_usu`
 ALTER TABLE `tbl_productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_lote` (`id_lote`);
-
---
--- Indices de la tabla `tbl_respuestas`
---
-ALTER TABLE `tbl_respuestas`
-  ADD PRIMARY KEY (`id_respuesta`),
-  ADD KEY `fk_tbl_respuestas_tbl_preguntas_idx` (`id_pregunta`) USING BTREE,
-  ADD KEY `id_usuario` (`id_usuario`) USING BTREE;
 
 --
 -- Indices de la tabla `tbl_roles`
@@ -529,19 +519,13 @@ ALTER TABLE `tbl_parametros`
 -- AUTO_INCREMENT de la tabla `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
-  MODIFY `id_pregunta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pregunta` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tbl_respuestas`
---
-ALTER TABLE `tbl_respuestas`
-  MODIFY `id_respuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_roles`
@@ -623,24 +607,17 @@ ALTER TABLE `tbl_parametros`
   ADD CONSTRAINT `tbl_parametros_ibfk_1` FOREIGN KEY (`id_Usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
--- Filtros para la tabla `tbl_preg_resp_usu`
+-- Filtros para la tabla `tbl_pregunta_x_usuario`
 --
-ALTER TABLE `tbl_preg_resp_usu`
-  ADD CONSTRAINT `tbl_preg_resp_usu_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
-  ADD CONSTRAINT `tbl_preg_resp_usu_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
+ALTER TABLE `tbl_pregunta_x_usuario`
+  ADD CONSTRAINT `tbl_pregunta_x_usuario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tbl_pregunta_x_usuario_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
 
 --
 -- Filtros para la tabla `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
   ADD CONSTRAINT `tbl_productos_ibfk_1` FOREIGN KEY (`id_lote`) REFERENCES `tbl_lote` (`id_lote`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_respuestas`
---
-ALTER TABLE `tbl_respuestas`
-  ADD CONSTRAINT `tbl_respuestas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
-  ADD CONSTRAINT `tbl_respuestas_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
 
 --
 -- Filtros para la tabla `tbl_roles_objeto`
