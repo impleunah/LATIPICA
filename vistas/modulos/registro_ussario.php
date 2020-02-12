@@ -41,7 +41,7 @@
                     if($filas2 == 0){
                           if($rcontra == $ncontra){
                                   if($filas == 0){
-                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico,estado_usuario,intentos) VALUES ('$user', '$rcontra', '$correo','Nuevo',0 ) ";                      
+                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico,estado_usuario,intentos,id_rol) VALUES ('$user', '$rcontra', '$correo','Nuevo',0,'$tipo' ) ";                      
                               
                                     
                                     $resultado = $conn ->query($sqluser);
@@ -240,8 +240,9 @@
       <label for="usuarioseleccionar">Seleccionar Usuario</label>
             <select class="form-control " name="TipodeUsuario">
               <option value="">"Seleccionar Usuario"</option>
-              <option value="Administrador">Administrador</option>
-              <option value="Operador">Operador</option>
+              <option value="1">Administrador</option>
+              <option value="9">Operador</option>
+              <option value="10">Usuario</option>
               </select>
             
 
