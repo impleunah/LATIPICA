@@ -188,18 +188,14 @@
                   campo.value = CadenaTextoNueva;
 
             }
-
           </script>
-
-
-
           <script>
           function soloLetras(e){
           key = e.keyCode || e.which;
           tecla = String.fromCharCode(key).toLowerCase();
           letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
           especiales = "8-37-39-46";
-
+        
           tecla_especial = false
           for(var i in especiales){
                 if(key == especiales[i]){
@@ -213,17 +209,12 @@
             }
           }
           </script>
-
-
-     
-
-
 <label for="NUserioo">Correo Electronico</label>
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Correo_Electronico" name="Correo Electronico"  >
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
-
+       
         <label for="Ncontraa">Nueva Contraseña</label>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Nueva Contraseña" name="Ingresar_Contraseña"  onkeyup="aaa(this, event)" required> 
