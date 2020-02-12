@@ -185,8 +185,6 @@
         <input type="text" class="form-control input-lg" name="Respuesta seguridad" placeholder="Respuesta seguridad" required>
       </div>
       
-+
-
   <div class="modal-footer">
     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
     <button type="submit" class="btn btn-primary" data-dismiss="modal" name="enviar1">Guardar Usuario</button>

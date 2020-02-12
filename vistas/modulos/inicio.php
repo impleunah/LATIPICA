@@ -4,7 +4,7 @@
   
     <section class="content-header">
       <h1>
-        Administrar Usuarios
+        Usuarios
 
       </h1>
 
@@ -15,10 +15,7 @@
         <li class="active">Administrar Usuarios</li>
 
       </ol>
-
     </section>
-
-
     <section class="content">
 
       <div class="box">

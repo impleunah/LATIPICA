@@ -9,7 +9,7 @@ if (isset($_POST["ENVIAR"]))
   $correo = $_POST['txtCorreoElectronico'];
   $sqluser = "SELECT correo_electronico from usuarios where correo_electronico='$correo'";
   $resultado=$conn-> query ($sqluser);
-  $filas  = $resultado -> num_rows;
+  $filas=$resultado -> num_rows;
     if($filas > 0){
 
     $mail=new PHPMailer(); 
