@@ -134,6 +134,7 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="text" size="15" maxlength="5" value="Contraaa" name="Igresar Contraseña">
             <input type="password" class="form-control input-lg" name="Ingresar Contraseña" placeholder="Ingresar Contraseña" required>
           </div><br> 
 
