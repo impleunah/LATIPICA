@@ -16,7 +16,7 @@
                                     $resultado = mysqli_query($conn,$sqluser3);
                                     $userr1 = $conn->insert_id;
 
-                                    $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta,creado_Por) VALUES ('$pregunta',$conn->insert_id) ");
+                                    $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta,creado_Por) VALUES ('$pregunta','$userr1') ");
 
                                     $insertarUno=$conn->query("INSERT INTO   tbl_pregunta_x_usuario(respuesta,id_pregunta) VALUES ('$repuesta', '$conn->insert_id' ) ");
                                     
@@ -33,7 +33,7 @@
                                                 "<script>
                                                     alert(' no existe');
                                                     
-                                                    </script>";
+                                                    </script  >";
                                               }
                                             }
                                             
