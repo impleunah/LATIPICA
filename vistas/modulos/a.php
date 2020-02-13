@@ -13,7 +13,7 @@
                     $pregunta =  $_POST['Preguntas'];
                     $repuesta =  $_POST['Respuesta_seguridad'];
                                     $sqluser3 = "UPDATE  tbl_usuario SET estado_usuario ='activo' where Nombre_Usuario = '$ssss'";                      
-                                    $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = 'RAUL'"; 
+                                    $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
                                     $consulta = mysqli_query($conn,$sql);
                                     if($row =mysqli_fetch_array($consulta)){
                                         $var1=$row["id_usuario"];
