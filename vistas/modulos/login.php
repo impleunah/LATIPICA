@@ -1,28 +1,30 @@
+<!--imagen<div id="back"></div>-->
+
+
 
 <div class="login-box  login-page">
 
-<div class="login-logo "  >
-  <!--imagen-->
-  <img   id="back" >
+  <div class="login-logo "  >
+    <!--imagen-->
+    <img   id="back" >
+    
+  </div>
+
+  <div class="login-box-body " >
+
+    <p class="login-box-msg" Font="Verdana">LOGIN</p>
   
-</div>
+    <form method="POST" >
+    <label for="NUsuario">Usuario</label><br>
+      <div class="form-group has-feedback">
 
-<div class="login-box-body " >
+        <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
 
-  <p class="login-box-msg" Font="Verdana">LOGIN</p>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <script language="javascript">
 
-  <form method="post">
-
-    <div class="form-group has-feedback">
-    </br>
-
-      <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-
-      <span class="glyphicon glyphicon-user form-control-feedback"></span>
-    </div>
-    <script language="javascript">
-
-    function aaa(campo, event) {
+      function aaa(campo, event) {
 
 CadenaaReemplazar = " ";
 CadenaReemplazo = "";
@@ -36,103 +38,60 @@ campo.value = CadenaTextoNueva;
 
 
 
-      <script>
-  function soloLetras(e){
-     key = e.keyCode || e.which;
-     tecla = String.fromCharCode(key).toLowerCase();
-     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-     especiales = "8-37-39-46";
+        <script>
+    function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
 
-     tecla_especial = false
-     for(var i in especiales){
-          if(key == especiales[i]){
-              tecla_especial = true;
-              break;
-          }
-      }
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
 
-      if(letras.indexOf(tecla)==-1 && !tecla_especial){
-          return false;
-      }
-  }
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
 </script>
 
+<label for="NContra">Nueva Contraseña</label><br>
 
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
 
-<head>
-<meta charset="UTF-8">
-<title>Document</title>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>  
 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      <div class="row">
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <div class center ="col-xs-4">
+            
 
-<script>
-  $(document).on('ready', function() {
-    $('#show-hide-passwd').on('click', function(e) {
-      e.preventDefault();
-
-      var current = $(this).attr('action');
-
-      if (current == 'hide') {
-        $(this).prev().attr('type','text');
-        $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
-      }
-
-      if (current == 'show') {
-        $(this).prev().attr('type','password');
-        $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
-      }
-    })
-  })
-</script>
-
-<style>
-  .input-group {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-  span {
-    cursor: pointer;
-  }
-</style>
-</head>
-<body>
-<div class="input-group"  class="form-group has-feedback">
-  <input class="form-control" type="password" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required/>
-  <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open" class="glyphicon glyphicon-lock form-control-feedback"></span>
-</div>
-</body>
-
-<br>
-
-<div class="row">
-
-      <div class center ="col-xs-4">
-          
-
-        <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
-      
-     
+          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat" name="ing">Ingresar</button>
+        
+       
+        </div>
+        <br>
       </div>
-      <br>
-    </div>
 
+      <?php
 
-    <?php
+      $login = new ControladorUsuarios();
+      $login -> ctrIngresoUsuario();
+      
+      ?>
 
-    $login = new ControladorUsuarios();
-    $login -> ctrIngresoUsuario();
-    
-    ?>
+    </form>
+   <br>
 
-  </form>
- <br>
+   </br>
+   <a href="vistas/modulos/recuperarcontraseña.php" >Recuperar la Contraseña</a>
 
- </br>
- <a href="vistas/modulos/recuperarcontraseña.php" >Recuperar la Contraseña</a>
-
-</div>
+  </div>
 
 </div >
