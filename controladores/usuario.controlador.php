@@ -16,9 +16,9 @@ cLass ControladorUsuarios
 
 	static public function ctrIngresoUsuario()
 	{
-
+		
 	if(isset($_POST["ingUsuario"]))
-		{session_start();
+		{
 
 		if (preg_match('/^[a-zA-Z0-9]+$/', strtoupper($_POST["ingUsuario"])) &&
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"]))
@@ -92,7 +92,8 @@ cLass ControladorUsuarios
 					</script>';
 				}
 			}
-		}
+		
+	}
 	}
 
 

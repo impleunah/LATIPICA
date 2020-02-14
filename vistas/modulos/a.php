@@ -13,17 +13,16 @@
                     $pregunta =  $_POST['Preguntas'];
                     $repuesta =  $_POST['Respuesta_seguridad'];
                                     $sqluser3 = "UPDATE  tbl_usuario SET estado_usuario ='activo' where Nombre_Usuario = '$ssss'";                      
-                                    $resultado = mysqli_query($conn,$sqluser3);
-                                    $userr1 = $conn->insert_id;
+                                    $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
+                                    $consulta = mysqli_query($conn,$sql);
+                                    if($row =mysqli_fetch_array($consulta)){
+                                        $var1=$row["id_usuario"];
 
                                     $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta,creado_Por) VALUES ('$pregunta','$userr1') ");
-
-                                    $insertarUno=$conn->query("INSERT INTO   tbl_pregunta_x_usuario(respuesta,id_pregunta) VALUES ('$repuesta', '$conn->insert_id' ) ");
+                                    $insertarUno=$conn->query("INSERT INTO   tbl_pregunta_x_usuario(respuesta,id_pregunta,id_usuario) VALUES ('$repuesta', '$conn->insert_id','$var1') ");
                                     
                                     $resultado1 = $conn ->query($sqluser3);
-                                   
-
-                                                
+                                     
                                               if($resultado1 > 0){
                                                 echo"<script>
                                                 alert('exito ');
@@ -35,6 +34,12 @@
                                                     
                                                     </script  >";
                                               }
+                                              
+                                              }
+                                              else{"<script>
+                                                alert(' no existe');
+                                                
+                                                </script  >";}
                                             }
                                             
                                            
@@ -128,7 +133,7 @@
 
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
                  
-
+            
 
 
       <div >        
