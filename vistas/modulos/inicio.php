@@ -43,6 +43,7 @@
         </select> registros por página</label></div></div>
         <div class="row">
         <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
+        <label for="Buscar">Buscar</label>
         <label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
     
        <div class="box-body">
