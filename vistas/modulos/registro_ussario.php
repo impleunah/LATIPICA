@@ -217,7 +217,7 @@
        
         <label for="Ncontraa">Nueva Contraseña</label>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Ingresar Contraseña"required pattern="[A-Za-z0-9*-_$%&/()=?.¿!¡]{5,40}"
+        <input type="password" class="form-control" placeholder="Ingresar Contraseña"  name="Ingresar_Contraseña"  required pattern="[A-Za-z0-9*-_$%&/()=?.¿!¡]{5,40}"
          title="1 Mayuscula, 1 Minuscula, 1 Caracter Especial. Tamaño mínimo: 5. Tamaño máximo: 40">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
