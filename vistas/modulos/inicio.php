@@ -41,7 +41,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         <div class="panel panel-success" style="background-color: #A5C9DE ">
 			  <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
 				<input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
-				<a target="_blank" href="javascript:reportePDF();"style="background:#FF4233 ;" class="btn btn-primary">Generar Reporte</a>
+				<a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">Generar Reporte</a>
 				</center>
 			</form>
 
@@ -91,10 +91,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <td><?php echo $mostar['correo_electronico']?></td>
                 <td><?php echo $mostar['estado_usuario']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
-                <td><div class="btn-group">
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                  </div>
+                <td><a class="btn btn-primary"  style="background:#F8A22D ;"><i class="fa fa-pencil" href="vistas/modulos/editar_usuarios.php"></i></a>
                 </td>
                </tr>
                <?php
@@ -221,11 +218,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
         <button type="submit" class="btn btn-primary" data-dismiss="modal" name="enviar1">Guardar Usuario</button>
       </div>
-      <?php
-	
-					include("modelos/editar_usuarios.php");
-			
-				?>
+      
 						
       <?php 
         $crearUsuario = new ControladorUsuarios();
