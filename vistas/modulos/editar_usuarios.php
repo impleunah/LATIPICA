@@ -10,25 +10,24 @@
 	$conn = new mysqli($servername, $username, $password, $dbname);
       if($conn->connect_error){
         die("Conexión fallida: ".$conn->connect_error);
-      
-
+ 
+      }
             if (isset($_POST["actualizar"])){
 			  $userid = $_POST['id_usuario'];
 			  $Nombre = $_POST['Nombre_Usuario'];
 			  $rol =  $_POST['id_rol'];
-              $correo =  $_POST['correo_electronico'];
-              $estado = $_POST['estado_usuario'];
+        $correo = $_POST['correo_electronico'];
+        $estado = $_POST['estado_usuario'];
                    
             
-                    $sqluser = "UPDATE tbl_usuario SET 
+          $sqluser = "UPDATE tbl_usuario SET 
 					Nombre_Usuario=$Nombre, 
 					id_rol=$rol,
 					correo_electronico=$correo,
 					estado_usuario=$estado,
-					WHERE id_usuario = '$userid'";
+					WHERE id_usuario =$userid";
 
-
-                    $resultado = $conn -> query($sqluser);          
+         $resultado = $conn -> query($sqluser);          
             }
 ?>
 
@@ -129,11 +128,11 @@
             }
           </script>
           <script>
-          function soloLetras(e){
-          key = e.keyCode || e.which;
-          tecla = String.fromCharCode(key).toLowerCase();
-          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-          especiales = "8-37-39-46";
+          //function soloLetras(e){
+         // key = e.keyCode || e.which;
+          //tecla = String.fromCharCode(key).toLowerCase();
+          //letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+          //especiales = "8-37-39-46";
         
           tecla_especial = false
           for(var i in especiales){

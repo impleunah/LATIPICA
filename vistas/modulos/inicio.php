@@ -91,7 +91,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <td><?php echo $mostar['correo_electronico']?></td>
                 <td><?php echo $mostar['estado_usuario']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
-                <td><a class="btn btn-primary"  style="background:#F8A22D ;"><i class="fa fa-pencil" href="vistas/modulos/editar_usuarios.php"></i></a>
+                <td><a class="btn btn-primary"  style="background:#FE9227   ;"href="vistas/modulos/editar_usuarios.php">actualizar </a>
                 </td>
                </tr>
                <?php
