@@ -1,4 +1,18 @@
 
+<?php
+$servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "latipica1";
+  
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+    if($conn->connect_error){
+      die("Conexión fallida: ".$conn->connect_error);
+    }
+?>
+
+  
   <div class="content-wrapper">
 
   
@@ -21,73 +35,72 @@
         <a class="btn btn-primary"  style="background:#2A9BDC  ;" href="vistas/modulos/registro_ussario.php">
           Agregar Usuario
        </a>
-<form>
-<h1><center>
-         Usuarios
-        </center>
-      </h1>
-				<center><div class="panel panel-success" style="background-color: #A5C9DE ">
-			      <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
-				  <input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
-				  <a target="_blank" href="javascript:reportePDF();"style="background:#FF4233 ;" class="btn btn-primary">Generar Reporte</a>
+       </div>
+        <form>
+				<center>
+        <div class="panel panel-success" style="background-color: #A5C9DE ">
+			  <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
+				<input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
+				<a target="_blank" href="javascript:reportePDF();"style="background:#FF4233 ;" class="btn btn-primary">Generar Reporte</a>
 				</center>
 			</form>
+
       <div class="row">
       <div class="col-sm-6">
       <div class="dataTables_length" id="tableListar_length">
-      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" ><
-        option value="10">10</option>
+      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" >
+        <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>
         <option value="100">100</option>
-        </select> registros por página</label></div></div>
+        </select> registros por página</label></div></div></div>
+
         <div class="row">
         <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
         <label for="Buscar"> Buscar </label>
-        <label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
+        <label><input type="search" class="form-control input-sm" 
+         placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
     
+      </form>
+
        <div class="box-body">
-
-          <div class="table-responsive">
-
-          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-
-                    <div class="row">
-                      <div class="col-sm-12">
-                <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+       <div class="table-responsive">
+       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                 
             <thead>
-              <tr role="row"><th style="width: 9.91319px;" 
-              class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: Activar para ordenar la columna de manera descendente">#</th><th
-               class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: Activar para ordenar la columna de manera ascendente" style="width: 125.469px;">
-              Nombre</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Usuario: Activar para ordenar la columna de manera ascendente" style="width: 108.802px;">
-              Usuario</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Foto: Activar para ordenar la columna de manera ascendente" style="width: 73.2465px;">
-              Correo</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Tipo de Usuario: Activar para ordenar la columna de manera ascendente" style="width: 188.802px;">
-              Rol</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Estado: Activar para ordenar la columna de manera ascendente" style="width: 97.691px;">
-              Estado</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ultimo login: Activar para ordenar la columna de manera ascendente" style="width: 185.469px;">
-              Ultimo login</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Acciones: Activar para ordenar la columna de manera ascendente" style="width: 118.681px;">
-              Acciones</th></tr>
+              <tr>
+              <th style="width:8px">#</th>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Correo</th>
+                <th>Estado</th>
+                <th>Fecha de creacion </th>
+                <th>Acciones</th>
+              </tr>
             </thead>
             <tbody>
-              
-            <tr role="row" class="odd">
+            <?php
+      $sql="SELECT id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion FROM tbl_usuario";
+      $resultado=$conn-> query ($sql);
+      while ($mostar=mysqli_fetch_array($resultado)){
+      ?>
+            <tr>
                 <td class="sorting_1"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td></td>
-                <td>
-                  
-                  <div class="btn-group">
+                <td> <?php echo $mostar['Nombre_Usuario']?></td>
+                <td><?php echo $mostar['id_rol']?></td>
+                <td><?php echo $mostar['correo_electronico']?></td>
+                <td><?php echo $mostar['estado_usuario']?></td>
+                <td><?php echo $mostar['fecha_creacion']?></td>
+                <td><div class="btn-group">
                     <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                     <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                   </div>
-
                 </td>
-
-              </tr></tbody>
+               </tr>
+               <?php
+               }
+            ?>
+            </tbody>
         </div>
 
         <!-- /.box-body -->
