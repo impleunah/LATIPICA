@@ -1,17 +1,18 @@
 <?php 
 require "../../modelos/conexion2.php";
 require 'PHPMailer/PHPMailerAutoload.php';
-  //$sqluser = "SELECT Nombre_Usuario from usuarios";
-  //$nombre=$conn-> query ($sqluser);
+  $sqluser = "SELECT Nombre_Usuario from usuarios";
+  $nombre=$conn-> query ($sqluser);
 
 if (isset($_POST["ENVIAR"]))
 {
-  $correo = $_POST['txtCorreoElectronico'];
-  $sqluser = "SELECT correo_electronico from usuarios where correo_electronico='$correo'";
-  $resultado=$conn-> query ($sqluser);
-  $filas  = $resultado -> num_rows;
-    if($filas > 0){
 
+  $correo = $_POST['txtCorreoelectronico'];
+  $sqluser = "SELECT correo_electronico from tbl_usuario where correo_electronico='$correo'";
+  $resultado=$conn-> query ($sqluser);
+  $filas= $resultado-> num_rows;
+
+    if($filas > 0){
     $mail=new PHPMailer(); 
     $mail->isSMTP();  
 
@@ -23,13 +24,13 @@ if (isset($_POST["ENVIAR"]))
             $mail->Password = 'LATIPICAHN20'; //Modificar               //smtp port
             $mail->setFrom('latipicahn20@gmail.com', 'Condimentos La Tipica');
             $mail->addAddress ($correo);
-            $url = "../modulos/cambiarcontra.php";
+            $url = "http://localhost/LATIPICA/vistas/modulos/preguntacorreo.php";
             $mail->Subject = 'Recuperación de contraseña - Condimentos la tipica';
-            $mail->Body    =  "Hola  : <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>$url</a>";;
+            $mail->Body    =  "Hola : <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>$url</a>";;
             $mail->isHTML(true);
 
             echo"<script>
-            alert('CAFFDSHFJH');
+            alert('Correo enviado...!!!! Porfavor Verifique su correo ');
       
             </script>";
 
@@ -154,7 +155,7 @@ if (isset($_POST["ENVIAR"]))
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
     <label for="Contracorreo">Ingrese Su Correo</label><br>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Ingrese su Correo" name= "txtCorreoElectronico">
+        <input type="text" class="form-control" placeholder="Ingrese su Correo" name= "txtCorreoelectronico">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <br>

@@ -1,13 +1,24 @@
 
+<?php
+$servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "latipica1";
+  
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+    if($conn->connect_error){
+      die("Conexión fallida: ".$conn->connect_error);
+    }
+?>
 
-
+  
   <div class="content-wrapper">
 
   
     <section class="content-header">
       <h1>
-        Administrar Usuarios
+        Mantenimiento de Usuario
 
       </h1>
 
@@ -16,22 +27,78 @@
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         
         <li class="active">Administrar Usuarios</li>
-
       </ol>
-
     </section>
-
-
     <section class="content">
-
       <div class="box">
-
         <div class="box-header with-border">
-
-        <a class="btn btn-primary"  href="vistas/modulos/registro_ussario.php">
+        <a class="btn btn-primary"  style="background:#2A9BDC  ;" href="vistas/modulos/registro_ussario.php">
           Agregar Usuario
-
        </a>
+       </div>
+        <form>
+				<center>
+        <div class="panel panel-success" style="background-color: #A5C9DE ">
+			  <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
+				<input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
+				<a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">Generar Reporte</a>
+				</center>
+			</form>
+
+      <div class="row">
+      <div class="col-sm-6">
+      <div class="dataTables_length" id="tableListar_length">
+      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" >
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        </select> registros por página</label></div></div></div>
+
+        <div class="row">
+        <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
+        <label for="Buscar"> Buscar </label>
+        <label><input type="search" class="form-control input-sm" 
+         placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
+    
+      </form>
+
+       <div class="box-body">
+       <div class="table-responsive">
+       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                
+            <thead>
+              <tr>
+              <th style="width:8px">#</th>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Correo</th>
+                <th>Estado</th>
+                <th>Fecha de creacion </th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php
+      $sql="SELECT id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion FROM tbl_usuario";
+      $resultado=$conn-> query ($sql);
+      while ($mostar=mysqli_fetch_array($resultado)){
+      ?>
+            <tr>
+                <td class="sorting_1"></td>
+                <td> <?php echo $mostar['Nombre_Usuario']?></td>
+                <td><?php echo $mostar['id_rol']?></td>
+                <td><?php echo $mostar['correo_electronico']?></td>
+                <td><?php echo $mostar['estado_usuario']?></td>
+                <td><?php echo $mostar['fecha_creacion']?></td>
+                <td><a class="btn btn-primary"  style="background:#FE9227   ;"href="vistas/modulos/editar_usuarios.php">actualizar </a>
+                </td>
+               </tr>
+               <?php
+               }
+            ?>
+            </tbody>
+        </div>
 
         <!-- /.box-body -->
       </div>
@@ -47,8 +114,9 @@
 
   <! -- Modal -->
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
+
   
-  <div class="modal-dialog">
+ <!-- <div class="modal-dialog">-->
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -68,19 +136,21 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
+          
+
             <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Ingresar Usuario" required>
             
           </div>
           
          
           </div>
-         
+          <label for="NUserioo">Correo Electronico</label>
           <div class="form-group">
    
           <div class="input-group">
       
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
-       
+           
             <input type="text" class="form-control input-lg" name="Correo Electronico" placeholder="Correo Electronico" required>
           </div>
           
@@ -91,6 +161,7 @@
           
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="text" size="15" maxlength="5" value="Contraaa" name="Igresar Contraseña">
             <input type="password" class="form-control input-lg" name="Ingresar Contraseña" placeholder="Ingresar Contraseña" required>
           </div><br> 
 
@@ -129,11 +200,6 @@
               <option value="Mascota">Nombre de su primera mascota?</option>
               <option value="Amigo">Mejor amigo de la infancia?</option>
 
-
-              
-              
-              
-
             </select>
             
         
@@ -152,6 +218,8 @@
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
         <button type="submit" class="btn btn-primary" data-dismiss="modal" name="enviar1">Guardar Usuario</button>
       </div>
+      
+						
       <?php 
         $crearUsuario = new ControladorUsuarios();
         $crearUsuario -> ctrCrearUsuario();

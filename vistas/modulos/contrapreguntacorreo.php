@@ -2,24 +2,20 @@
  require "../../modelos/conexion2.php";
   IF (isset($_POST["enviar"])){
     
-    $contra =  $_POST['contraa'];
-    $user =  strtoupper($_POST['usuario']);
+    
+    $user =  $_POST['usuario'];
     $ncontra = $_POST['ncontra'];
     $rcontra =  $_POST['rcontra'];
-    $validarcontra = "SELECT  Contraseña from tbl_usuario WHERE Contraseña = '$contra'";
     $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
     $resultado = $conn -> query($sqluser);
     $filas = $resultado -> num_rows;
-    $contraseña = "SELECT Contraseña from tbl_usuario  WHERE Contraseña = '$contra' ";
-    $resultado2  = $conn -> query($contraseña);
-    $filas2  = $resultado2 -> num_rows;
-    if($filas2 > 0){
+   
+    
     if($rcontra == $ncontra){
             if($filas > 0){
-              $sqluser = "UPDATE tbl_usuario SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
+              $sqluser = "UPDATE tbl_usuario SET Contraseña ='$ncontra' WHERE  Contraseña = Contraseña  ";
               $resultado = $conn ->query($sqluser);
-              if($contra  !=$contra)
-              print("Contraseña Actual Incorrecta");
+             
 
                           
                         if($resultado > 0){
@@ -49,17 +45,7 @@
                       alert('Las dos claves son distintas');
                       </script>";
                     }
-                }else{   print"<script>
-                  alert('Las Contraseña Actual es Incorrecta');
-                  </script >";
                 }
-    }
-
-                
-          
-
-
-  
 
 ?>
 
@@ -130,68 +116,64 @@
   </div>
 
  <div class="register-box-body">
-    <p class="login-box-msg">Cambio de Contraseña</p>
+    <p class="login-box-msg">Cambio de Contraseña1</p>
 
     <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
-
-                  <script language="javascript">
-
-              function aaa(campo, event) {
-
-                      CadenaaReemplazar = " ";
-                      CadenaReemplazo = "";
-                      CadenaTexto = campo.value;
-                      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
-                      campo.value = CadenaTextoNueva;
-
-                }
-
-              </script>
+                 
 
 
-
-              <script>
-              function soloLetras(e){
-              key = e.keyCode || e.which;
-              tecla = String.fromCharCode(key).toLowerCase();
-              letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-              especiales = "8-37-39-46";
-
-              tecla_especial = false
-              for(var i in especiales){
-                    if(key == especiales[i]){
-                        tecla_especial = true;
-                        break;
-                    }
-                }
-
-                if(letras.indexOf(tecla)==-1 && !tecla_especial){
-                    return false;
-                }
-              }
-              </script>
-
-       <label for="Usuariocambio">Usuario</label>
-
+    <label for="uSUARIO22">Usuario</label><br>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario" name="usuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();>
+        <input type="text" class="form-control" placeholder="Usuario" name="usuario"  required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      <label for="ConActual">Contraseña Actual</label>
+                <script language="javascript">
+
+          function aaa(campo, event) {
+
+                  CadenaaReemplazar = " ";
+                  CadenaReemplazo = "";
+                  CadenaTexto = campo.value;
+                  CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+                  campo.value = CadenaTextoNueva;
+
+            }
+
+          </script>
+
+
+
+          <script>
+          function soloLetras(e){
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toLowerCase();
+          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+          especiales = "8-37-39-46";
+
+          tecla_especial = false
+          for(var i in especiales){
+                if(key == especiales[i]){
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if(letras.indexOf(tecla)==-1 && !tecla_especial){
+                return false;
+            }
+          }
+          </script>
+          <label for="Ncontraseña1">Nueva Contraseña</label><br>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña actual" name="contraa" onkeyup="aaa(this, event)" required>
+        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra"  onkeyup="aaa(this, event)" required> 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <label for="NContra">Nueva Contraseña</label>
+      <label for="Repetir">Repetir Contraseña</label><br>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="ncontra" onkeyup="aaa(this, event)" required> 
+        <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra"  onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <label for="Repetir">Repetir Contraseña</label>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Repetir Contraseña" name="rcontra" onkeyup="aaa(this, event)" required>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
+   
         <!-- /.col -->
         <div class center="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat" name="enviar">Cambiar</button>
@@ -202,7 +184,9 @@
         <!-- /.col -->
            
            <a href="../../index.php" class="text-center">Cancelar </a>
-    </form>  
+    </form>
+  
+ 
   </div>
   <!-- /.form-box -->
 </div>
@@ -210,6 +194,3 @@
 
 </body>
 </html>
-
-
-
