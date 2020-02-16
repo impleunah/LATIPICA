@@ -1,5 +1,7 @@
 <?php
 
+
+
 $servername = "localhost";
     $username = "root";
   	$password = "";
@@ -17,21 +19,25 @@ cLass ControladorUsuarios
 	static public function ctrIngresoUsuario()
 	{
 		
+		
 	if(isset($_POST["ingUsuario"]))
 		{
+			
+	
 
 		if (preg_match('/^[a-zA-Z0-9]+$/', strtoupper($_POST["ingUsuario"])) &&
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"]))
 			
-
+			
 				$tabla = "tbl_usuario";
 
 				$item = "Nombre_Usuario";
 				$valor = strtoupper($_POST["ingUsuario"]);
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-				
+		
 				$var=$_POST["ingUsuario"];
+
 				$_SESSION['u']=$_POST["ingUsuario"];
 				if ($respuesta["Nombre_Usuario"] == strtoupper($_POST["ingUsuario"]) && $respuesta["Contraseña"] == $_POST["ingPassword"])
 				{
@@ -48,27 +54,62 @@ cLass ControladorUsuarios
 											window.location = 'vistas/modulos/a.php';
 											</script>";
 										}
-										else{
-											$_SESSION["iniciarSesion"] = "ok";
+										else {
+										($_SESSION["iniciarSesion"] = "ok") ;
 
-											echo '<script>
-											Swal.fire({
-												type: "success",
-												title: "!Bienvenido al Sistema!",
-												showConfirmButton: "true",
-												confirmButtonText: "Entrar",
-												closeOnConfirm: "false"
+										
+									  date_default_timezone_set('America/El_Salvador');
+										$tabla= "tbl_usuario";							
+									   $fecha= date ("Y-m-d H:i:s");
+									   $item1 = "ultima_conexion";
+									   $valor1= $fecha;
+						
+									   $item2 ="Nombre_Usuario";
+									   $valor2 = $respuesta["Nombre_Usuario"] ;
+				
+									   $fecha_actual= ModeloUsuarios ::mdlActualizarfecha($tabla,$item1,$valor1,$item2,$valor2);
+		  
+									   if ($fecha_actual== "ok"){
+		  
+										echo '<script>
+										Swal.fire({
+										   type: "success",
+										   title: "!Bienvenido al Sistema!",
+										   showConfirmButton: "true",
+										   confirmButtonText: "Entrar",
+										   closeOnConfirm: "false"
+								   
+										  }).then((result)=>{
+										   
+										   if (result.value){
+
+											   window.location = "inicio";
+										   }
+									   });
+									   </script>';
+		  
+									   }
+
+									
+{
+					                            
+
+				}
+
+
 											
-											}).then((result)=>{
 												
-												if (result.value){
 
-													window.location = "inicio";
-												}
-											});
-											</script>';
+
+											}
+											
+											
+
+										
+	
 
 										}
+										
   								}
 												
 												}
@@ -94,7 +135,10 @@ cLass ControladorUsuarios
 			}
 		
 	}
-	}
+
+	
+
+?>
 
 
 		

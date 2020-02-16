@@ -75,12 +75,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <th>Correo</th>
                 <th>Estado</th>
                 <th>Fecha de creacion </th>
+                <th>Ultima Conexion</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
             <?php
-      $sql="SELECT id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion FROM tbl_usuario";
+      $sql="SELECT id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion,ultima_conexion FROM tbl_usuario";
       $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
@@ -91,6 +92,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <td><?php echo $mostar['correo_electronico']?></td>
                 <td><?php echo $mostar['estado_usuario']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
+                <td><?php echo $mostar['ultima_conexion']?></td>
                 <td><a class="btn btn-primary"  style="background:#FE9227   ;"href="vistas/modulos/editar_usuarios.php">actualizar </a>
                 </td>
                </tr>
@@ -222,7 +224,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 						
       <?php 
         $crearUsuario = new ControladorUsuarios();
-        $crearUsuario -> ctrCrearUsuario();
+      //  $crearUsuario -> ctrCrearUsuario();
 
        ?>
 
