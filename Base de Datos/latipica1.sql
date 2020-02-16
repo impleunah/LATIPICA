@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-02-2020 a las 08:27:49
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Host: 127.0.0.1
+-- Generation Time: Feb 11, 2020 at 09:08 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `latipica1`
+-- Database: `latipica1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_bitacoras`
+-- Table structure for table `tbl_bitacoras`
 --
 
 CREATE TABLE `tbl_bitacoras` (
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_bitacoras` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_cai`
+-- Table structure for table `tbl_cai`
 --
 
 CREATE TABLE `tbl_cai` (
@@ -54,7 +54,7 @@ CREATE TABLE `tbl_cai` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_cliente`
+-- Table structure for table `tbl_cliente`
 --
 
 CREATE TABLE `tbl_cliente` (
@@ -69,7 +69,7 @@ CREATE TABLE `tbl_cliente` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_detallefactura`
+-- Table structure for table `tbl_detallefactura`
 --
 
 CREATE TABLE `tbl_detallefactura` (
@@ -86,7 +86,7 @@ CREATE TABLE `tbl_detallefactura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_detalleorden`
+-- Table structure for table `tbl_detalleorden`
 --
 
 CREATE TABLE `tbl_detalleorden` (
@@ -99,7 +99,7 @@ CREATE TABLE `tbl_detalleorden` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_facturas`
+-- Table structure for table `tbl_facturas`
 --
 
 CREATE TABLE `tbl_facturas` (
@@ -115,7 +115,7 @@ CREATE TABLE `tbl_facturas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_lote`
+-- Table structure for table `tbl_lote`
 --
 
 CREATE TABLE `tbl_lote` (
@@ -128,7 +128,7 @@ CREATE TABLE `tbl_lote` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_ordendecompra`
+-- Table structure for table `tbl_ordendecompra`
 --
 
 CREATE TABLE `tbl_ordendecompra` (
@@ -141,7 +141,7 @@ CREATE TABLE `tbl_ordendecompra` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_pantallas`
+-- Table structure for table `tbl_pantallas`
 --
 
 CREATE TABLE `tbl_pantallas` (
@@ -158,7 +158,7 @@ CREATE TABLE `tbl_pantallas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_parametros`
+-- Table structure for table `tbl_parametros`
 --
 
 CREATE TABLE `tbl_parametros` (
@@ -172,7 +172,7 @@ CREATE TABLE `tbl_parametros` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_preguntas`
+-- Table structure for table `tbl_preguntas`
 --
 
 CREATE TABLE `tbl_preguntas` (
@@ -187,7 +187,7 @@ CREATE TABLE `tbl_preguntas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_pregunta_x_usuario`
+-- Table structure for table `tbl_pregunta_x_usuario`
 --
 
 CREATE TABLE `tbl_pregunta_x_usuario` (
@@ -199,7 +199,7 @@ CREATE TABLE `tbl_pregunta_x_usuario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_productos`
+-- Table structure for table `tbl_productos`
 --
 
 CREATE TABLE `tbl_productos` (
@@ -214,7 +214,7 @@ CREATE TABLE `tbl_productos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_roles`
+-- Table structure for table `tbl_roles`
 --
 
 CREATE TABLE `tbl_roles` (
@@ -228,7 +228,7 @@ CREATE TABLE `tbl_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `tbl_roles`
+-- Dumping data for table `tbl_roles`
 --
 
 INSERT INTO `tbl_roles` (`id_rol`, `rol`, `descripcion`, `fecha_creacion`, `creado_por`, `fecha_modificacion`, `modificado_por`) VALUES
@@ -237,7 +237,7 @@ INSERT INTO `tbl_roles` (`id_rol`, `rol`, `descripcion`, `fecha_creacion`, `crea
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_roles_objeto`
+-- Table structure for table `tbl_roles_objeto`
 --
 
 CREATE TABLE `tbl_roles_objeto` (
@@ -258,7 +258,7 @@ CREATE TABLE `tbl_roles_objeto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_telefono`
+-- Table structure for table `tbl_telefono`
 --
 
 CREATE TABLE `tbl_telefono` (
@@ -271,7 +271,7 @@ CREATE TABLE `tbl_telefono` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_tipotelefono`
+-- Table structure for table `tbl_tipotelefono`
 --
 
 CREATE TABLE `tbl_tipotelefono` (
@@ -282,7 +282,7 @@ CREATE TABLE `tbl_tipotelefono` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_usuario`
+-- Table structure for table `tbl_usuario`
 --
 
 CREATE TABLE `tbl_usuario` (
@@ -305,18 +305,18 @@ CREATE TABLE `tbl_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `tbl_usuario`
+-- Dumping data for table `tbl_usuario`
 --
 
 INSERT INTO `tbl_usuario` (`id_usuario`, `id_rol`, `Nombre_Usuario`, `estado_usuario`, `Contraseña`, `intentos`, `token_password`, `password_request`, `ultima_conexion`, `fecha_creacion`, `correo_electronico`, `fecha_modificacion`, `modificado_por`, `dias_expirado`, `fecha_expira`, `fecha_cambio_contrasena`) VALUES
-(1, 1, 'karla', 'activo', '123', NULL, NULL, NULL, '2020-02-11 00:16:43', '2020-02-11 00:14:44', 'patienamorado0324@gmail.com', '2020-02-11 00:16:43', NULL, NULL, NULL, NULL);
+(7, NULL, 'MARVIN', 'ACTIVO', '2891', NULL, NULL, NULL, '2020-02-11 14:06:34', '2020-02-11 13:55:41', NULL, '2020-02-11 14:06:34', NULL, NULL, NULL, NULL);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `tbl_bitacoras`
+-- Indexes for table `tbl_bitacoras`
 --
 ALTER TABLE `tbl_bitacoras`
   ADD PRIMARY KEY (`id_bitacora`),
@@ -324,21 +324,21 @@ ALTER TABLE `tbl_bitacoras`
   ADD KEY `id_objeto` (`id_objeto`);
 
 --
--- Indices de la tabla `tbl_cai`
+-- Indexes for table `tbl_cai`
 --
 ALTER TABLE `tbl_cai`
   ADD PRIMARY KEY (`id_cai`),
   ADD KEY `fk_tbl_cai_tbl_facturas_idx` (`nu_factura`,`cai`);
 
 --
--- Indices de la tabla `tbl_cliente`
+-- Indexes for table `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   ADD PRIMARY KEY (`id_cliente`),
   ADD KEY `Id_telefono` (`Id_telefono`);
 
 --
--- Indices de la tabla `tbl_detallefactura`
+-- Indexes for table `tbl_detallefactura`
 --
 ALTER TABLE `tbl_detallefactura`
   ADD PRIMARY KEY (`id_detalle`),
@@ -346,14 +346,14 @@ ALTER TABLE `tbl_detallefactura`
   ADD KEY `Id_factura` (`Id_factura`);
 
 --
--- Indices de la tabla `tbl_detalleorden`
+-- Indexes for table `tbl_detalleorden`
 --
 ALTER TABLE `tbl_detalleorden`
   ADD PRIMARY KEY (`id_detalleorden`),
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indices de la tabla `tbl_facturas`
+-- Indexes for table `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   ADD PRIMARY KEY (`id_factura`),
@@ -361,13 +361,13 @@ ALTER TABLE `tbl_facturas`
   ADD KEY `fk_tbl_facturas_tbl_cai_idx` (`id_cai`);
 
 --
--- Indices de la tabla `tbl_lote`
+-- Indexes for table `tbl_lote`
 --
 ALTER TABLE `tbl_lote`
   ADD PRIMARY KEY (`id_lote`);
 
 --
--- Indices de la tabla `tbl_ordendecompra`
+-- Indexes for table `tbl_ordendecompra`
 --
 ALTER TABLE `tbl_ordendecompra`
   ADD PRIMARY KEY (`id_ordencompra`),
@@ -375,14 +375,14 @@ ALTER TABLE `tbl_ordendecompra`
   ADD KEY `id_detalle` (`id_detalleorden`);
 
 --
--- Indices de la tabla `tbl_pantallas`
+-- Indexes for table `tbl_pantallas`
 --
 ALTER TABLE `tbl_pantallas`
   ADD PRIMARY KEY (`id_objeto`),
   ADD KEY `fk_tbl_pantallas_tbl_roles_objeto_idx` (`id_objeto`,`objeto`);
 
 --
--- Indices de la tabla `tbl_parametros`
+-- Indexes for table `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
   ADD PRIMARY KEY (`id_parametro`),
@@ -390,13 +390,13 @@ ALTER TABLE `tbl_parametros`
   ADD KEY `id_Usuario_2` (`id_Usuario`);
 
 --
--- Indices de la tabla `tbl_preguntas`
+-- Indexes for table `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
   ADD PRIMARY KEY (`id_pregunta`);
 
 --
--- Indices de la tabla `tbl_pregunta_x_usuario`
+-- Indexes for table `tbl_pregunta_x_usuario`
 --
 ALTER TABLE `tbl_pregunta_x_usuario`
   ADD KEY `fk_tbl_preg_resp_usu_tbl_preguntas_idx` (`id_pregunta`) USING BTREE,
@@ -404,14 +404,14 @@ ALTER TABLE `tbl_pregunta_x_usuario`
   ADD KEY `fk_tbl_preg_resp_usu_tbl_usuario_idx` (`id_usuario`) USING BTREE;
 
 --
--- Indices de la tabla `tbl_productos`
+-- Indexes for table `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_lote` (`id_lote`);
 
 --
--- Indices de la tabla `tbl_roles`
+-- Indexes for table `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
   ADD PRIMARY KEY (`id_rol`),
@@ -420,7 +420,7 @@ ALTER TABLE `tbl_roles`
   ADD KEY `rol` (`rol`);
 
 --
--- Indices de la tabla `tbl_roles_objeto`
+-- Indexes for table `tbl_roles_objeto`
 --
 ALTER TABLE `tbl_roles_objeto`
   ADD PRIMARY KEY (`id_permiso`),
@@ -429,20 +429,20 @@ ALTER TABLE `tbl_roles_objeto`
   ADD KEY `fk_tbl_roles_objeto_tbl_pantallas_idx` (`id_objeto`) USING BTREE;
 
 --
--- Indices de la tabla `tbl_telefono`
+-- Indexes for table `tbl_telefono`
 --
 ALTER TABLE `tbl_telefono`
   ADD PRIMARY KEY (`id_telefono`),
   ADD KEY `id_tipotelefono` (`id_tipotelefono`);
 
 --
--- Indices de la tabla `tbl_tipotelefono`
+-- Indexes for table `tbl_tipotelefono`
 --
 ALTER TABLE `tbl_tipotelefono`
   ADD PRIMARY KEY (`id_tipotelefono`);
 
 --
--- Indices de la tabla `tbl_usuario`
+-- Indexes for table `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
   ADD PRIMARY KEY (`id_usuario`),
@@ -452,188 +452,188 @@ ALTER TABLE `tbl_usuario`
   ADD KEY `fk_tbl_usuario_tbl_bitacoras_idx` (`id_usuario`) USING BTREE;
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `tbl_bitacoras`
+-- AUTO_INCREMENT for table `tbl_bitacoras`
 --
 ALTER TABLE `tbl_bitacoras`
   MODIFY `id_bitacora` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2017;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_cai`
+-- AUTO_INCREMENT for table `tbl_cai`
 --
 ALTER TABLE `tbl_cai`
   MODIFY `id_cai` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_cliente`
+-- AUTO_INCREMENT for table `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_detallefactura`
+-- AUTO_INCREMENT for table `tbl_detallefactura`
 --
 ALTER TABLE `tbl_detallefactura`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_detalleorden`
+-- AUTO_INCREMENT for table `tbl_detalleorden`
 --
 ALTER TABLE `tbl_detalleorden`
   MODIFY `id_detalleorden` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_facturas`
+-- AUTO_INCREMENT for table `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_lote`
+-- AUTO_INCREMENT for table `tbl_lote`
 --
 ALTER TABLE `tbl_lote`
   MODIFY `id_lote` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_ordendecompra`
+-- AUTO_INCREMENT for table `tbl_ordendecompra`
 --
 ALTER TABLE `tbl_ordendecompra`
   MODIFY `id_ordencompra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_pantallas`
+-- AUTO_INCREMENT for table `tbl_pantallas`
 --
 ALTER TABLE `tbl_pantallas`
   MODIFY `id_objeto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_parametros`
+-- AUTO_INCREMENT for table `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
   MODIFY `id_parametro` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_preguntas`
+-- AUTO_INCREMENT for table `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
   MODIFY `id_pregunta` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_productos`
+-- AUTO_INCREMENT for table `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_roles`
+-- AUTO_INCREMENT for table `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
   MODIFY `id_rol` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_roles_objeto`
+-- AUTO_INCREMENT for table `tbl_roles_objeto`
 --
 ALTER TABLE `tbl_roles_objeto`
   MODIFY `id_permiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_telefono`
+-- AUTO_INCREMENT for table `tbl_telefono`
 --
 ALTER TABLE `tbl_telefono`
   MODIFY `id_telefono` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_tipotelefono`
+-- AUTO_INCREMENT for table `tbl_tipotelefono`
 --
 ALTER TABLE `tbl_tipotelefono`
   MODIFY `id_tipotelefono` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tbl_usuario`
+-- AUTO_INCREMENT for table `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `tbl_bitacoras`
+-- Constraints for table `tbl_bitacoras`
 --
 ALTER TABLE `tbl_bitacoras`
   ADD CONSTRAINT `tbl_bitacoras_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
--- Filtros para la tabla `tbl_cliente`
+-- Constraints for table `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   ADD CONSTRAINT `tbl_cliente_ibfk_1` FOREIGN KEY (`Id_telefono`) REFERENCES `tbl_telefono` (`id_telefono`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `tbl_detallefactura`
+-- Constraints for table `tbl_detallefactura`
 --
 ALTER TABLE `tbl_detallefactura`
   ADD CONSTRAINT `tbl_detallefactura_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tbl_productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_detallefactura_ibfk_2` FOREIGN KEY (`Id_factura`) REFERENCES `tbl_facturas` (`id_factura`);
 
 --
--- Filtros para la tabla `tbl_detalleorden`
+-- Constraints for table `tbl_detalleorden`
 --
 ALTER TABLE `tbl_detalleorden`
   ADD CONSTRAINT `tbl_detalleorden_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `tbl_productos` (`id_producto`);
 
 --
--- Filtros para la tabla `tbl_facturas`
+-- Constraints for table `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   ADD CONSTRAINT `tbl_facturas_ibfk_1` FOREIGN KEY (`id_cai`) REFERENCES `tbl_cai` (`id_cai`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_facturas_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`);
 
 --
--- Filtros para la tabla `tbl_ordendecompra`
+-- Constraints for table `tbl_ordendecompra`
 --
 ALTER TABLE `tbl_ordendecompra`
   ADD CONSTRAINT `tbl_ordendecompra_ibfk_1` FOREIGN KEY (`id_detalleorden`) REFERENCES `tbl_detalleorden` (`id_detalleorden`),
   ADD CONSTRAINT `tbl_ordendecompra_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `tbl_cliente` (`id_cliente`);
 
 --
--- Filtros para la tabla `tbl_parametros`
+-- Constraints for table `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
   ADD CONSTRAINT `tbl_parametros_ibfk_1` FOREIGN KEY (`id_Usuario`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
--- Filtros para la tabla `tbl_pregunta_x_usuario`
+-- Constraints for table `tbl_pregunta_x_usuario`
 --
 ALTER TABLE `tbl_pregunta_x_usuario`
   ADD CONSTRAINT `tbl_pregunta_x_usuario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
   ADD CONSTRAINT `tbl_pregunta_x_usuario_ibfk_2` FOREIGN KEY (`id_pregunta`) REFERENCES `tbl_preguntas` (`id_pregunta`);
 
 --
--- Filtros para la tabla `tbl_productos`
+-- Constraints for table `tbl_productos`
 --
 ALTER TABLE `tbl_productos`
   ADD CONSTRAINT `tbl_productos_ibfk_1` FOREIGN KEY (`id_lote`) REFERENCES `tbl_lote` (`id_lote`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `tbl_roles_objeto`
+-- Constraints for table `tbl_roles_objeto`
 --
 ALTER TABLE `tbl_roles_objeto`
   ADD CONSTRAINT `tbl_roles_objeto_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`id_rol`),
   ADD CONSTRAINT `tbl_roles_objeto_ibfk_2` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_pantallas` (`id_objeto`);
 
 --
--- Filtros para la tabla `tbl_telefono`
+-- Constraints for table `tbl_telefono`
 --
 ALTER TABLE `tbl_telefono`
   ADD CONSTRAINT `tbl_telefono_ibfk_1` FOREIGN KEY (`id_tipotelefono`) REFERENCES `tbl_tipotelefono` (`id_tipotelefono`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `tbl_usuario`
+-- Constraints for table `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
   ADD CONSTRAINT `tbl_usuario_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`id_rol`);

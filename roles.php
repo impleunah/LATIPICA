@@ -1,8 +1,20 @@
-<?php
+<!-- 
+Copyright & copy; 2018-2019 All rights reserved.
+IA-220 Evaluacion de Sistemas
+Licda. Karla Garcia
+Elabora por:
+Carolin Varela
+Angel Zambrano
+Roger Carrillo 
+Cristian Carrasco
+Allan Matamoros
+ -->
+
+ <?php
 
 session_start();
-require "../modelos/conexion2.php";
-require '../modulos/funcs.php';
+require 'funcs/conexion.php';
+require 'funcs/funcs.php';
 
 if(($_SESSION['id_usuario'])){
  $idUsuario = $_SESSION['id_usuario'];
@@ -315,3 +327,7 @@ function reportePDF(){
         
         
 		</script>
+
+<?php 
+    require 'FOOTER.php';
+ ?>
