@@ -51,7 +51,7 @@
                     }
                 }else{   print"<script>
                   alert('Las Contraseña Actual es Incorrecta');
-                  </script >";
+                  </script>";
                 }
     }
 

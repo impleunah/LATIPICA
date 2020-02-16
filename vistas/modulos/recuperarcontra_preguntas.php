@@ -1,42 +1,3 @@
-<?php
-require "../../modelos/conexion2.php";
-IF (isset($_POST["enviarrespuestas"])){
-
-    $nombre=$_POST['usuario'];
-    $pregunta=$_POST['mod_rol'];
-    $repuesta=$_POST['ingRespuesta'];
-  
-
-    $porfin ="SELECT respuesta, Nombre_Usuario,  pregunta  from tbl_pregunta_x_usuario p
-    join tbl_usuario u   on p.id_usuario =u.id_usuario  
-    join tbl_preguntas pr on p.id_pregunta = pr.id_pregunta
-    where u.Nombre_Usuario = '$nombre' && pr.pregunta ='$pregunta' && respuesta ='$repuesta'" ;
-
-    $resultado1 = $conn -> query($porfin);
-    $filas3 = $resultado1 -> num_rows;
-  
-    if($filas3 > 0  ){
-
-
-
-       echo "<script>
-        alert('exito');
-        window.location = '../../vistas/modulos/contrapreguntacorreo.php';
-        </script  >";
-
-
-      }
-      else{
-        echo "<script>
-        alert('verifique los datos y intente de neuvo ');
-        
-        </script  >";}
-      }
-?>
-
-
-<!-- CODIGO HTML -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,111 +65,25 @@ IF (isset($_POST["enviarrespuestas"])){
   </div>
 
  <div class="register-box-body">
-    <p class="login-box-msg">Preguntas de Seguridad </p>
+ <br>
+      </br>
+    <p class="login-box-msg">Recuperacion Mediante Preguntas </p>
 
-    <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
+    <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario" name="usuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+        <input type="text" class="form-control" placeholder="Usuario">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-
-      <script language="javascript">
-
-      function aaa(campo, event) {
-
-CadenaaReemplazar = " ";
-CadenaReemplazo = "";
-CadenaTexto = campo.value;
-CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
-campo.value = CadenaTextoNueva;
-
-}
-
-</script>
-
-
-
-        <script>
-    function soloLetras(e){
-       key = e.keyCode || e.which;
-       tecla = String.fromCharCode(key).toLowerCase();
-       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-       especiales = "8-37-39-46";
-
-       tecla_especial = false
-       for(var i in especiales){
-            if(key == especiales[i]){
-                tecla_especial = true;
-                break;
-            }
-        }
-
-        if(letras.indexOf(tecla)==-1 && !tecla_especial){
-            return false;
-        }
-    }
-</script>
-
-
-<label for="mod_rol" class="col-sm-3 control-label"> Pregunta</label>
-				<div class="col-sm-14">
-				  <select title="Preguntas" class='form-control' name='mod_rol' id='mod_rol' onchange="load(1);">
-              <option value="">Seleccionar Preguntas de Seguridad</option>
-              <option value="color">Cúal es su color favorito?</option>
-              <option value="Trabajo">Cúal seria su trabajo ideal?</option>
-              <option value="Mascota">Nombre de su primera mascota?</option>
-              <option value="Amigo">Mejor amigo de la infancia?</option>				
-														</select>
-				</div>
       <br>
-
-      <div class="form-group">
-						<label for="con_respuesta" class="col-md-3 control-label" name="repuesta">Respuesta</label>
-						<div class="col-md-14">
-							<input title="Respuesta de la Pregunta"  type="text" class="form-control" name="ingRespuesta" placeholder="Escriba su Respuesta" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) ">
-            </div>
-            <script language="javascript">
-
-      function aaa(campo, event) {
-
-CadenaaReemplazar = " ";
-CadenaReemplazo = "";
-CadenaTexto = campo.value;
-CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
-campo.value = CadenaTextoNueva;
-
-}
-
-</script>
-        <script>
-    function soloLetras(e){
-       key = e.keyCode || e.which;
-       tecla = String.fromCharCode(key).toLowerCase();
-       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-       especiales = "8-37-39-46";
-
-       tecla_especial = false
-       for(var i in especiales){
-            if(key == especiales[i]){
-                tecla_especial = true;
-                break;
-            }
-        }
-
-        if(letras.indexOf(tecla)==-1 && !tecla_especial){
-            return false;
-        }
-    }
-</script>
-
-<br>
+      </br>
         <!-- /.col -->
         <div class center="col-xs-4">
-        <button type="submit" class="btn btn-primary btn-block btn-flat" name="enviarrespuestas">Enviar</button>
+        <a href="http://localhost/LATIPICA/vistas/modulos/preguntas.php " class="btn btn-primary btn-block btn-flat" style = "BACKGROUND-COLOR: green" >Preguntas de Seguridad</a>
         </div>
-    
-        <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
-
+        <br>
+      </br>
+      <a href="http://localhost/LATIPICA/vistas/modulos/recuperarcontraseña.php" class="text-center">Atras </a>
+    </form>
   
     </form>
 
