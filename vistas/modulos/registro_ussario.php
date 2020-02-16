@@ -20,8 +20,7 @@
               $correo =  $_POST['Correo_Electronico'];
               $ncontra = $_POST['Ingresar_Contraseña'];
               $rcontra =  $_POST['Repetir_Contraseña'];
-                    $pregunta =  $_POST['Preguntas'];
-                    $repuesta =  $_POST['Respuesta_seguridad'];
+                   
                     $tipo =  $_POST['TipodeUsuario'] ;
                     
                     
@@ -35,19 +34,15 @@
                     $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
                     $resultado = $conn -> query($sqluser);
                     $filas = $resultado -> num_rows;
-                    $contraseña = "SELECT  correo_electronicoa from tbl_usuario WHERE correo_electronico = '$correo'";
+                    $contraseña = "SELECT  correo_electronico from tbl_usuario WHERE correo_electronico = '$correo'";
                   
                     $resultado2  = $conn -> query($contraseña);
                     $filas2  = $resultado2 -> num_rows;
                     if($filas2 == 0){
                           if($rcontra == $ncontra){
                                   if($filas == 0){
-                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico) VALUES ('$user', '$rcontra', '$correo' ) ";                      
-                                    $resultado = mysqli_query($conn,$sqluser);
-                                    $userr = $conn->insert_id;
-                                    $insertardos=$conn->query("INSERT INTO   tbl_preguntas (pregunta) VALUES ('$pregunta') ");
-
-                                    $insertarUno=$conn->query("INSERT INTO   tbl_pregunta_x_usuario(respuesta,id_pregunta,id_usuario) VALUES ('$repuesta', '$conn->insert_id',  '$userr') ");
+                                    $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico,estado_usuario,intentos,id_rol) VALUES ('$user', '$rcontra', '$correo','Nuevo',0,'$tipo' ) ";                      
+                              
                                     
                                     $resultado = $conn ->query($sqluser);
                                    
@@ -193,18 +188,14 @@
                   campo.value = CadenaTextoNueva;
 
             }
-
           </script>
-
-
-
           <script>
           function soloLetras(e){
           key = e.keyCode || e.which;
           tecla = String.fromCharCode(key).toLowerCase();
           letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
           especiales = "8-37-39-46";
-
+        
           tecla_especial = false
           for(var i in especiales){
                 if(key == especiales[i]){
@@ -218,20 +209,16 @@
             }
           }
           </script>
-
-
-     
-
-
 <label for="NUserioo">Correo Electronico</label>
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Correo_Electronico" name="Correo Electronico"  >
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
-
+       
         <label for="Ncontraa">Nueva Contraseña</label>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Nueva Contraseña" name="Ingresar_Contraseña"  onkeyup="aaa(this, event)" required> 
+        <input type="password" class="form-control" placeholder="Ingresar Contraseña"  name="Ingresar_Contraseña"  required pattern="[A-Za-z0-9*-_$%&/()=?.¿!¡]{5,40}"
+         title="1 Mayuscula, 1 Minuscula, 1 Caracter Especial. Tamaño mínimo: 5. Tamaño máximo: 40">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <label for="Rcontraseña">Repetir Contraseña</label>
@@ -239,31 +226,15 @@
         <input type="password" class="form-control" placeholder="Repetir Contraseña" name="Repetir_Contraseña"  onkeyup="aaa(this, event)" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div >        
-          <div >
-          <label for="SP">Seleccionar Preguntas de Seguridad</label>
-            <span ><i"></i></span>
-            <select class="form-control " name="Preguntas">
-              <option   value="">Seleccionar Preguntas de Seguridad</option>
-              <option value="color">Cúal es su color favorito?</option>
-              <option value="Trabajo">Cúal seria su trabajo ideal?</option>
-              <option value="Mascota">Nombre de su primera mascota?</option>
-              <option value="Amigo">Mejor amigo de la infancia?</option>
-            </select>
-      </div>
-      </div><br>
-      <label for="RS">Respuesta Seguridad</label>
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Respuesta seguridad" name="Respuesta_seguridad"  >
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
+    
       <div >
             
       <label for="usuarioseleccionar">Seleccionar Usuario</label>
             <select class="form-control " name="TipodeUsuario">
               <option value="">"Seleccionar Usuario"</option>
-              <option value="Administrador">Administrador</option>
-              <option value="Operador">Operador</option>
+              <option value="1">Administrador</option>
+              <option value="9">Operador</option>
+              <option value="10">Usuario</option>
               </select>
             
 
