@@ -21,14 +21,14 @@ IF (isset($_POST["enviarrespuestas"])){
 
        echo "<script>
         alert('exito');
-        
+        window.location = '../../vistas/modulos/contrapreguntacorreo.php';
         </script  >";
 
 
       }
       else{
         echo "<script>
-        alert('usuario');
+        alert('verifique los datos y intente de neuvo ');
         
         </script  >";}
       }
