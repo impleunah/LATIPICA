@@ -1,28 +1,17 @@
 <?php
 
-$servername = "localhost";
-    $username = "root";
-  	$password = "";
-    $dbname = "latipica1";
-    
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-      if($conn->connect_error){
-        die("Conexión fallida: ".$conn->connect_error);
-      }
-
 cLass ControladorUsuarios
 {
 
 	static public function ctrIngresoUsuario()
 	{
-		
+
 	if(isset($_POST["ingUsuario"]))
 		{
 
 		if (preg_match('/^[a-zA-Z0-9]+$/', strtoupper($_POST["ingUsuario"])) &&
 			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"]))
-			
+			{
 
 				$tabla = "tbl_usuario";
 
@@ -30,48 +19,29 @@ cLass ControladorUsuarios
 				$valor = strtoupper($_POST["ingUsuario"]);
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-				
-				$var=$_POST["ingUsuario"];
-				$_SESSION['u']=$_POST["ingUsuario"];
+
 				if ($respuesta["Nombre_Usuario"] == strtoupper($_POST["ingUsuario"]) && $respuesta["Contraseña"] == $_POST["ingPassword"])
 				{
-				
-                    require "modelos/conexion2.php";
-  						IF (isset($_POST["ing"])){
 
-									$sqluser1 = "SELECT  estado_usuario from tbl_usuario WHERE estado_usuario = 'Nuevo' && Nombre_Usuario= '$var'  ";
-									$resultado1 = $conn -> query($sqluser1);
-									$filas3 = $resultado1 -> num_rows;
-									if($filas3 > 0){
-											echo"<script>
-											alert('exito ');
-											window.location = 'vistas/modulos/a.php';
-											</script>";
-										}
-										else{
-											$_SESSION["iniciarSesion"] = "ok";
+					$_SESSION["iniciarSesion"] = "ok";
 
-											echo '<script>
-											Swal.fire({
-												type: "success",
-												title: "!Bienvenido al Sistema!",
-												showConfirmButton: "true",
-												confirmButtonText: "Entrar",
-												closeOnConfirm: "false"
-											
-											}).then((result)=>{
-												
-												if (result.value){
+					echo '<script>
+					Swal.fire({
+						type: "success",
+						title: "!Bienvenido al Sistema!",
+						showConfirmButton: "true",
+						confirmButtonText: "Entrar",
+						closeOnConfirm: "false"
+					
+					}).then((result)=>{
+						
+						if (result.value){
 
-													window.location = "inicio";
-												}
-											});
-											</script>';
-
-										}
-  								}
-												
-												}
+							window.location = "inicio";
+						}
+					});
+					</script>';
+					}
 					else
 					{
 					echo '<script>
@@ -92,9 +62,67 @@ cLass ControladorUsuarios
 					</script>';
 				}
 			}
-		
-	}
+		}
 	}
 
+	static public function ctrCrearUsuario()
+	{
 
+	if (isset($_POST['NuevoUsuario'])) 
+		{
+		if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["NuevoUsuario"]) &&
+			preg_match('/^[a-zA-Z0-9]+$/', $_POST["NuevaContra"]))  
+			{ 
+
+				$tabla = "tbl_usuario";
+
+				$datos = array("Nombre_Usuario" => $_POST["NuevoUsuario"],
+						"Contraseña" => $_POST["NuevaContra"],
+						"Tipo_Usuario" => $_POST["TipodeUsuario"]);  	   	
+			   	
+				$respuesta = ModeloUsuarios::MdlIngresarUsuarios($tabla, $datos);
+
+				if ($respuesta=="ok") {
+					
+					'<script>
+					Swal.fire({
+						type: "success",
+						title: "!El Usuario no puede ir vacio o con caracteres especiales!",
+						showConfirmButton: "true",
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: "false"
+					
+					}).then((result)=>{
+						
+						if (result.value){
+
+							window.location = "inicio";
+						}
+					});
+					</script>';
+				}
+				}
+				else
+				{	
+				
+				echo '<script>
+					swal({
+						type: "error",
+						title: "!El Usuario no puede ir vacio o con caracteres especiales!",
+						showConfirmButton: "true",
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: "false"
+					
+					}).then((result)=>{
+						
+						if (result.value){
+
+							window.location = "inicio";
+						}
+					});
+				</script>';
+			}	
+		}			
+	}
+}
 		

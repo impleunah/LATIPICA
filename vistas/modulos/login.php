@@ -2,6 +2,8 @@
 
 
 
+
+
 <div class="login-box  login-page">
 
   <div class="login-logo "  >
@@ -13,8 +15,13 @@
   <div class="login-box-body " >
 
     <p class="login-box-msg" Font="Verdana">LOGIN</p>
+<<<<<<< HEAD
   
     <form method="POST" >
+=======
+
+    <form method="post">
+>>>>>>> parent of f740afe... Revert "Revert "Merge branch 'master' of https://github.com/impleunah/LATIPICA""
     <label for="NUsuario">Usuario</label><br>
       <div class="form-group has-feedback">
 
@@ -60,10 +67,16 @@ campo.value = CadenaTextoNueva;
 </script>
 
 <label for="NContra">Nueva Contraseña</label><br>
+<<<<<<< HEAD
 
       <div class="form-group has-feedback">
         <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
 
+=======
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" title="Contraseña" placeholder="Contraseña" name="ingPassword" onkeyup="aaa(this, event)" required>
+
+>>>>>>> parent of f740afe... Revert "Revert "Merge branch 'master' of https://github.com/impleunah/LATIPICA""
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>  
 
@@ -72,7 +85,7 @@ campo.value = CadenaTextoNueva;
         <div class center ="col-xs-4">
             
 
-          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat" name="ing">Ingresar</button>
+          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
         
        
         </div>
