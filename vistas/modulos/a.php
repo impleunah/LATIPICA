@@ -41,20 +41,6 @@
                                                 
                                                 </script  >";}
                                             }
-                                            
-                                           
-                                      
-                                      
-                                      
-                    
-                  
-
-                                
-                          
-
-
- 
-
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +127,7 @@
           <label for="SP">Seleccionar Preguntas de Seguridad</label>
             <span ><i"></i></span>
             <select class="form-control " name="Preguntas">
-              <option   value="">Seleccionar Preguntas de Seguridad</option>
+              <option value="">Seleccionar Preguntas de Seguridad</option>
               <option value="color">Cúal es su color favorito?</option>
               <option value="Trabajo">Cúal seria su trabajo ideal?</option>
               <option value="Mascota">Nombre de su primera mascota?</option>
