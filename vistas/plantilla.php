@@ -101,7 +101,7 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
   
   if ($_GET["ruta"] == "rempresa"||
       $_GET["ruta"] == "empresa"||
-      $_GET["ruta"] == "rservicios"||
+      $_GET["ruta"] == "rusuarios"||
       $_GET["ruta"] == "servicios"||
       $_GET["ruta"] == "rproductos"||
       $_GET["ruta"] == "productos"||
@@ -114,6 +114,7 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
       $_GET["ruta"] == "salir" ||
       $_GET["ruta"] == "registro" ||
       $_GET["ruta"] == "inicio" ||
+      $_GET["ruta"] == "inicioo" ||
       $_GET["ruta"] == "notificaciones"){
 
     include "Modulos/".$_GET["ruta"].".php";

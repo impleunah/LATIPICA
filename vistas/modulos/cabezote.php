@@ -7,16 +7,16 @@
 	<a href = "inicio" class="logo">
 		<!-- logo mini -->
 		<span class="logo-mini">
-			<!-- poner imagen
-			<img src="vistas/img/plantilla/logosfmini.png" class="img-responsive" style="padding:10px">
-			-->
+			<br>
+			<img src="la tipicalogito.png" class="img-responsive" style="padding:10px">
+			</br>
 		</span>
 
 		<!-- logo largo -->
 		<span class="logo-lg">
-			<!-- poner imagen
-			<img src="vistas/img/plantilla/Logolargosfmini.png" class="img-responsive" style="padding:10px 0px">
-			-->
+		
+			<img src="la tipicalogito.png" class="img-responsive" style="padding:10px 0px">
+		
 		</span>
 
 	</a> 

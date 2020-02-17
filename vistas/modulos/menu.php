@@ -2,9 +2,9 @@
 <section class="sidebar">
 
 	<ul class="sidebar-menu">
-
+      
 		<li class="active">
-			<a href="#">
+			<a href="inicio">
 				<i class="fa fa-user"></i>
 				<span>Condimentos la Tipica</span>
 			</a>
@@ -26,8 +26,12 @@
             </span>
          
           <ul class="treeview-menu">
-		  <li class="active"><a href="#">
-		  <i class="fa fa-circle-o"></i> Mantenimiento</a></li>                      
+		  <li>
+		  <a href="rusuarios">
+		  <i class="fa fa-circle-o"></i> 
+		  <span> Mantenimiento </span>
+		  </a>
+		  </li>                      
 
           </ul>
         </li>
