@@ -91,10 +91,7 @@ cLass ControladorUsuarios
 									   }
 
 									
-{
-					                            
 
-				}
 
 
 											
@@ -112,7 +109,7 @@ cLass ControladorUsuarios
 										
   								}
 												
-												}
+												
 					else
 					{
 					echo '<script>
@@ -131,6 +128,7 @@ cLass ControladorUsuarios
 						}
 					});
 					</script>';
+				}
 				}
 			}
 		
