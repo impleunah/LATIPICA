@@ -14,13 +14,18 @@
 
     <p class="login-box-msg" Font="Verdana">LOGIN</p>
   
-    <form method="POST" ><br>
-
+    <form id="loginform" class="form-horizontal" role="form"  autocomplete="off">
+			 <center>
+			<div class="form-group">
+			<img src="la tipicalogo.jpg" style="border-radius: 25px;" alt="image" width="200px" height="100px">
+			</div>
+			</center>
+     </form>
+     <form method="POST" ><br>
     <label for="NUsuario">Usuario</label><br>
       <div class="form-group has-feedback">
-     <br>
+      </br>
         <input type="text" class="form-control" title="Primera Letra de Nombre,Apellido" placeholder="Usuario" name="ingUsuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
-
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <script language="javascript">
@@ -135,18 +140,14 @@ campo.value = CadenaTextoNueva;
 
 
 <br>
-      <div class="row">
-
+      <div class="form-group">
+			 <div class="col-md-8 col-md-offset-4">
         <div class center ="col-xs-4">
-            
-
-          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat" name="ing">Ingresar</button>
-        
-       
+          <button type="submit" id="Ingresar" class="btn btn-primary btn-block btn-flat" style="background:#24870A" name="ing">Ingresar</button>
         </div>
         <br>
       </div>
-
+      </div>
       <?php
 
       $login = new ControladorUsuarios();
