@@ -275,6 +275,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
     //codigo generado por php
+   
         echo "<option value='".$row['id_objeto']."'>".$row['objeto']."</option>";
     }
 } 
@@ -287,6 +288,7 @@ if ($result->num_rows > 0) {
 </tbody></table>
 		
 <div class="checkbox">
+
 <input type="checkbox" name="checkbox" id="checkbox1" style="width: 80px; position: relative;left:45%">
 <label for="checkbox1">Consultar</label><dv>	
         
@@ -298,7 +300,8 @@ if ($result->num_rows > 0) {
 </div>
 
       <div class="dataTables_length" id="tableListar_length" style="overflow-x: auto;">
-      <div id="tableListar_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="tableListar_length"><label>Mostrar <select name="tableListar_length" aria-controls="tableListar" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros por página</label></div></div><div class="col-xs-6"><div id="tableListar_filter" class="dataTables_filter"><label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div><table class="table dataTable no-footer" id="tableListar" role="grid" aria-describedby="tableListar_info">
+
+      <div id="tableListar_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="tableListar_length"><label>Mostrar <select name="tableListar_length" aria-controls="tableListar" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros por página</label></div></div><div class="col-xs-6"><div id="tableListar_filter" class="dataTables_filter"><label><for="busqueda">Buscar</label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div><table class="table dataTable no-footer" id="tableListar" role="grid" aria-describedby="tableListar_info">
         <thead>
           <tr class="succeser" style="background-color: #8FBC8F" role="row"><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Rol: activate to sort column ascending" style="width: 220px;">Rol</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Objeto: activate to sort column ascending" style="width: 202px;">Objeto</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Consultar: activate to sort column ascending" style="width: 128px;">Consultar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Insertar: activate to sort column ascending" style="width: 104px;">Insertar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Actualizar: activate to sort column ascending" style="width: 130px;">Actualizar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="acccionas: activate to sort column ascending" style="width: 133px;">acccionas</th></tr>
         </thead>
