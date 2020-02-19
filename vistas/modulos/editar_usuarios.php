@@ -1,34 +1,31 @@
 <?php
-
-
 	$servername = "localhost";
     $username = "root";
   	$password = "";
     $dbname = "latipica1";
-    
-
 	$conn = new mysqli($servername, $username, $password, $dbname);
       if($conn->connect_error){
         die("Conexión fallida: ".$conn->connect_error);
- 
-      }
-            if (isset($_POST["actualizar"])){
-			  $userid = $_POST['id_usuario'];
-			  $Nombre = $_POST['Nombre_Usuario'];
-			  $rol =  $_POST['id_rol'];
-        $correo = $_POST['correo_electronico'];
-        $estado = $_POST['estado_usuario'];
-                   
-            
-          $sqluser = "UPDATE tbl_usuario SET 
-					Nombre_Usuario=$Nombre, 
-					id_rol=$rol,
-					correo_electronico=$correo,
-					estado_usuario=$estado,
-					WHERE id_usuario =$userid";
 
-         $resultado = $conn -> query($sqluser);          
-            }
+      }     
+      
+      $consulta=Consultarusuario($_GET['no']);
+
+      function Consultarusuario($no_user)
+      {
+        $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario 
+        FROM tbl_usuario WHERE no='".$no_user."' ";
+         $resultado=$conn-> query ($sql); or die (mysql_error());
+        $filas=mysqli_fetch_array($resultado)
+      
+        return [
+          $filas['Nombre_Usuario'],
+          $filas['id_rol'],
+          $filas['correo_electronico'],
+          $filas['estado_usuario'] 
+        ];
+    
+      }
 ?>
 
 <!DOCTYPE html>
@@ -105,14 +102,12 @@
  <div class="register-box-body">
     <p >Actualizar Usuario</p>
 
-    <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
-                 
-
-
+    <form  action="editarusariof.php"method="POST">
 
       <div class="form-group has-feedback">
-      <label for="NUserioo">Id Usuario</label>
-        <input type="text" class="form-control" placeholder="Id usuario" name="id_usuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+      <input type="hidden" name="id" value="<?php echo $_GET['id']?> ">
+      <label >Id Usuario</label>
+        <input type="text" class="form-control" placeholder="Id usuario" id="id_usuario" name="id_usuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
                 <script language="javascript">
@@ -125,7 +120,7 @@
                   CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
                   campo.value = CadenaTextoNueva;
 
-            }
+            }o
           </script>
           <script>
           //function soloLetras(e){
@@ -150,36 +145,31 @@
           <div>
 <label for="NUserioo">Nombre Usuario</label>
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Nombre Usuario" name="Nombre_Usuario">
+            <input type="text" class="form-control" placeholder="Nombre Usuario" name="Nombre_Usuario" ;value="<?php echo$consulta[0] ?>">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
 		<div >
-            
-      <label for="rolseleccionar">Seleccionar rol</label>
-            <select class="form-control " name="Id_rol">
-              <option value="">"Seleccionar rol"</option>
-              <option value="1">Administrador</option>
-              <option value="2">Operador</option>
-    
-              </select>
-      </div>
+    <label>Rol de Usuario</label>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="rol Usuario" name="Id_rol" value="<?php echo $consulta[1] ?>">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>    
+		<div >
+      
        
-        <label for="Ncontraa">Correo electronico</label>
+        <label>Correo electronico</label>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Correo Electronico"  name="correo-electronico">
+        <input  class="form-control" placeholder="Correo Electronico"  name="correo_electronico" value="<?php echo$consulta[2] ?>">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div >
             
-      <label for="estadoseleccionar">Seleccionar estado</label>
-            <select class="form-control " name="estado_usuario">
-              <option value="">"Seleccionar Usuario"</option>
-              <option value="1">Activo</option>
-              <option value="9">Nuevo</option>
-              <option value="10">bloqueado</option>
-              </select>
-          
+      <label>Correo electronico</label>
+      <div class="form-group has-feedback">
+        <input  class="form-control" placeholder="estado Usuario"  name="estado_uduario" value="<?php echo$consulta[3] ?>">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <div >
       <br>
    
         <!-- /.col -->

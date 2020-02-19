@@ -19,7 +19,7 @@
 			</a>	
 		</li>
 		<li class=" treeview">
-          <a href="#">
+          <a href="inicio">
             <i class="fa fa-lock"></i> <span>Usuarios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -37,7 +37,7 @@
         </li>
 			
 		<li class ="treeview">
-			<a href="#">			
+			<a href="inicio">			
 				<i class="fa fa-product-hunt"></i>
 				<span>Productos</span>
 				<span class="pull-right-container">
@@ -47,20 +47,28 @@
 						
 		</li>
 		<li class="treeview">
-          <a href="#">
+          <a href="inicio">
             <i class="fa fa-lock"></i> <span>SEGURIDAD</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
+         
           <ul class="treeview-menu">
-            <li class="active"><a href="roles.php"><i class="fa fa-circle-o"></i> Roles de Usuario</a></li> 
-            <li class="active"><a href="roles_objeto.php"><i class="fa fa-circle-o"></i> Permiso de Usuario</a></li>
-            <li class="active"><a href="pantallas.php"><i class="fa fa-circle-o"></i> Pantallas</a></li> > 
-            <li class="active"><a href="parametros.php"><i class="fa fa-circle-o"></i> Parametros</a></li>
-             <li class="active"><a href="bitacoras.php"><i class="fa fa-circle-o"></i> Bitacoras</a></li>   
+		       <li>
+		         <a href="roles">
+		             <i class="fa fa-circle-o"></i> 
+		             <span>Roles </span>
+		         </a>
+		      </li>                      
+		      <li>
+		          <a href="rpermisos">
+		             <i class="fa fa-circle-o"></i> 
+		             <span>Permisos Usuarios </span>
+		          </a>
+		      </li>                      
+          </ul>			
+		</li>
 
-          </ul>
-        </li>
 </section>
 
 </aside>

@@ -103,10 +103,10 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
       $_GET["ruta"] == "empresa"||
       $_GET["ruta"] == "rusuarios"||
       $_GET["ruta"] == "servicios"||
-      $_GET["ruta"] == "rproductos"||
+      $_GET["ruta"] == "roles"||
       $_GET["ruta"] == "productos"||
       $_GET["ruta"] == "inventario" ||
-      $_GET["ruta"] == "rclientes" ||
+      $_GET["ruta"] == "rpermisos" ||
       $_GET["ruta"] == "clientes" ||
       $_GET["ruta"] == "reportes" ||
       $_GET["ruta"] == "rnotificaciones" ||
