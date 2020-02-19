@@ -10,55 +10,44 @@ require 'modelos/conexion2.php';
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+<!--=====================================
+=            LOGOTIPO		           =
+======================================-->
   <header class="main-header" style="background-color: cyan">
+  <a href = "inicio" class="logo">
+  <!-- logo mini -->
+  <span class="logo-mini">
+    <!-- poner imagen
+    <img src="vistas/img/plantilla/logosfmini.png" class="img-responsive" style="padding:10px">
+    -->
+  </span>
 
-    <!-- Logo -->
-    <a href="vistas/modulos/inicio.php" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>P</b>LT</span>
-      <!-- logo for regular staprote and mobile devices -->
-      <span class="logo-lg"><b>Productos</b> La Tipica</span>
-    </a>
+  <!-- logo largo -->
+  <span class="logo-lg">
+    <!-- poner imagen
+    <img src="vistas/img/plantilla/Logolargosfmini.png" class="img-responsive" style="padding:10px 0px">
+    -->
+  </span>
+
+</a> 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">navigation</span>
-      </a>
+
+<span class="sr-only">Toggle navigation</span>
+
+</a>
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
         <div class="pull-right">
+<!--=====================================
+=            BARRA DE NAVEGACION        =
+======================================-->
+<a class="btn btn-primary" style="background:#2A9BDC  ;" href="salir" class="btn btn-default btn-flat">Salir</a>
 
- <!-- INICIA BTN DE CERRAR SESION-->
- <form>
 
-<span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Salir</span>
-
-<script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-
-</script>
-<div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <div>
-       <a><h1>Está Saliendo del Sistema <br>¿Desea Continuar?</h1></a>
-    </div>
-    <br>
-    <a href="vistas/modulos/login.php" >SI</a>
-    
-  </div>
-</div>
-</form>
-                  
 <!--=====================================
   =            PLUGING DE CSS             =
   ======================================-->
@@ -158,49 +147,7 @@ body
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-<!-- sidebar menu: : style can be found in sidebar.less -->
-<ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENU DE NAVEGACIÒN</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-shopping-cart"></i> <span>COMPRAS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dollar"></i> <span>VENTAS</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="cliente.php"><i class="fa fa-circle-o"></i> Clientes</a></li> 
-            <li class="active"><a href="ventas.php"><i class="fa fa-circle-o"></i> Ventas</a></li>           
-          </ul>
-        </li>
-
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-lock"></i> <span>SEGURIDAD</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-         
-          <ul class="treeview-menu">
-            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i> Usuarios</a></li> 
-            <li class="active"><a href="roles.php"><i class="fa fa-circle-o"></i> Roles de Usuario</a></li> 
-            <li class="active"><a href="roles_objeto.php"><i class="fa fa-circle-o"></i> Permiso de Usuario</a></li>
-            <li class="active"><a href="respaldo.php"><i class="fa fa-circle-o"></i> Respaldar o Restaurar</a></li> 
-             <li class="active"><a href="bitacoras.php"><i class="fa fa-circle-o"></i> Bitacoras</a></li>   
-
-          </ul>
-  </aside>
+ 
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -275,6 +222,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
     //codigo generado por php
+   
         echo "<option value='".$row['id_objeto']."'>".$row['objeto']."</option>";
     }
 } 
@@ -287,6 +235,7 @@ if ($result->num_rows > 0) {
 </tbody></table>
 		
 <div class="checkbox">
+
 <input type="checkbox" name="checkbox" id="checkbox1" style="width: 80px; position: relative;left:45%">
 <label for="checkbox1">Consultar</label><dv>	
         
@@ -298,7 +247,8 @@ if ($result->num_rows > 0) {
 </div>
 
       <div class="dataTables_length" id="tableListar_length" style="overflow-x: auto;">
-      <div id="tableListar_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="tableListar_length"><label>Mostrar <select name="tableListar_length" aria-controls="tableListar" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros por página</label></div></div><div class="col-xs-6"><div id="tableListar_filter" class="dataTables_filter"><label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div><table class="table dataTable no-footer" id="tableListar" role="grid" aria-describedby="tableListar_info">
+
+      <div id="tableListar_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="tableListar_length"><label>Mostrar <select name="tableListar_length" aria-controls="tableListar" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros por página</label></div></div><div class="col-xs-6"><div id="tableListar_filter" class="dataTables_filter"><label><for="busqueda">Buscar</label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label></div></div></div><table class="table dataTable no-footer" id="tableListar" role="grid" aria-describedby="tableListar_info">
         <thead>
           <tr class="succeser" style="background-color: #8FBC8F" role="row"><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Rol: activate to sort column ascending" style="width: 220px;">Rol</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Objeto: activate to sort column ascending" style="width: 202px;">Objeto</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Consultar: activate to sort column ascending" style="width: 128px;">Consultar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Insertar: activate to sort column ascending" style="width: 104px;">Insertar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="Actualizar: activate to sort column ascending" style="width: 130px;">Actualizar</th><th class="sorting" tabindex="0" aria-controls="tableListar" rowspan="1" colspan="1" aria-label="acccionas: activate to sort column ascending" style="width: 133px;">acccionas</th></tr>
         </thead>
@@ -435,7 +385,8 @@ if ($result->num_rows > 0) {
 </td>
               </tr></tbody>
       </table><div class="row"><div class="col-xs-6"><div class="dataTables_info" id="tableListar_info" role="status" aria-live="polite">Mostrando página 1 de 4</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_bootstrap" id="tableListar_paginate"><ul class="pagination"><li class="prev disabled"><a href="#">← Anterior</a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li class="next"><a href="#">Siguiente → </a></li></ul></div></div></div></div>
-     
+      <label><input type="search" class="form-control input-sm" placeholder="Buscar" aria-controls="tableListar"></label>
+
       </div>
 		</form>
   </div>
@@ -573,4 +524,76 @@ function load(page){
 
     </select> 
     </td>
- </div
+</div>
+
+
+<!-- Control Sidebar Toggle Button -->
+            
+</ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">s
+</header><!-- /header --><aside class="main-sidebar">
+<section class="sidebar">
+
+	<ul class="sidebar-menu">
+
+		<li class="active">
+			<a href="#">
+				<i class="fa fa-user"></i>
+				<span>Condimentos la Tipica</span>
+			</a>
+		</li>
+		<li class ="treeview">
+			<a href="#">			
+				<i class="fa fa-building"></i>
+				<span>Clientes</span>
+				<span class="pull-right-container">
+					<i class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>	
+		</li>
+		<li class=" treeview">
+          <a href="#">
+            <i class="fa fa-lock"></i> <span>Usuarios</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+         
+          <ul class="treeview-menu">
+		  <li class="active"><a href="#">
+		  <i class="fa fa-circle-o"></i> Mantenimiento</a></li>                      
+
+          </ul>
+        </li>
+			
+		<li class ="treeview">
+			<a href="#">			
+				<i class="fa fa-product-hunt"></i>
+				<span>Productos</span>
+				<span class="pull-right-container">
+					<i class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+						
+		</li>
+    <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-lock"></i> <span>SEGURIDAD</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          <ul class="treeview-menu">
+            <li class="active"><a href="roles.php"><i class="fa fa-circle-o"></i> Roles de Usuario</a></li> 
+            <li class="active"><a href="roles_objeto.php"><i class="fa fa-circle-o"></i> Permiso de Usuario</a>
+            <li class="active"><a href="pantallas.php"><i class="fa fa-circle-o"></i> Pantallas</a></li>
+            <li class="active"><a href="parametros.php"><i class="fa fa-circle-o"></i> Parametros</a></li>
+             <li class="active"><a href="bitacoras.php"><i class="fa fa-circle-o"></i> Bitacoras</a></li>   
+
+          </ul>
+        </li>
+</section>
