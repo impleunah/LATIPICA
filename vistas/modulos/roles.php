@@ -65,40 +65,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </section>
     <section class="content">
-        <form>
-        <center>
-        <div class="panel panel-success" style="background-color:white ">
-        <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
-        <input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
-        <a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">BUSCAR</a>
-        </center>
-      </form>
-
-      <div class="row">
-      <div class="col-sm-6">
-      <div class="dataTables_length" id="tableListar_length">
-      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" >
-        <option value="10">10</option>
-        <option value="70">70</option>
-        <option value="100">100</option>
-        <option value="150">150</option>
-        </select> registros por página</label></div></div></div>
-
-        <div class="row">
-        <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
-        <label for="Buscar"> Buscar </label>
-        <label><input type="search" class="form-control input-sm" 
-         placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
-    
-      </form>
-
+    <div class="box">
+        <div class="box-header with-border">
+        <a class="btn btn-primary"  style="background:#F5B041   ;" href="vistas/modulos/registro_ussario.php">
+          Nuevo Rol
+       </a>
+       </div> 
        <div class="box-body">
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                 
        <thead>
-              <tr>
-              <th style="width:10px">#</th>
+             <tr class="succeser" style="background-color:#54B4F5" role="row">
+              
                 <th>Id rol</th>
                 <th>Rol</th>
                 <th>descripcion</th>
@@ -113,13 +92,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
             <tr>
-                <td class="sorting_1"></td>
                 <td> <?php echo $mostar['id_rol']?></td>
                 <td><?php echo $mostar['rol']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
                 <td> <a class="btn btn-primary"  style="background:#E67E22   ;" > Editar
-                <td><a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
+                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
                 </td>
                </tr>
                <?php
@@ -127,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             ?>
             </tbody>
         </div>
-
+      </table>
     </form>
     </div>
 
