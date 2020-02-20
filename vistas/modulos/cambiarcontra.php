@@ -1,5 +1,38 @@
 <?php
  require "../../modelos/conexion2.php";
+
+ session_start();
+ if(($_SESSION['u'])) {
+   
+  
+   $ssss= $_SESSION['u'];
+
+   $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
+   $consulta = mysqli_query($conn,$sql);
+   if($row =mysqli_fetch_array($consulta)){
+     $var1=$row["id_usuario"];
+     $objeto="Cambiar  Contraseña";
+     $accion="INGRESO"; 
+     $descripcion="Ingreso Cambiar de contraseña ";
+     $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
+     
+
+
+ 
+ 
+}
+else{
+ header ("Location: index.php");
+}
+
+ 
+}
+/*termina codigo de vitacora*/ 
+
+
+
+
+
   IF (isset($_POST["enviar"])){
     
     $contra =  $_POST['contraa'];
@@ -18,6 +51,10 @@
             if($filas > 0){
               $sqluser = "UPDATE tbl_usuario SET Contraseña ='$ncontra' WHERE  Contraseña ='$contra' ";
               $resultado = $conn ->query($sqluser);
+              $objeto1="Cambio de contraseña";
+                                    $accion1="El usuario  Cambio de contraseña "; 
+                                  
+                    $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto1','$accion1','$user') ");
               if($contra  !=$contra)
               print("Contraseña Actual Incorrecta");
 

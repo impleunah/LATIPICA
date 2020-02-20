@@ -14,6 +14,36 @@
 
 
 
+      
+
+      /*codigo de bitacora */ 
+      
+session_start();
+   if(($_SESSION['u'])) {
+     
+    
+     $ssss= $_SESSION['u'];
+ 
+     $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
+     $consulta = mysqli_query($conn,$sql);
+     if($row =mysqli_fetch_array($consulta)){
+       $var1=$row["id_usuario"];
+       $objeto="Crear Usuario";
+       $accion="INGRESO"; 
+       $descripcion="Ingreso a Pantalla crear usuario ";
+       $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
+ 
+ 
+   
+   
+ }
+ else{
+   header ("Location: index.php");
+ }
+ 
+   
+ }
+ /*termina codigo de vitacora*/ 
 
             IF (isset($_POST["enviar1"])){
               $user = strtoupper( $_POST['NuevoUsuario']);
@@ -42,8 +72,10 @@
                           if($rcontra == $ncontra){
                                   if($filas == 0){
                                     $sqluser = "INSERT INTO  tbl_usuario (Nombre_Usuario , Contraseña , correo_electronico,estado_usuario,intentos,id_rol) VALUES ('$user', '$rcontra', '$correo','Nuevo',0,'$tipo' ) ";                      
-                              
-                                    
+                                    $objeto1="Crear Usuario";
+                                    $accion1="se creo un nuevo usario"; 
+                                  
+                                    $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto1','$accion1','$user') ");
                                     $resultado = $conn ->query($sqluser);
                                    
 
