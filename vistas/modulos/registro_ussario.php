@@ -58,7 +58,7 @@ session_start();
                    
                     
                       
-
+                    if (filter_var($correo, FILTER_VALIDATE_EMAIL) ){
 
                 
                     $sqluser = "SELECT  Nombre_Usuario from tbl_usuario WHERE Nombre_Usuario = '$user'";
@@ -111,10 +111,17 @@ session_start();
                                         alert('El Correo ya exite');
                                         </script>";
                                       }
+                                    }else{
+
+                                      print"<script>
+                                     alert('El Correo no es valido, favor verificar' );
+                                     </script>";
+                                   
+                                   }
                                       
                                       
                                       
-                    }
+              }
                   
 
                                 
