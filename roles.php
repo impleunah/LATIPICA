@@ -1,14 +1,4 @@
-<!-- 
-Copyright & copy; 2018-2019 All rights reserved.
-IA-220 Evaluacion de Sistemas
-Licda. Karla Garcia
-Elabora por:
-Carolin Varela
-Angel Zambrano
-Roger Carrillo 
-Cristian Carrasco
-Allan Matamoros
- -->
+
 
  <?php
 

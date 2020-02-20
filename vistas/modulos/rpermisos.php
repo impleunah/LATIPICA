@@ -145,7 +145,7 @@ luego verificamos la conexion,luego entramos a una codicion si numero de columna
             <?php
       $sql="SELECT id_permiso,rol,objeto,permiso_consulta,permiso_insercion,permiso_actualizacion FROM tbl_roles_objeto r 
       join tbl_pantallas p on p.id_objeto=r.id_objeto
-      join tbl_roles ro on ro.id_rol=r.id_rol  ";
+      join tbl_roles ro on ro.id_rol=ro.id_rol  ";
      $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
