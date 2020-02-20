@@ -65,6 +65,12 @@
 		             <i class="fa fa-circle-o"></i> 
 		             <span>Permisos Usuarios </span>
 		          </a>
+		      </li>  
+			  <li>
+		          <a href="pantallass">
+		             <i class="fa fa-circle-o"></i> 
+		             <span>Pantallas </span>
+		          </a>
 		      </li>                      
           </ul>			
 		</li>
