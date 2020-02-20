@@ -14,7 +14,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Roles de Usuario</title>
+<title>permisos de Usuario</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Cat Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -61,74 +61,111 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </section>
 <br>
 </br>
+
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
+<form action="" class="formulario">
+<br>  
+<table width="100%">
+<tbody><tr> 
+    <td width="5%"></td>
+    <td width="16%"><b> Seleccione el Rol:</b></td>
+    <td width="15%">
+    <select class="select" id="combo_roles" name="combo_roles" style="width: 150px; height:30px">
 
-    </section>
-    <section class="content">
-        <form>
-        <center>
-        <div class="panel panel-success" style="background-color:white ">
-        <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
-        <input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
-        <a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">BUSCAR</a>
-        </center>
-      </form>
+ .select {
+  display:block;
+  height:50px;
+  width:2000px;
+}
+        
 
-      <div class="row">
-      <div class="col-sm-6">
-      <div class="dataTables_length" id="tableListar_length">
-      <label>Mostrar <select name="tableListar_length" aria-controls="tableListar" >
-        <option value="10">10</option>
-        <option value="70">70</option>
-        <option value="100">100</option>
-        <option value="150">150</option>
-        </select> registros por página</label></div></div></div>
+    <!--//seleccionamos id rol y nombre del rol de la tabla roles y las metemos en variable $sql .
+    luego verificamos la conexion,luego entramos a una codicion si numero de columnas es mayor q 0 -->
 
-        <div class="row">
-        <div class="col-sm-6"><div id="tableListar_filter" class="dataTables_filter">
-        <label for="Buscar"> Buscar </label>
-        <label><input type="search" class="form-control input-sm" 
-         placeholder="Buscar" aria-controls="tableListar"></label></div></div></div>
+    	<option selected="selected" disabled="disabled"> Elija un Rol</option><option value="1">ADMINISTRADOR</option><option value="7">EMPLEADO</option><option value="6">NUEVO</option>
+    </select> 
+    </td>
+
+   
+    <td rowspan="2">
+            <br>
+            <input type="checkbox" id="ck_todos" name="ck_todos" style="margin-left:20px" onclick="seleccionar_todo();" ondblclick="deseleccionar_todo();">Marcar Todos
+            <br>
+            <input type="checkbox" id="ck_consultar" name="ck_consultar" style="margin-left:20px">Consultar
+            <br>
+            <input type="checkbox" id="ck_insertar" name="ck_insertar" style="margin-left:20px">Insertar
+            <br>
+            <input type="checkbox" id="ck_actualizar" name="ck_actualizar" style="margin-left:20px">Actualizar
+            <br>
+            <input type="checkbox" id="ck_eliminar" name="ck_eliminar" style="margin-left:20px">Eliminar
+            <br><br>  
+    </td>
+   
+</tr>
+
+<tr>
+<td></td>
+<td><b>Seleccione la Pantalla:</b></td>
+<td>
+<select class="select" id="combo_objeto" name="combo_objeto" style="width: 150px; height:30px">
+
+<!--//seleccionamos id rol y nombre del rol de la tabla roles y las metemos en variable $sql .
+luego verificamos la conexion,luego entramos a una codicion si numero de columnas es mayor q 0 -->
+
+	<option selected="selected" disabled="disabled"> Elija una Pantalla</option><option value="1">USUARIOS</option><option value="2">EMPLEADOS</option><option value="3">ROLES</option><option value="4">ROLES OBJETO</option><option value="5">PANTALLAS</option><option value="6">BACKUP</option><option value="7">PARAMETROS</option><option value="8">CLIENTES</option><option value="9">VEHICULOS</option><option value="10">COMPRAS</option><option value="11">VENTAS</option><option value="12">BITACORAS</option><option value="13">COTIZACION</option>
+</select> 
+<td><div class="box-header with-border">
+        <a class="btn btn-primary"  style="background:#F5B041   ;">
+          Guardar
+       </a>
+       </div> 
+ </td>
+
+        </tr>
     
-      </form>
-
+    
+        </tbody>
        <div class="box-body">
        <div class="table-responsive">
-       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info ">
                 
        <thead>
-              <tr>
+              <tr class="succeser" style="background-color:#54B4F5" role="row">
               <th style="width:10px">#</th>
                 <th>Rol</th>
                 <th>Objeto</th>
                 <th>Consultar </th>
                 <th>Insertar</th>
                 <th>Actualizar</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
             <?php
-      $sql="SELECT id_rol,rol,descripcion,fecha_creacion FROM tbl_roles";
-      $resultado=$conn-> query ($sql);
+      $sql="SELECT id_permiso,rol,objeto,permiso_consulta,permiso_insercion,permiso_actualizacion FROM tbl_roles_objeto r 
+      join tbl_pantallas p on p.id_objeto=r.id_objeto
+      join tbl_roles ro on ro.id_rol=ro.id_rol  where id_permiso";
+     $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
             <tr>
-                <td class="sorting_1"></td>
-                <td> <?php echo $mostar['id_rol']?></td>
-                <td><?php echo $mostar['rol']?></td>
-                <td><?php echo $mostar['descripcion']?></td>
-                <td><?php echo $mostar['fecha_creacion']?></td>
+                <td> <?php echo $mostar['id_permiso']?></td>
+                <td> <?php echo $mostar['rol']?></td>
+                <td><?php echo $mostar['objeto']?></td>
+                <td><?php echo $mostar['permiso_consulta']?></td>
+                <td><?php echo $mostar['permiso_insercion']?></td>
+                <td><?php echo $mostar['permiso_actualizacion']?></td>
                 <td> <a class="btn btn-primary"  style="background:#E67E22   ;" > Editar
-                <td><a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
+                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
                 </td>
                </tr>
                <?php
-               }
+              }
             ?>
             </tbody>
         </div>
-
+            </table>
     </form>
     </div>
 
