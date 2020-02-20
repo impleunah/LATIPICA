@@ -71,7 +71,13 @@
 		             <i class="fa fa-circle-o"></i> 
 		             <span>Pantallas  </span>
 		          </a>
-		      </li>                      
+		      </li>   
+			  <li>
+		          <a href="bitacora">
+		             <i class="fa fa-circle-o"></i> 
+		             <span>Bitacora  </span>
+		          </a>
+		      </li>                        
           </ul>			
 		</li>
 

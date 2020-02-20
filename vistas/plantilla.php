@@ -100,7 +100,7 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
   if (isset($_GET["ruta"])){
   
   if ($_GET["ruta"] == "rempresa"||
-      $_GET["ruta"] == "empresa"||
+      $_GET["ruta"] == "bitacora"||
       $_GET["ruta"] == "rusuarios"||
       $_GET["ruta"] == "servicios"||
       $_GET["ruta"] == "roles"||
