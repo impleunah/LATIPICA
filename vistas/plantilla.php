@@ -148,8 +148,6 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
 
 
   ?>
-
-
   
 </div>
 <!-- ./wrapper -->

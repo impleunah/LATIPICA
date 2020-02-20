@@ -69,7 +69,7 @@
 			  <li>
 		          <a href="pantallass">
 		             <i class="fa fa-circle-o"></i> 
-		             <span>Pantallas </span>
+		             <span>Pantallas  </span>
 		          </a>
 		      </li>                      
           </ul>			
