@@ -1,29 +1,22 @@
 <?php
-	$servername = "localhost";
-    $username = "root";
-  	$password = "";
-    $dbname = "latipica1";
-	$conn = new mysqli($servername, $username, $password, $dbname);
-      if($conn->connect_error){
-        die("Conexión fallida: ".$conn->connect_error);
 
-      }     
-      
-      $consulta=Consultarusuario($_GET['no']);
+      $consulta = Consultarusuario($_GET['id_usuario']);
 
       function Consultarusuario($no_user)
       {
-        $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario 
-        FROM tbl_usuario WHERE no='".$no_user."' ";
-         $resultado=$conn-> query ($sql); or die (mysql_error());
-        $filas=mysqli_fetch_array($resultado)
+        include "../../modelos/conexion2.php";
+          $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario FROM tbl_usuario WHERE id_usuario='$no_user' ";
+          $resultado= mysqli_query($conn,$sql) or die (mysql_error());
+          $filas=mysqli_fetch_array($resultado);
       
         return [
+
           $filas['Nombre_Usuario'],
           $filas['id_rol'],
           $filas['correo_electronico'],
           $filas['estado_usuario'] 
         ];
+        
     
       }
 ?>
@@ -105,9 +98,8 @@
     <form  action="editarusariof.php"method="POST">
 
       <div class="form-group has-feedback">
-      <input type="hidden" name="id" value="<?php echo $_GET['id']?> ">
-      <label >Id Usuario</label>
-        <input type="text" class="form-control" placeholder="Id usuario" id="id_usuario" name="id_usuario" required onkeypress="return soloLetras(event)"onkeyup="aaa(this, event) " style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+      <input type="hidden" name="id_usuario" value="<?php echo $_GET['id_usuario']?> ">
+      
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
                 <script language="javascript">
@@ -145,7 +137,7 @@
           <div>
 <label for="NUserioo">Nombre Usuario</label>
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Nombre Usuario" name="Nombre_Usuario" ;value="<?php echo$consulta[0] ?>">
+            <input type="text" class="form-control" placeholder="Nombre Usuario" name="Nombre_Usuario" value="<?php echo$consulta[0] ?>">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
 		<div >

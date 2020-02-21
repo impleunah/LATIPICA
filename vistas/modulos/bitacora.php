@@ -1,14 +1,41 @@
 <<?php
-$servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "latipica1";
-  
+ 
+ include "modelos/conexion2.php";
+ 
+    
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-    if($conn->connect_error){
-      die("Conexión fallida: ".$conn->connect_error);
-    }
+    if(($_SESSION['u'])) {
+    
+   
+      $ssss= $_SESSION['u'];
+
+      $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
+      $consulta = mysqli_query($conn,$sql);
+      if($row =mysqli_fetch_array($consulta)){
+        $var1=$row["id_usuario"];
+        $objeto="Pantalla Bitacoras";
+        $accion="INGRESO"; 
+        $descripcion="Ingreso a Pantalla Bitacoras";
+        $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
+
+    echo "<script>
+    alert('$ssss');
+   
+    </script>";
+ 
+    
+    
+  }
+  else{
+    header ("Location: index.php");
+  }
+	
+	  
+}
+
+    
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -68,14 +95,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="panel panel-success" style="background-color:white">
 <form action="" class="formulario">
 <br>  
-<table width="100%">
+<table width="80%">
 
        <div class="box-body">
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info ">
                 
-       <thead>
-              <tr class="succeser" style="background-color:#54B4F5" role="row">
+       <thead >
+              <tr class="succeser" style="background-color:#54B4F5"   role="row" >
                 <th>Id Usuario</th>
                 <th>Objeto</th>
                 <th>Accion  </th>
@@ -86,14 +113,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </thead>
             <tbody>
             <?php
-      $sql="SELECT id_usuario,id_objeto,accion,descripcion,fecha FROM tbl_bitacoras"
+      $sql="SELECT Nombre_Usuario,objeto,accion,descripcion,fecha from tbl_bitacoras b
+    join tbl_usuario u  on u.id_usuario = b.id_usuario"
      ; 
      $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
             <tr>
-                <td> <?php echo $mostar['id_usuario']?></td>
-                <td><?php echo $mostar['id_objeto']?></td>
+                <td> <?php echo $mostar['Nombre_Usuario']?></td>
+                <td><?php echo $mostar['objeto']?></td>
                 <td><?php echo $mostar['accion']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha']?></td>
