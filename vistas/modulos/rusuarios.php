@@ -1,31 +1,5 @@
 <?php
   include "modelos/conexion2.php";
-  /*codigo de bitacora */ 
-  if(($_SESSION['u'])) {
-    
-   
-    $ssss= $_SESSION['u'];
-
-    $sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
-    $consulta = mysqli_query($conn,$sql);
-    if($row =mysqli_fetch_array($consulta)){
-      $var1=$row["id_usuario"];
-      $objeto="Mantenimiento Usuarios";
-      $accion="INGRESO"; 
-      $descripcion="Ingreso a Pantalla Bitacoras";
-      $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
-
-
-  
-  
-}
-else{
-  header ("Location: index.php");
-}
-
-  
-}
-/*termina codigo de vitacora*/ 
   
 ?>
 
@@ -85,7 +59,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         
        </a>
        </div> 
-<<<<<<< HEAD
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
 <form action="" class="formulario">
@@ -93,19 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <table width="100%">
 
        <div class="box-body">
-=======
-       <form>
-				<center>
-        <div class="panel panel-success" style="background-color: #21618C" ;>
-			  <i class='glyphicon glyphicon-share'  title="salir de la consulta" onclick="load(1)"></i>
-				<input type="date" id="bd-desde"  /><input type="date" id="bd-hasta"  />
-				<a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">Generar Reporte</a>
-				</center>
-			</form>
-     
-      <form action="editar_usuarios.php" name="formulario" method="post">
-      <div class="box-body">
->>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info ">
                 
@@ -123,13 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </tr>
             </thead>
             <tbody>
-           
-
-<?php
+            <?php
       $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion,ultima_conexion FROM tbl_usuario";
       $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
-<<<<<<< HEAD
       ?>
             <tr>
                 <td><?php echo $mostar['id_usuario']?></td>
@@ -144,148 +101,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </td>
                </tr>
                <?php
-=======
-      
-        echo "<tr>";
-        echo "<td>"; echo $mostar['id_usuario']; echo "</td>";
-        echo "<td>";  echo $mostar['Nombre_Usuario'];echo "</td>";
-        echo "<td>"; echo $mostar['id_rol'];echo "</td>";
-        echo "<td>"; echo $mostar['correo_electronico'];echo "</td>";
-        echo "<td>"; echo $mostar['estado_usuario'];echo "</td>";
-        echo "<td>"; echo $mostar['fecha_creacion'];echo "</td>";
-        echo "<td>"; echo $mostar['ultima_conexion'];echo "</td>";
-        echo "<td> <a href='vistas/modulos/editar_usuarios.php?id_usuario=".$mostar['id_usuario']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";          
-        echo "</tr>";
-               
->>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
                }
             ?>
              </tbody>
         </div>
-<<<<<<< HEAD
 </table>
-=======
-        </form>
-      </div> 
-    </div>
-    </section>
-    
-
-     <! -- Modal -->
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
-
-  
- <!-- <div class="modal-dialog">-->
-
-    <!-- Modal content-->
-    <div class="modal-content">
-
-    <form role="form" method="post" enctype="multipart/form-data"  action="<?php $_SERVER["PHP_SELF"]; ?> ">
-      <div class="modal-header" style="background:#001F3F; color:white" >
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar Usuario</h4>
-      </div>
-      <label for="NUser">Agregar Usuario</label>
-    
-      <div class="modal-body">
-
-        <div class="box-body">
-
-          <div class="form-group">
-          
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-          
-
-            <input type="text" class="form-control input-lg" name="NuevoUsuario" placeholder="Ingresar Usuario" required>
-            
-          </div>
-          
-         
-          </div>
-          <label for="NUserioo">Correo Electronico</label>
-          <div class="form-group">
-   
-          <div class="input-group">
-      
-            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-           
-            <input type="text" class="form-control input-lg" name="Correo Electronico" placeholder="Correo Electronico" required>
-          </div>
-          
-
-          </div>
-
-          <div class="form-group">
-          
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="text" size="15" maxlength="5" value="Contraaa" name="Igresar Contraseña">
-            <input type="password" class="form-control input-lg" name="Ingresar Contraseña" placeholder="Ingresar Contraseña" required>
-          </div><br> 
-
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" class="form-control input-lg" name="Repetir Contraseña" placeholder="Repetir Contraseña" required>
-          </div>
-          
-          </div>
-
-          <div class="form-group">
-          
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-users" name="tipo"></i></span>
-
-            <select class="form-control input-lg" name="TipodeUsuario">
-              <option value="">"Seleccionar Usuario"</option>
-              <option value="Administrador">Administrador</option>
-              <option value="Operador">Operador</option>
-              </select>
-            
-
-      </div><br>
-              
-
-            
-             <div class="form-group">
-             
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-users"></i></span>
-
-            <select class="form-control input-lg" name="Preguntas">
-              <option value="">"Seleccionar Preguntas de Seguridad"</option>
-              <option value="color">Cúal es su color favorito?</option>
-              <option value="Trabajo">Cúal seria su trabajo ideal?</option>
-              <option value="Mascota">Nombre de su primera mascota?</option>
-              <option value="Amigo">Mejor amigo de la infancia?</option>
-
-            </select>
-            
-        
-      </div><br>
-
-      <div class="form-group">
-          
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-            <input type="text" class="form-control input-lg" name="Respuesta seguridad" placeholder="Respuesta seguridad" required>
-          </div>
-          
-+
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal" name="enviar1">Guardar Usuario</button>
-      </div>
-      
-						
-      <?php 
-        $crearUsuario = new ControladorUsuarios();
-        $crearUsuario -> ctrCrearUsuario();
-
-       ?>
-
->>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
     </form>
     </div>
   </table>
