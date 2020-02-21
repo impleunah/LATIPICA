@@ -230,7 +230,6 @@ function unosolo() {
 
 	<!-- Modal Editar Pantalla-->
 
- <!-- Modal -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -316,3 +315,25 @@ function unosolo() {
 		</div>
 	  </div>
 	</div>
+
+  <script> 
+  $( "#editar_usuario" ).submit(function( event ) {
+  $('#actualizar_datos').attr("disabled", true);
+  
+ var parametros = $(this).serialize();
+	 $.ajax({
+			type: "POST",
+			url: "ajax/editar_pantalla.php",
+			data: parametros,
+			 beforeSend: function(objeto){
+				$("#resultados_ajax2").html("Mensaje: Cargando...");
+			  },
+			success: function(datos){
+			$("#resultados_ajax2").html(datos);
+			$('#actualizar_datos').attr("disabled", false);
+			load(1);
+		  }
+	});
+  event.preventDefault();
+})
+  </scrip>
