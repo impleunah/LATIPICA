@@ -1,15 +1,34 @@
 <<?php
-$servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "latipica1";
-  
+ include "modelos/conexion2.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-    if($conn->connect_error){
-      die("Conexión fallida: ".$conn->connect_error);
-    }
+ /*codigo de bitacora */ 
+if(($_SESSION['u'])) {
+
+
+$ssss= $_SESSION['u'];
+
+$sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
+$consulta = mysqli_query($conn,$sql);
+if($row =mysqli_fetch_array($consulta)){
+  $var1=$row["id_usuario"];
+  $objeto="Mantenimiento Pantallas";
+  $accion="INGRESO"; 
+  $descripcion="Ingreso a Pantalla Bitacoras";
+  $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
+
+
+
+
+}
+else{
+header ("Location: index.php");
+}
+
+
+}
+/*termina codigo de vitacora*/ 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

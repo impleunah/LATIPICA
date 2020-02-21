@@ -1,6 +1,16 @@
 <?php
 
 require 'conexion.php';
+$servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "latipica1";
+  
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+    if($conn->connect_error){
+      die("Conexión fallida: ".$conn->connect_error);
+    }
 
 
 function getSUM($campo, $campoWhere, $valor)
@@ -163,7 +173,7 @@ function grabarBitacora($id_usuario,$objeto,$accion,$descripcion){
 		
 		global $mysqli;
 		$stmt = $mysqli->prepare("INSERT INTO  tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES(?,?,?,?)");
-		$stmt->bind_param('isss', $id_usuario,$objeto, $accion,$descripcion);
+		$stmt->bind_param($id_usuario,$objeto, $accion,$descripcion);
 		
 		if ($stmt->execute()){
 			return $mysqli->insert_id;
