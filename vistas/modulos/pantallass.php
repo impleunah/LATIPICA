@@ -1,14 +1,6 @@
-<<?php
-$servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "latipica1";
+<?php
+  include "modelos/conexion2.php";
   
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-    if($conn->connect_error){
-      die("Conexión fallida: ".$conn->connect_error);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -109,6 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </table>
     </form>
     </div>
+  </table>
  </div>
 
 </div>
