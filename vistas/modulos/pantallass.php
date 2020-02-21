@@ -24,7 +24,7 @@ header ("Location: index.php");
 
 
 }
-/*termina codigo de vitacora*/ 
+/*termina codigo de bitacora*/ 
 ?>
 
 
