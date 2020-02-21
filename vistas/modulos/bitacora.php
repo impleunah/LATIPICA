@@ -18,10 +18,6 @@
         $descripcion="Ingreso a Pantalla Bitacoras";
         $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
 
-    echo "<script>
-    alert('$ssss');
-   
-    </script>";
  
     
     
@@ -108,7 +104,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <th>Accion  </th>
                 <th>Descripcion </th>
                 <th>Fecha de Registro</th>
-                <th>Acciones</th>
+                <th>Antes</th>
+                <th>Despues</th>
               </tr>
             </thead>
             <tbody>
@@ -125,10 +122,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['accion']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha']?></td>
-                <td> <a class="btn btn-primary"  style="background:#E67E22   ;" > Editar
-                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
-                </td>
-               </tr>
+                <td>                             </td>
+                <td>                             </td>
+
+            </tr>
                <?php
               }
             ?>

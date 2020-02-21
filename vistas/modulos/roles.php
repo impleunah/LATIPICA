@@ -73,29 +73,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        
         <li class="active">roles</li>
       </ol>
     </section>
 
-  <div class="container">
-<div class="panel panel-success" style="background-color:white">
-
-    </section>
+    <form enctype="multipart/form-data" name="formulario" method="post" >
     <section class="content">
     <div class="box">
         <div class="box-header with-border">
-        <a class="btn btn-primary"  style="background:#F5B041   ;" href="vistas/modulos/registro_ussario.php">
+        <a class="btn btn-primary"  style="background:#F5B041;">
           Nuevo Rol
        </a>
        </div> 
+
+      
+       <table width="100%">
+       <form  name="formulario" method="post">
        <div class="box-body">
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                 
        <thead>
              <tr class="succeser" style="background-color:#54B4F5" role="row">
-              
                 <th>Id rol</th>
                 <th>Rol</th>
                 <th>descripcion</th>
