@@ -96,7 +96,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">Generar Reporte</a>
 				</center>
 			</form>
-      
+     
+      <form action="editar_usuarios.php" name="formulario" method="post">
       <div class="box-body">
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -114,29 +115,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </tr>
             </thead>
             <tbody>
-            <?php
+           
+
+<?php
       $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion,ultima_conexion FROM tbl_usuario";
       $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
-      ?>
-            <tr>
-                <td><?php echo $mostar['id_usuario']?></td>
-                <td> <?php echo $mostar['Nombre_Usuario']?></td>
-                <td><?php echo $mostar['id_rol']?></td>
-                <td><?php echo $mostar['correo_electronico']?></td>
-                <td><?php echo $mostar['estado_usuario']?></td>
-                <td><?php echo $mostar['fecha_creacion']?></td>
-                <td><?php echo $mostar['ultima_conexion']?></td>
-                <td><a class="btn btn-primary"  style="background:#E67E22   ;
-                "href="vistas/modulos/editar_usuarios.php">Editar </a>
-                
-                </td>
-               </tr>
-               <?php
+      
+        echo "<tr>";
+        echo "<td>"; echo $mostar['id_usuario']; echo "</td>";
+        echo "<td>";  echo $mostar['Nombre_Usuario'];echo "</td>";
+        echo "<td>"; echo $mostar['id_rol'];echo "</td>";
+        echo "<td>"; echo $mostar['correo_electronico'];echo "</td>";
+        echo "<td>"; echo $mostar['estado_usuario'];echo "</td>";
+        echo "<td>"; echo $mostar['fecha_creacion'];echo "</td>";
+        echo "<td>"; echo $mostar['ultima_conexion'];echo "</td>";
+        echo "<td> <a href='vistas/modulos/editar_usuarios.php?id_usuario=".$mostar['id_usuario']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";          
+        echo "</tr>";
+               
                }
             ?>
                 </div>
         </div>
+        </form>
       </div> 
     </div>
     </section>
