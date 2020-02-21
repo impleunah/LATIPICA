@@ -156,7 +156,7 @@
       </div>
       <div >
             
-      <label>Correo electronico</label>
+      <label>Estado Usuario</label>
       <div class="form-group has-feedback">
         <input  class="form-control" placeholder="estado Usuario"  name="estado_uduario" value="<?php echo$consulta[3] ?>">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
