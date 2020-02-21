@@ -315,7 +315,10 @@ function unosolo() {
 		</div>
 	  </div>
 	</div>
+  
 
+  
+	<!--Modificar-->
   <script> 
   $( "#editar_usuario" ).submit(function( event ) {
   $('#actualizar_datos').attr("disabled", true);
@@ -336,4 +339,4 @@ function unosolo() {
 	});
   event.preventDefault();
 })
-  </scrip>
+  </script>
