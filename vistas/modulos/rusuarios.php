@@ -28,11 +28,10 @@ else{
 /*termina codigo de vitacora*/ 
   
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Mantenimientos  Usuario</title>
+<title>Roles de Usuario</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Cat Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -64,12 +63,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 
 </aside>
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-     USUARIOS
-        <small>Mantenimiento Usuario </small>
+        Usuarios
+        <small>Mantenimiento Usuarios</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -78,13 +78,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </ol>
     </section>
 
+
 <div class="box">
+  <form enctype="multipart/form-data" name="formulario" method="post" >
+  <section class="content">
+      <div class="box">
         <div class="box-header with-border">
-        <a class="btn btn-primary"  style="background:#2ECC71    ;" href="vistas/modulos/registro_ussario.php">
+        <a class="btn btn-primary"  style="background:#2A9BDC  ;" href="vistas/modulos/registro_ussario.php">
           Agregar Usuario
-        
        </a>
        </div> 
+<<<<<<< HEAD
 <<<<<<< HEAD
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
@@ -94,6 +98,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
        <div class="box-body">
 =======
+=======
+>>>>>>> parent of acb554c... pantalla mante
        <form>
 				<center>
         <div class="panel panel-success" style="background-color: #21618C" ;>
@@ -102,16 +108,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a target="_blank" href="javascript:reportePDF();"style="background:#2DC248 ;" class="btn btn-primary">Generar Reporte</a>
 				</center>
 			</form>
+<<<<<<< HEAD
      
       <form action="editar_usuarios.php" name="formulario" method="post">
       <div class="box-body">
 >>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
+=======
+      
+      <div class="box-body">
+>>>>>>> parent of acb554c... pantalla mante
        <div class="table-responsive">
-       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info ">
+       <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                 
-                   
-       <thead>
-               <tr class="succeser" style="background-color:#54B4F5" role="row">
+            <thead>
+              <tr>
               <th>Id</th>
                 <th>Nombre</th>
                 <th>Rol</th>
@@ -139,8 +149,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['estado_usuario']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
                 <td><?php echo $mostar['ultima_conexion']?></td>
-                <td><a class="btn btn-primary" 
-                href="vistas/modulos/editar_usuarios.php " style="background:#E67E22 ">Editar </a>
+                <td><a class="btn btn-primary"  style="background:#E67E22   ;
+                "href="vistas/modulos/editar_usuarios.php">Editar </a>
+                
                 </td>
                </tr>
                <?php
@@ -160,12 +171,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 >>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
                }
             ?>
-             </tbody>
+                </div>
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 </table>
 =======
         </form>
+=======
+>>>>>>> parent of acb554c... pantalla mante
       </div> 
     </div>
     </section>
@@ -285,10 +299,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
        ?>
 
+<<<<<<< HEAD
 >>>>>>> c923decfee5a95bc5f185933fbc1854a9ee8142c
+=======
+>>>>>>> parent of acb554c... pantalla mante
     </form>
     </div>
-  </table>
+
  </div>
 
 </div>
+</body>
+</html>
+
+
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
