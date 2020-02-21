@@ -100,7 +100,7 @@
       <div class="form-group has-feedback">
       <input type="hidden" name="id_usuario" value="<?php echo $_GET['id_usuario']?> ">
       
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        
       </div>
                 <script language="javascript">
 
