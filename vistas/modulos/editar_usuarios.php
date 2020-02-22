@@ -1,3 +1,4 @@
+
 <?php
 
       $consulta = Consultarusuario($_GET['id_usuario']);
@@ -19,6 +20,32 @@
         
     
       }
+
+if (isset($_POST["enviar"])){
+
+//ModificarUsuario($_POST['Nombre_usuario'], $_POST['id_rol'], $_POST['correo_electronico'],$_POST['estado_usario'], $_POST['id_usuario']);
+ 
+function ModificarUsuario($nombre, $idrol, $correo,$estado, $id)
+{
+  include "../../modelos/conexion2.php";
+
+  $sentencia="UPDATE tbl_usuario SET Nombre_usuario='".$nombre."', id_rol= '".$idrol."', correo_electronico='".$correo."',estado_usuario='".$estado."' WHERE id_usuario='".$id."' ";
+  $resultado=$conn->query ($sentencia) or die (mysql_error());
+  if($resultado > 0){
+   echo "<script>
+   alert('usuario  Modificado exitosamente');
+   window.location.href='rusuarios.php';
+   </script>";
+  }
+   else {
+    "<script>
+    alert(' no se actualizo');
+    
+    </script>";
+   }
+
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -93,14 +120,12 @@
   </div>
 
  <div class="register-box-body">
-    <p >Actualizar Usuario</p>
+ <p >Modificar Usuario</p>
 
-    <form  action="editarusariof.php"method="POST">
+    <form method="POST" action="<?php $_SERVER["PHP_SELF"]; ?>">
 
       <div class="form-group has-feedback">
       <input type="hidden" name="id_usuario" value="<?php echo $_GET['id_usuario']?> ">
-      
-        
       </div>
                 <script language="javascript">
 
@@ -115,11 +140,6 @@
             }o
           </script>
           <script>
-          //function soloLetras(e){
-         // key = e.keyCode || e.which;
-          //tecla = String.fromCharCode(key).toLowerCase();
-          //letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-          //especiales = "8-37-39-46";
         
           tecla_especial = false
           for(var i in especiales){
@@ -135,7 +155,7 @@
           }
           </script>
           <div>
-<label for="NUserioo">Nombre Usuario</label>
+<label>Nombre Usuario</label>
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Nombre Usuario" name="Nombre_Usuario" value="<?php echo$consulta[0] ?>">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -147,8 +167,7 @@
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>    
 		<div >
-      
-       
+  
         <label>Correo electronico</label>
       <div class="form-group has-feedback">
         <input  class="form-control" placeholder="Correo Electronico"  name="correo_electronico" value="<?php echo$consulta[2] ?>">
@@ -166,13 +185,14 @@
    
         <!-- /.col -->
         <div class center="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" name="actualizar">Actualizar Usuario</button>
+        <button type="submit" class="btn btn-primary btn-block btn-flat" name="enviar">Guardar</button>
 
         </div>
         <br>
       </br>
         <!-- /.col -->
-           
+       
+
            <a href="../../index.php" class="text-center">Cancelar </a>
     </form>
   
