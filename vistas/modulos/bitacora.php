@@ -22,9 +22,7 @@
     
     
   }
-  else{
-    header ("Location: index.php");
-  }
+  
 	
 	  
 }
@@ -110,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </thead>
             <tbody>
             <?php
-      $sql="SELECT Nombre_Usuario,objeto,accion,descripcion,fecha from tbl_bitacoras b
+      $sql="SELECT Nombre_Usuario,objeto,accion,descripcion,fecha,Antes,Despues from tbl_bitacoras b
     join tbl_usuario u  on u.id_usuario = b.id_usuario"
      ; 
      $resultado=$conn-> query ($sql);
@@ -122,8 +120,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['accion']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha']?></td>
-                <td>                             </td>
-                <td>                             </td>
+                <td><?php echo $mostar['Antes']?></td>  
+                <td><?php echo $mostar['Despues']?></td>
+              
 
             </tr>
                <?php
