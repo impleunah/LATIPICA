@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['rol']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
-                <td> <a class="btn btn-primary" data-toggle= "modal" data-target="#myModal2" style="background:#E67E22   ;" > Editar
+                <td> <a class="btn btn-primary" data-toggle= "modal" data-target="#modificar" style="background:#E67E22   ;" > Editar
                 <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
                 </td>
                </tr>
@@ -229,8 +229,81 @@ function unosolo() {
 
 
 	<!-- Modal Editar Rol-->
+  <?php
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+use function PHPSTORM_META\elementType;
+
+$consulta = Consultarrol($_GET['id_rol']);
+
+      function Consultarrol($no_rol)
+      {
+        include "../../modelos/conexion2.php";
+
+        
+          $sql="SELECT id_rol,rol,descripcion FROM tbl_roles WHERE id_rol='$no_rol' ";
+          $resultado= mysqli_query($conn,$sql) or die (mysql_error());
+          $filas=mysqli_fetch_array($resultado);
+      
+        return [
+
+          $filas['rol'],
+          $filas['descripcion'],
+        ];
+
+      }
+     
+      include "../../modelos/conexion2.php";
+
+      
+      function Modificarrol($rol,$descripcion, $id)
+{
+  include "../../modelos/conexion2.php";
+  $q=$_GET['id_rol'];
+  $var1= $conn->query("SELECT rol,descripcion FROM tbl_roles WHERE id_rol='$q' ");
+  if($row =mysqli_fetch_array($var1)){
+    $a=$row["rol"];
+    $b=$row["descripcion"];
+
+  }
+
+  $sentencia="UPDATE tbl_roles SET rol='".$rol."', descripcion='".$descripcion."' WHERE id_rol='".$id."' ";
+  $objeto="Editar Usuario";
+  $accion="Modifico"; 
+  $descripcion="Modifico campos de usuario ";
+ 
+  
+if($a!=$rol){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$b','$idrol')");}
+if($b!=$descripcion){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$w','$correo')");}
+
+  $resultado=$conn->query ($sentencia) or die (mysql_error());
+  if($resultado > 0){
+   echo "<script>
+   alert('usuario  Modificado exitosamente');
+   window.location = '../../index.php';
+   </script>";
+  }
+   else {
+    "<script>
+    alert(' no se actualizo');
+    
+    </script>";
+   }
+
+  }
+  
+
+if (isset($_POST["mod"])){
+
+  Modificarrol($_POST['rol']), $_POST['descripcion'],$_POST['id_rol']);
+ 
+
+}else{
+  
+}
+    
+?>
+
+<div class="modal fade" id="modificar" name="modificar"tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
@@ -238,12 +311,15 @@ function unosolo() {
 			<h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Editar Rol</h4>
 		  </div>
 		  <div class="modal-body">
-			<form class="form-horizontal" method="post" id="editar_usuario" name="editar_usuario">
+			<form class="form-horizontal" method="post" id="editar_rol" name="editar_rol">
 			<div id="resultados_ajax2"></div>
+      <div class="form-group has-feedback">
+      <input type="hidden" name="id_rol" value="<?php echo $_GET['id_rol']?> ">
+      </div>
 			<div class="form-group">	
             <label for="parametro" class="col-sm-3 control-label">Rol:</label>
 				<div class="col-sm-8">
-				  <input title="Nombre de la pantalla" type="text" class="form-control" id="nombres" name="nombres" placeholder="ROL" style="text-transform: uppercase;" onkeypress="return soloLetras(event)"  maxlength="50"  onPaste="return false;"  onkeyup="return unespacio56()"  required> 
+				  <input title="Nombre del rol" type="text" class="form-control" id="rol" name="rol" placeholder="ROL" style="text-transform: uppercase;" onkeypress="return soloLetras(event)"  maxlength="50"  onPaste="return false;"  onkeyup="return unespacio56()"  required> 
 				  <input  type="hidden" id="mod_id" name="mod_id">
 				</div>
 			  </div>
@@ -286,7 +362,7 @@ function unosolo() {
 			  <div class="form-group">
 				<label for="descripcion" class="col-sm-3 control-label">Descripcion</label>
 				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="descripcions" name="descripcions" placeholder="DESCRIPCION" style="text-transform: uppercase;" maxlength="200" required title="Descripcion de la pantalla" onkeyup="return unespacio57()" onPaste="return false;">
+				  <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="DESCRIPCION" style="text-transform: uppercase;" maxlength="200" required title="Descripcion de la pantalla" onkeyup="return unespacio57()" onPaste="return false;">
 				</div>
 			  </div>
 	    <script>
@@ -309,7 +385,7 @@ function unosolo() {
 		  </div>
 		  <div class="modal-footer">
 			<button title="Cerrar ventana" type="submit"  class="btn btn-default" <input name="button" type=button onclick="if(confirm('Deseas continuar?')){this.form.submit();} else{ alert('Operacion Cancelada');}" value="ELIMINAR DATOS"  onClick="location.reload();" data-dismiss="modal">Cerrar</button>
-			<button title="Cerrar Ventana" type="submit" class="btn btn-primary"  id="actualizar_datos">Actualizar datos</button>
+			<button title="Cerrar Ventana" type="submit" class="btn btn-primary"  name="mod">Actualizar datos</button>
 		  </div>
 		  </form>
 		</div>
