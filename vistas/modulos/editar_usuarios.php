@@ -25,11 +25,11 @@
   include "../../modelos/conexion2.php";
 
   $sentencia="UPDATE tbl_usuario SET Nombre_Usuario='".$nombre."', id_rol= '".$idrol."', correo_electronico='".$correo."',estado_usuario='".$estado."' WHERE id_usuario='".$id."' ";
-  $objeto="Editar Usuario";
-  $accion="Modifico"; 
-  $descripcion="Modifico campos de usuario ";
-  
-  $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','($_POST['Nombre_Usuario']).$_POST['Id_rol']. $_POST['correo_electronico'].$_POST['estado_uduario']') '");
+ // $objeto="Editar Usuario";
+  //$accion="Modifico"; 
+  //$descripcion="Modifico campos de usuario ";
+
+  //$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','($_POST['Nombre_Usuario']).$_POST['Id_rol']. $_POST['correo_electronico'].$_POST['estado_uduario']') '");
   $resultado=$conn->query ($sentencia) or die (mysql_error());
   if($resultado > 0){
    echo "<script>
