@@ -34,7 +34,7 @@
   if($resultado > 0){
    echo "<script>
    alert('usuario  Modificado exitosamente');
-   window.location.href='rusuarios.php';
+   window.location = '../../index.php';
    </script>";
   }
    else {

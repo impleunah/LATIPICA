@@ -115,6 +115,7 @@ if (isset($_SESSION["iniciarSesion"])&& $_SESSION["iniciarSesion"] == "ok"){
       $_GET["ruta"] == "registro" ||
       $_GET["ruta"] == "inicio" ||
       $_GET["ruta"] == "inicioo" ||
+      $_GET["ruta"] == "editar_usuarios" ||
       $_GET["ruta"] == "notificaciones"){
 
     include "Modulos/".$_GET["ruta"].".php";
