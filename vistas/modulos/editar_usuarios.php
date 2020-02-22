@@ -1,11 +1,15 @@
 
 <?php
 
-      $consulta = Consultarusuario($_GET['id_usuario']);
+use function PHPSTORM_META\elementType;
+
+$consulta = Consultarusuario($_GET['id_usuario']);
 
       function Consultarusuario($no_user)
       {
         include "../../modelos/conexion2.php";
+
+        
           $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario FROM tbl_usuario WHERE id_usuario='$no_user' ";
           $resultado= mysqli_query($conn,$sql) or die (mysql_error());
           $filas=mysqli_fetch_array($resultado);
@@ -17,24 +21,42 @@
           $filas['correo_electronico'],
           $filas['estado_usuario'] 
         ];
-        
-    
+
       }
+     
+      include "../../modelos/conexion2.php";
+
+      
       function ModificarUsuario1($nombre, $idrol, $correo,$estado, $id)
 {
   include "../../modelos/conexion2.php";
+  $q=$_GET['id_usuario'];
+  $var1= $conn->query("SELECT Nombre_Usuario,id_rol,correo_electronico,estado_usuario FROM tbl_usuario WHERE id_usuario='$q' ");
+  if($row =mysqli_fetch_array($var1)){
+    $a=$row["Nombre_Usuario"];
+    $b=$row["id_rol"];
+    $w=$row["correo_electronico"];
+    $d=$row["estado_usuario"];
+  }
 
   $sentencia="UPDATE tbl_usuario SET Nombre_Usuario='".$nombre."', id_rol= '".$idrol."', correo_electronico='".$correo."',estado_usuario='".$estado."' WHERE id_usuario='".$id."' ";
- // $objeto="Editar Usuario";
-  //$accion="Modifico"; 
-  //$descripcion="Modifico campos de usuario ";
+  $objeto="Editar Usuario";
+  $accion="Modifico"; 
+  $descripcion="Modifico campos de usuario ";
+ 
+  
 
-  //$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','($_POST['Nombre_Usuario']).$_POST['Id_rol']. $_POST['correo_electronico'].$_POST['estado_uduario']') '");
+ 
+if($a!=$nombre){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$a','$nombre')");}
+if($b!=$idrol){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$b','$idrol')");}
+if($w!=$correo){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$w','$correo')");}
+if($d!=$estado){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$d','$estado')");}
+  
   $resultado=$conn->query ($sentencia) or die (mysql_error());
   if($resultado > 0){
    echo "<script>
    alert('usuario  Modificado exitosamente');
-   window.location.href='rusuarios.php';
+   window.location = '../../index.php';
    </script>";
   }
    else {
@@ -45,13 +67,17 @@
    }
 
   }
+  
 
 if (isset($_POST["enviar"])){
 
   ModificarUsuario1(strtoupper($_POST['Nombre_Usuario']), $_POST['Id_rol'], $_POST['correo_electronico'],$_POST['estado_uduario'],$_GET['id_usuario']);
  
 
+}else{
+  
 }
+    
 ?>
 
 <!DOCTYPE html>
