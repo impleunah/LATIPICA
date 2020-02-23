@@ -57,21 +57,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <section class="content">
       <div class="box">
         <div class="box-header with-border">
-        <a class="btn btn-primary"  style="background:#2A9BDC  ;"data-toggle="modal" data-target="#modalAgregarUsuario">
+        <a class="btn btn-primary" id="btnguardar"  style="background:#2A9BDC  ;"data-toggle="modal" data-target="#modalAgregarUsuario">
           Guardar
        </a>
        </div> 
        </form>
-   </br>    
-
-
-
-
+   </br> 
 
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
 <form action="" class="formulario">
-<br>  
+<br></br>
 <table width="100%">
 <tbody><tr> 
     <td width="5%"></td>
@@ -147,7 +143,7 @@ if ($result->num_rows > 0) {
 
 <td>    
  </td>
- 
+
  </form>
 
         </tr>
@@ -188,8 +184,9 @@ if ($result->num_rows > 0) {
                 <td><?php echo $mostar['permiso_insercion']?></td>
                 <td><?php echo $mostar['permiso_actualizacion']?></td>
 
-                <td> <a class="btn btn-primary"  style="background:#E67E22   ;" > Editar
-                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
+                <td><button type='button' class='btn btn-success' data-toggle= "modal" data-target="#myModalpara">Modificar</button> </a></td>;
+                </td>
+       </a>
                 </td>
                </tr>
                <?php
@@ -197,9 +194,117 @@ if ($result->num_rows > 0) {
             ?>
             </tbody>
         </div>
+</body> 
+</html> 
             </table>
     </form>
     </div>
 
  </div>
 </div>
+
+<!-- Modal Agregar Rol-->
+<div class="modal fade" id="myModalpara" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>Cerrar</button>
+			<h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Editar Rol </h4>
+		  </div>
+		  <div class="modal-body">
+			<form class="form-horizontal" method="post" id="guardar_parametro" name="guardar_parametro">
+			<div id="resultados_ajax"></div>
+			  <div class="form-group">
+				<label for="Rol" class="col-sm-3 control-label">Rol:</label>
+				<div class="col-sm-8">
+				  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Rol" style="text-transform: uppercase;" onkeypress="return soloLetras(event)"  maxlength="60"  onPaste="return false;" onkeyup="return unespacio55()"  required autofocus="on" autocomplete="off">
+        </div>
+			  </div>
+			  <div class="form-group">
+				<label for="descripcion" class="col-sm-3 control-label">Descripcion:</label>
+				<div class="col-sm-8"> 
+				  <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="DESCRIPCION" style="text-transform: uppercase;"  maxlength="200" onkeyup="return unespacio90()" onPaste="return false;" required value="" autocomplete="off" autofocus="on">
+				</div>
+        <button title="Cerrar ventana" type="submit"  class="btn btn-default" name="button" type = "button" onclick="if(confirm('Deseas continuar?')){this.form.submit();} else{ alert('Operacion Cancelada');}" value="ELIMINAR DATOS"  onClick="location.reload();" data-dismiss="modal">Cerrar</button>
+			  <button title="Guardar" type="submit" class="btn btn-primary" id="guardar_datos">Guardar </button>
+			  </div>
+        </div>
+        </div>               
+		  </div>
+      <script>
+
+
+<!-- Modal Editar Rol-->
+  <?php
+
+use function PHPSTORM_META\elementType;
+
+$consulta = Consultarrol($_GET['id_rol']);
+
+      function Consultarrol($no_rol)
+      {
+        include "../../modelos/conexion2.php";
+
+        
+          $sql="SELECT id_rol,rol,descripcion FROM tbl_roles WHERE id_rol='$no_rol' ";
+          $resultado= mysqli_query($conn,$sql) or die (mysql_error());
+          $filas=mysqli_fetch_array($resultado);
+      
+        return [
+
+          $filas['rol'],
+          $filas['descripcion'],
+        ];
+
+      }
+     
+      include "../../modelos/conexion2.php";
+
+      
+      function Modificarrol($rol,$descripcion, $id)
+{
+  include "../../modelos/conexion2.php";
+  $q=$_GET['id_rol'];
+  $var1= $conn->query("SELECT rol,descripcion FROM tbl_roles WHERE id_rol='$q' ");
+  if($row =mysqli_fetch_array($var1)){
+    $a=$row["rol"];
+    $b=$row["descripcion"];
+
+  }
+
+  $sentencia="UPDATE tbl_roles SET rol='".$rol."', descripcion='".$descripcion."' WHERE id_rol='".$id."' ";
+  $objeto="Editar Usuario";
+  $accion="Modifico"; 
+  $descripcion="Modifico campos de usuario ";
+ 
+  
+if($a!=$rol){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$b','$idrol')");}
+if($b!=$descripcion){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion,Antes,Despues) VALUES ('$id','$objeto','$accion','$descripcion','$w','$correo')");}
+
+  $resultado=$conn->query ($sentencia) or die (mysql_error());
+  if($resultado > 0){
+   echo "<script>
+   alert('usuario  Modificado exitosamente');
+   window.location = '../../index.php';
+   </script>";
+  }
+   else {
+    "<script>
+    alert(' no se actualizo');
+    
+    </script>";
+   }
+
+  }
+  
+
+if (isset($_POST["mod"])){
+
+  //Modificarrol($_POST['rol']), $_POST['descripcion'],$_POST['id_rol']);
+ 
+
+}else{
+  
+}
+    
+?>
