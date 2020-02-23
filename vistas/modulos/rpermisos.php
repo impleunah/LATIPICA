@@ -1,33 +1,5 @@
 <<?php
  include "modelos/conexion2.php";
-
- /*codigo de bitacora */ 
-if(($_SESSION['u'])) {
-
-
-$ssss= $_SESSION['u'];
-
-$sql = "SELECT id_usuario  from tbl_usuario WHERE Nombre_Usuario = '$ssss'"; 
-$consulta = mysqli_query($conn,$sql);
-if($row =mysqli_fetch_array($consulta)){
-  $var1=$row["id_usuario"];
-  $objeto="Mantenimiento Permisos";
-  $accion="INGRESO"; 
-  $descripcion="Ingreso a Pantalla Bitacoras";
-  $insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_usuario,objeto,accion,descripcion) VALUES ('$var1','$objeto','$accion','$descripcion') ");
-
-
-
-
-}
-else{
-header ("Location: index.php");
-}
-
-
-}
-/*termina codigo de vitacora*/ 
-?>}
 ?>
 
 <!DOCTYPE html>
@@ -78,8 +50,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="active">permisos</li>
       </ol>
     </section>
+
+
 <br>
-</br>
+<form enctype="multipart/form-data" name="formulario" method="post" >
+  <section class="content">
+      <div class="box">
+        <div class="box-header with-border">
+        <a class="btn btn-primary"  style="background:#2A9BDC  ;"data-toggle="modal" data-target="#modalAgregarUsuario">
+          Guardar
+       </a>
+       </div> 
+       </form>
+   </br>    
+
+
+
+
 
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
@@ -92,59 +79,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <td width="15%">
     <select class="select" id="combo_roles" name="combo_roles" style="width: 150px; height:30px">
 
+<style>
  .select {
   display:block;
   height:50px;
   width:2000px;
 }
-        
-
+</style>
     <!--//seleccionamos id rol y nombre del rol de la tabla roles y las metemos en variable $sql .
     luego verificamos la conexion,luego entramos a una codicion si numero de columnas es mayor q 0 -->
+	
+    <?php 
 
-    	<option selected="selected" disabled="disabled"> Elija un Rol</option><option value="1">ADMINISTRADOR</option><option value="7">EMPLEADO</option><option value="6">NUEVO</option>
-    </select> 
+$sql = "SELECT id_rol, rol FROM tbl_roles";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  echo "<option selected = 'selected' disabled = 'disabled'> Elija un Rol</option>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    //codigo generado por php
+        echo "<option value='".$row['id_rol']."'>".$row['rol']."</option>"; 
+    }
+} 
+  ?>
     </td>
 
-   
+   <form>
     <td rowspan="2">
             <br>
-            <input type="checkbox" id="ck_todos" name="ck_todos" style="margin-left:20px" onclick="seleccionar_todo();" ondblclick="deseleccionar_todo();">Marcar Todos
+            <input type="checkbox" id="ck_todos" name="ck_todos" style="margin-left:20px">Marcar Todos
             <br>
             <input type="checkbox" id="ck_consultar" name="ck_consultar" style="margin-left:20px">Consultar
             <br>
             <input type="checkbox" id="ck_insertar" name="ck_insertar" style="margin-left:20px">Insertar
             <br>
             <input type="checkbox" id="ck_actualizar" name="ck_actualizar" style="margin-left:20px">Actualizar
-            <br>
-            <input type="checkbox" id="ck_eliminar" name="ck_eliminar" style="margin-left:20px">Eliminar
             <br><br>  
     </td>
-   
+   </form>
 </tr>
 
 <tr>
 <td></td>
 <td><b>Seleccione la Pantalla:</b></td>
+<class="select" id="combo_pantalla" name="combo_pantalla">
+
 <td>
 <select class="select" id="combo_objeto" name="combo_objeto" style="width: 150px; height:30px">
 
-<!--//seleccionamos id rol y nombre del rol de la tabla roles y las metemos en variable $sql .
+<!--//seleccionamos id pantalla y nombre del pantalla de la tabla pantallas y las metemos en variable $sql .
 luego verificamos la conexion,luego entramos a una codicion si numero de columnas es mayor q 0 -->
+<?php 
 
-	<option selected="selected" disabled="disabled"> Elija una Pantalla</option><option value="1">USUARIOS</option><option value="2">EMPLEADOS</option><option value="3">ROLES</option><option value="4">ROLES OBJETO</option><option value="5">PANTALLAS</option><option value="6">BACKUP</option><option value="7">PARAMETROS</option><option value="8">CLIENTES</option><option value="9">VEHICULOS</option><option value="10">COMPRAS</option><option value="11">VENTAS</option><option value="12">BITACORAS</option><option value="13">COTIZACION</option>
-</select> 
-<td><div class="box-header with-border">
-        <a class="btn btn-primary"  style="background:#F5B041   ;">
-          Guardar
-       </a>
-       </div> 
+$sql = "SELECT id_objeto, objeto FROM tbl_pantallas";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  echo "<option selected = 'selected' disabled = 'disabled'> Elija una pantalla</option>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    //codigo generado por php
+        echo "<option value='".$row['id_objeto']."'>".$row['objeto']."</option>"; 
+    }
+} 
+  ?>
+
+<form>
+
+<td>    
  </td>
+ 
+ </form>
 
         </tr>
     
     
         </tbody>
+        <form>
        <div class="box-body">
        <div class="table-responsive">
        <table class="table table-bordered table-striped tablas dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info ">
@@ -161,12 +171,14 @@ luego verificamos la conexion,luego entramos a una codicion si numero de columna
               </tr>
             </thead>
             <tbody>
+
             <?php
-      $sql="SELECT id_permiso,rol,objeto,permiso_consulta,permiso_insercion,permiso_actualizacion FROM tbl_roles_objeto r 
+      $sql="SELECT id_permiso,rol,objeto,permiso_consulta,permiso_insercion,permiso_actualizacion FROM tbl_roles_objeto r
       join tbl_pantallas p on p.id_objeto=r.id_objeto
       join tbl_roles ro on ro.id_rol=r.id_rol  ";
      $resultado=$conn-> query ($sql);
-      while ($mostar=mysqli_fetch_array($resultado)){
+      while ($mostar=mysqli_fetch_array($resultado))
+      {
       ?>
             <tr>
                 <td> <?php echo $mostar['id_permiso']?></td>
@@ -175,6 +187,7 @@ luego verificamos la conexion,luego entramos a una codicion si numero de columna
                 <td><?php echo $mostar['permiso_consulta']?></td>
                 <td><?php echo $mostar['permiso_insercion']?></td>
                 <td><?php echo $mostar['permiso_actualizacion']?></td>
+
                 <td> <a class="btn btn-primary"  style="background:#E67E22   ;" > Editar
                 <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
                 </td>
@@ -189,5 +202,4 @@ luego verificamos la conexion,luego entramos a una codicion si numero de columna
     </div>
 
  </div>
-
 </div>
