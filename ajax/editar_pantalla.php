@@ -1,6 +1,6 @@
 <?php
 
-include "../../modelos/conexion2.php";
+require "../modelos/conexion2.php";
 
 	
 	if (empty($_POST['nombres'])) {
