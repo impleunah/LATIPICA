@@ -97,8 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
        <thead >
               <tr class="succeser" style="background-color:#54B4F5"   role="row" >
-                <th></th>
-                <th>Usuario</th>
+                <th>Id Usuario</th>
                 <th>Objeto</th>
                 <th>Accion  </th>
                 <th>Descripcion </th>
@@ -109,14 +108,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </thead>
             <tbody>
             <?php
-      $sql="SELECT Nombre_Usuario,objeto,accion,descripcion,fecha,Antes,Despues,id_bitacora from tbl_bitacoras b
+      $sql="SELECT Nombre_Usuario,objeto,accion,descripcion,fecha,Antes,Despues from tbl_bitacoras b
     join tbl_usuario u  on u.id_usuario = b.id_usuario"
      ; 
      $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       ?>
             <tr>
-                <td> <?php echo $mostar['id_bitacora']?></td>
                 <td> <?php echo $mostar['Nombre_Usuario']?></td>
                 <td><?php echo $mostar['objeto']?></td>
                 <td><?php echo $mostar['accion']?></td>

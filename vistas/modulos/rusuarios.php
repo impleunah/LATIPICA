@@ -106,14 +106,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <tbody>
            
 <?php
-      $sql="SELECT id_usuario,id_rol,Nombre_Usuario,correo_electronico,estado_usuario,fecha_creacion,ultima_conexion FROM tbl_usuario";
+      $sql="SELECT id_usuario,Nombre_Usuario,rol,correo_electronico,estado_usuario, u.fecha_creacion ,ultima_conexion FROM tbl_usuario u
+      join tbl_roles r  on r.id_rol= u.id_rol";
       $resultado=$conn-> query ($sql);
       while ($mostar=mysqli_fetch_array($resultado)){
       
         echo "<tr>";
         echo "<td>"; echo $mostar['id_usuario']; echo "</td>";
         echo "<td>";  echo $mostar['Nombre_Usuario'];echo "</td>";
-        echo "<td>"; echo $mostar['id_rol'];echo "</td>";
+        echo "<td>"; echo $mostar['rol'];echo "</td>";
         echo "<td>"; echo $mostar['correo_electronico'];echo "</td>";
         echo "<td>"; echo $mostar['estado_usuario'];echo "</td>";
         echo "<td>"; echo $mostar['fecha_creacion'];echo "</td>";
