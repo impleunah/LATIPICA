@@ -165,7 +165,7 @@ IF (isset($_POST["enviar1"])){
                                               if($resultado > 0){
                                                 echo"<script>
                                                 alert('exito ');
-                                                window.location = '../../index.php';
+                                               
                                                 </script>";
                                               }else {
                                                 "<script>
@@ -221,7 +221,7 @@ IF (isset($_POST["enviar1"])){
       <div class="modal-body">
       <form class="form-horizontal" method="post" action="<?php $_SERVER["PHP_SELF"]; ?>">
       <div class="form-group">
-    <img src="" class="img-responsive" style="margin:0px 80px 0px 80px">
+       <img src="" class="img-responsive" >
 
         <input type="text" class="form-control" placeholder="Usuario" name="NuevoUsuario" 
         
@@ -301,5 +301,7 @@ IF (isset($_POST["enviar1"])){
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
         </div>
   </div>
+</div>
+</div>
 </div>
 

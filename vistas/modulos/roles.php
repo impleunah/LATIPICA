@@ -81,8 +81,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section class="content">
     <div class="box">
         <div class="box-header with-border">
-        <a class="btn btn-primary" data-toggle= "modal" data-target="#myModalpara"  style="background:#F5B041;">
-          Nuevo Rol
+        <a class="btn btn-primary" data-toggle= "modal" data-target="#myModalpara"  style="background:#2A9BDC;">
+          Agregar
        </a>
        </div> 
 
@@ -113,8 +113,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['rol']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
-                <td> <a class="btn btn-primary" data-toggle= "modal" data-target="#modificar" style="background:#E67E22   ;" > Editar
-                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
+                <td> <a class="btn btn-success" data-toggle= "modal" data-target="#modificar" > Editar
+             
                 </td>
                </tr>
                <?php
@@ -294,7 +294,7 @@ if($b!=$descripcion){$insertarUno=$conn->query("INSERT INTO   tbl_bitacoras(id_u
 
 if (isset($_POST["mod"])){
 
-  Modificarrol($_POST['rol']), $_POST['descripcion'],$_POST['id_rol']);
+  //Modificarrol($_POST['rol']), $_POST['descripcion'],$_POST['id_rol']);
  
 
 }else{
@@ -384,8 +384,8 @@ function unosolo() {
 			
 		  </div>
 		  <div class="modal-footer">
-			<button title="Cerrar ventana" type="submit"  class="btn btn-default" <input name="button" type=button onclick="if(confirm('Deseas continuar?')){this.form.submit();} else{ alert('Operacion Cancelada');}" value="ELIMINAR DATOS"  onClick="location.reload();" data-dismiss="modal">Cerrar</button>
-			<button title="Cerrar Ventana" type="submit" class="btn btn-primary"  name="mod">Actualizar datos</button>
+			<button title="Cerrar ventana" type="submit"  class="btn btn-default"  input name="button" type=button onclick="if(confirm('Deseas continuar?')){this.form.submit();} else{ alert('Operacion Cancelada');}" value="ELIMINAR DATOS"  onClick="location.reload();" data-dismiss="modal">Cerrar</button>
+			<button title="Cerrar Ventana" type="submit" class="btn btn-primary"  name="mod" value="MODIFICAR DATOS"  onClick="location.reload();">Actualizar datos</button>
 		  </div>
 		  </form>
 		</div>

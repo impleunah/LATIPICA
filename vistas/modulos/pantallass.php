@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </br>
 <div class="box">
         <div class="box-header with-border">
-        <a class="btn btn-primary" data-toggle= "modal" data-target="#myModalpara" style="background:#F5B041;"> Nueva Pantalla</a>
+        <a class="btn btn-primary" data-toggle= "modal" data-target="#myModalpara" style="background:#2A9BDC;"> Agregar</a>
        </div> 
   <div class="container">
 <div class="panel panel-success" style="background-color:white">
@@ -113,8 +113,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <td><?php echo $mostar['objeto']?></td>
                 <td><?php echo $mostar['descripcion']?></td>
                 <td><?php echo $mostar['fecha_creacion']?></td>
-                <td> <a class="btn btn-primary" data-toggle= "modal" data-target="#myModal2" style="background:#E67E22;" > Editar
-                <a class="btn btn-primary"  style="background:#E74C3C  ;">Eliminar</a>
+                <td> <a class="btn btn-success" data-toggle= "modal" data-target="#myModal2" ;" > Modificar
+          
                 </td>
                </tr>
                <?php
